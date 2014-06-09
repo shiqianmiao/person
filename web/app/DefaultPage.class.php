@@ -15,7 +15,7 @@ class DefaultPage {
     //put your code here
     
     function defaultAction() {
-        echo 'this is default page!';
+        echo '网站建设中...';
     }
     
     function testGearmanAction(){
