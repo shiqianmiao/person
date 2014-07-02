@@ -12,10 +12,12 @@ require_once WEB_V3 . '/common/WebBasePage.class.php' ;
 class DefaultPage extends WebBasePage{
     
     function defaultAction() {
+
         $staHtml .= 'g.js,config.js,app/person/web/css/index_v2.css';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array('staHtml' => $staHtml), 'default.php');
+
     }
     
     function testGearmanAction(){
