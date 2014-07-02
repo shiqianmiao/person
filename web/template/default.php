@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Floral Design</title>
+<title>Shiqianmiao's Home Page!</title>
 <meta name="keywords" content="floral design, css templates, 5 html pages" />
 <meta name="description" content="Floral Design - free website template provided by templatemo.com" />
 <?php echo $this->staHtml;?>
@@ -17,7 +17,7 @@
         <div id="header_left">
             
             <div id="site_title">
-                <a href="http://www.cssmoban.com/" target="_parent"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_logo.png" alt="logo" /><span>Free Website Templates</span></a>
+                <a href="http://www.miaosq.com/" target="_parent"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_logo.png" alt="logo" /><span>Miao Shiqian's Home!!</span></a>
             </div>
     
         </div>
@@ -41,11 +41,11 @@
     <div id="templatemo_menu">
             
         <ul>
-            <li><a href="index.html" class="current">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li class="last"><a href="contact.html">Contact Us</a></li>
+            <li><a href="http://www.miaosq.com" class="current">家园主页</a></li>
+            <li><a href="about.html">关于园主</a></li>
+            <li><a href="services.html">WEB记事本</a></li>
+            <li><a href="gallery.html">相册</a></li>
+            <li class="last"><a href="contact.html">网站日志</a></li>
         </ul>     
     
     </div> <!-- end of templatemo_menu -->
@@ -73,7 +73,7 @@
             
             <div class="cleaner_h20"></div>
             
-             <h2>Website Templates</h2>
+             <h2>Website Simples</h2>
              
              <p>Etiam in lorem ac nulla imperdiet sodales. Phasellus in justo at lectus pulvinar ultrices. Mauris ultrices sollicitudin turpis. Fusce non lacus et lorem ornare interdum. Nunc eget urna. Mauris vestibulum felis eget tortor. Praesent mattis varius quam.</p>
              
@@ -165,10 +165,10 @@
     <div id="templatemo_footer">
       
         <div class="footer_box">
-          <h4>Navigation</h4>
+          <h4>园主链接</h4>
           <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="https://github.com/shiqianmiao">Github</a></li>
+                <li><a href="http://www.cnblogs.com/miaoshiqian/">博客园</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="last">Contact Us</a></li>
@@ -177,7 +177,7 @@
         </div>
         
         <div class="footer_box">
-          <h4>Partners</h4>
+          <h4>友情链接</h4>
           <ul>
                 <li><a href="#">Flash Templates</a></li>
                 <li><a href="http://www.cssmoban.com/">Website Templates</a></li>
@@ -187,8 +187,9 @@
         </div>
         
         <div class="footer_box last">
-          <h4>About Us</h4>
-            <p>Cras a volutpat lacus. Ut nisi metus, lobortis vel egestas at, condimentum et purus. Aliquam lectus tortor, vehicula molestie hendrerit non, aliquet nec tortor. In et nibh dolor. Quisque quis neque orci. <a href="aboutus.html">More...</a></p>
+          <h4>园主座右铭</h4>
+            <p>没有伞的孩子只能拼命往前本奔跑！ </p>
+            <p>不要抱怨，要么闭嘴，要么改变自己！</p>
         </div>
         
         <div class="cleaner"></div>
@@ -196,11 +197,9 @@
     
     <div id="templatemo_copyright">
     
-        Copyright © 2048 <a href="#">Your Company Name</a> | 
-        Template from <a href="http://www.cssmoban.com" target="_parent" title="网站模板">网站模板</a> | 
-        Validate XHTML &amp; 
-        CSS
-    
+        Copyright © 2014 <a href="http://www.miaosq.com">Miao Shiqian</a> 版权所有 | 
+        闽ICP备14009583号 | 
+        miaosq.com All Rights Reserved 
     </div>
      
 </div> <!-- end of template wrapper -->
