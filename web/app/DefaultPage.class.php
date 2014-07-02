@@ -1,21 +1,21 @@
 <?php
 
-//require_once WEB_V3 . '/common/WebV3Page.class.php' ;
+require_once WEB_V3 . '/common/WebBasePage.class.php' ;
 //require_once(FRAMEWORK_PATH. '/util/gearman/ClientGearman.class.php');
 
 /**
- * 车源详情页控制器
  *
- * @author    戴志君 <dzjzmj@gmail.com>
+ * @author    miaoshiqian
  * @since     2013-3-7
- * @copyright Copyright (c) 2003-2013 273 Inc. (http://www.273.cn)
  * @desc      
  */
-class DefaultPage {
-    //put your code here
+class DefaultPage extends WebBasePage{
     
     function defaultAction() {
-        echo 'this is default page!';
+        $staHtml .= 'g.js,config.js,app/person/web/css/index_v2.css';
+        $staHtml = $this->view->helper('sta', array('files' => $staHtml));
+
+        $this->render(array('staHtml' => $staHtml), 'default.php');
     }
     
     function testGearmanAction(){

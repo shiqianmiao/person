@@ -9,6 +9,7 @@
  */
 
 define('DEBUG_STATUS', true);
+define('STATIC_DOMAIN', 'sta.273.com.cn');
 
 if (DEBUG_STATUS) {
     define('CONF_PATH' , dirname(__FILE__) . '/debug');
