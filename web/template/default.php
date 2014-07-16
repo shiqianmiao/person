@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Shiqianmiao's Home Page!</title>
+<title>乾的个人主页!</title>
 <meta name="keywords" content="个人网站,miaoshiqian, shiqianmiao, 缪石乾" />
 <meta name="description" content="缪石乾的个人网站" />
 <?php echo $this->staHtml;?>
@@ -17,11 +17,11 @@
         <div id="header_left">
             
             <div id="site_title">
-                <a href="http://www.miaosq.com/" target="_parent"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_logo.png" alt="logo" /><span>Miao Shiqian's Home!!</span></a>
+                <a href="http://www.miaosq.com/" target="_parent"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_logo.png" alt="miaoshiqian" /><span style="color:yellow;">Welcome to Miao Shiqian's Home!</span></a>
             </div>
     
         </div>
-        
+        <!--
         <div id="header_right">
         
           <ul id="social_box">
@@ -33,7 +33,7 @@
             </ul>
             
         </div>
-    
+    -->
       <div class="cleaner"></div>
         
     </div>
@@ -45,7 +45,9 @@
             <li><a href="/resume/">关于园主</a></li>
             <li><a href="services.html">WEB记事本</a></li>
             <li><a href="gallery.html">相册</a></li>
-            <li class="last"><a href="contact.html">网站日志</a></li>
+            <li><a href="#">TODO列表</a></li>
+            <li><a href="contact.html">网站日志</a></li>
+            <li class="last"><a href="javascript:;">闲人勿进</a></li>
         </ul>     
     
     </div> <!-- end of templatemo_menu -->
@@ -54,26 +56,28 @@
       
         <div id="content">
 
-        <h2>文章摘要简介</h2>
-            
-            <p><em><a href="#">Total 5 pages</a> included in this template. Feel free to download, adapt, and apply this template for any purpose. Maecenas nisl ante, mollis et, tincidunt vitae, feugiat sit amet, mi.   Vestibulum urna. Vivamus eu tortor. Phasellus tempus, justo et laoreet   varius, odio mi ultrices libero, nec faucibus dui felis eu dui. Cras ac   odio ac mi imperdiet sollicitudin.</em> </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="#">Praesent volutpat</a> dolor at nulla egestas in vestibulum mauris lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. <a href="#">Sed pretium</a>, neque hendrerit rhoncus accumsan, nibh tellus pharetra   neque, quis rutrum elit justo vitae sapien.</p>
-        <ul class="templatemo_list col_w260 float_l">
-              <li>Aliquam pretium porta odio</li>
-                <li>Praesent sollicitudin mollis leo</li>
-                <li>Quisque venenatis fringilla eros</li>
+            <p><em>我？是谁？为了方便仇家找上门来，今儿个就在这里做个简单的介绍。<br/>
+	 我就像一片落叶，随风飘荡，忽东忽西,或许在这里只是瞬间的停靠，片刻的停留，风起了又要继续漂浮......<br/>
+         </em> </p>
+         <h3 style="color:yellow;">TODO列表</h3>
+         <p>别偷懒哦，要及时完成任务哦！！</p>
+            <ul class="templatemo_list col_w260 float_l">
+                <li><a href="#">未完成的任务一</a></li>
+                <li><a href="#">未完成的任务一</a></li>
+                <li><a href="#">未完成的任务一</a></li>
             </ul> 
-    <ul class="templatemo_list col_w260 float_r">
-                <li>Mauris vel sapien mattis urna luctus</li>
-                <li>Vivamus fermentum orci viverra nisl</li>
-                <li>Curabitur euismod scelerisque lacus</li>
-            </ul>  
+            
+            <ul class="templatemo_list col_w260 float_l">
+                <li><a href="#">未完成的任务一</a></li>
+                <li><a href="#">未完成的任务一</a></li>
+                <li><a href="#">未完成的任务一</a></li>
+            </ul>
           <div class="cleaner"></div>
-            <div class="button float_r"><a href="services.html">Read More...</a></div>
+            <div class="button float_r"><a href="services.html">更多TODO</a></div>
             
             <div class="cleaner_h20"></div>
             
-             <h2>Website Simples</h2>
+             <h2>相册集锦</h2>
              
              <p>Etiam in lorem ac nulla imperdiet sodales. Phasellus in justo at lectus pulvinar ultrices. Mauris ultrices sollicitudin turpis. Fusce non lacus et lorem ornare interdum. Nunc eget urna. Mauris vestibulum felis eget tortor. Praesent mattis varius quam.</p>
              
@@ -104,7 +108,7 @@
             
             <div id="sidebar">
            
-                <h2>Latest News</h2>
+                <h2>最新记事</h2>
                 
                    <div class="sb_news_box">
                         
@@ -143,13 +147,13 @@
                 
                     <div class="cleaner_h30"></div>
 
-      <h2>Categories</h2>
+      <h2>记事分类</h2>
 
       <ul class="templatemo_list col_w260">
-              <li><a href="#">Vestibulum ullamcorper</a></li>
-                <li><a href="#">Praesent sollicitudin mollis</a></li>
-                <li><a href="#">Etiam in lorem ac nulla</a></li>
-                <li><a href="#">Quisque venenatis fringilla</a></li>
+              <li><a href="#">PHP学习笔记</a></li>
+                <li><a href="#">Javascript笔记</a></li>
+                <li><a href="#">生活趣事</a></li>
+                <li><a href="#">服务器相关</a></li>
             </ul>
             
             </div>
@@ -170,8 +174,6 @@
                 <li><a href="https://github.com/shiqianmiao">Github</a></li>
                 <li><a href="http://www.cnblogs.com/miaoshiqian/">博客园</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="last">Contact Us</a></li>
             </ul>  
  
         </div>
@@ -182,7 +184,6 @@
                 <li><a href="#">Flash Templates</a></li>
                 <li><a href="http://www.cssmoban.com/">Website Templates</a></li>
                 <li><a href="http://www.koflash.com">Flash Websites</a></li>
-                <li><a href="#store">Premium Themes</a></li>
             </ul>
         </div>
         
