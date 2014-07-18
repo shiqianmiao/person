@@ -37,7 +37,7 @@
     <div id="content_wrapper"> 
         <div id="content">
 
-        <table style="width:900px;margin:auto;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
+        <table style="width:900px;margin:auto;border-radius:32px;-moz-border-radius: 32px;-webkit-border-radius: 32px;overflow:hidden;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
             <tr>
                 <td colspan="2" style="text-align:left;border:none;background-color:#00CC99;"><span style="color:white;font-weight:bold;font-size:16px;">园主的简历</span></td>
                 <td colspan="3" style="text-align:right;border:none;background-color:#00CC99;"><span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;">下载该简历</span></td>
