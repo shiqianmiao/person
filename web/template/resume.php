@@ -2,14 +2,26 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Shiqianmiao's Home Page!</title>
-    <meta name="keywords" content="个人网站,miaoshiqian, shiqianmiao, 缪石乾" />
-    <meta name="description" content="缪石乾的个人网站" />
+    <title>【缪石乾】个人简历_优秀个人简历_缪石乾个人简历</title>
+    <meta name="keywords" content="个人简历,miaoshiqian, shiqianmiao, 缪石乾, 优秀个人简历" />
+    <meta name="description" content="缪石乾的个人简历" />
     <?php echo $this->staHtml;?>
 
     <style type="text/css">
-        #content_wrapper table {
+        /*#content_wrapper table {
             border:solid 3px white;
+        }*/
+        #content_wrapper table tr td {
+            color: black;
+            text-align: center;
+            background-color:#C5CDCB;
+            padding: 15px 20px;
+            font-size: 14px;
+        }
+        #content_wrapper table tr td.td_value {
+            color:yellow;
+            background-color: transparent;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -17,125 +29,114 @@
 
 <body> 
 <div id="templatemo_wrapper"> 
-    <div id="templatemo_header">
-        <div id="header_left">   
-            <div id="site_title">
-                <a href="http://www.miaosq.com/" target="_parent"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_logo.png" alt="logo" /><span>Miao Shiqian's Home!!</span></a>
-            </div>
-        </div>
-        
-        <div id="header_right"> 
-          <ul id="social_box">
-              <li><a href="#"><img src="http://sta.miaosq.com/app/person/web/img/facebook.png" alt="facebook" /></a></li>
-                <li><a href="#"><img src="http://sta.miaosq.com/app/person/web/img/twitter.png" alt="twitter" /></a></li>
-                <li><a href="#"><img src="http://sta.miaosq.com/app/person/web/img/linkedin.png" alt="linkin" /></a></li>
-                <li><a href="#"><img src="http://sta.miaosq.com/app/person/web/img/technorati.png" alt="technorati" /></a></li>
-                <li><a href="#"><img src="http://sta.miaosq.com/app/person/web/img/myspace.png" alt="myspace" /></a></li>                
-            </ul>  
-        </div>
     
-        <div class="cleaner"></div>  
-    </div>
+    <?php $this->load('widget/header.php');?>
     
-    <div id="templatemo_menu">   
-        <ul>
-            <li><a href="http://www.miaosq.com" class="current">家园主页</a></li>
-            <li><a href="http://www.miaosq.com/resume/">关于园主</a></li>
-            <li><a href="services.html">WEB记事本</a></li>
-            <li><a href="gallery.html">相册</a></li>
-            <li class="last"><a href="contact.html">网站日志</a></li>
-        </ul>     
-    </div>
+    <?php $this->load('widget/menu.php');?>
     
     <div id="content_wrapper"> 
         <div id="content">
 
-        <table>
-            <tr><td><h2>园主简历</h2></td><td></td></tr>
+        <table style="width:900px;margin:auto;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
             <tr>
-                <td><span class="image_wrapper"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="image" /></span></td>
-                <td></td>
+                <td colspan="2" style="text-align:left;border:none;background-color:#00CC99;"><span style="color:white;font-weight:bold;font-size:16px;">园主的简历</span></td>
+                <td colspan="3" style="text-align:right;border:none;background-color:#00CC99;"><span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;">下载该简历</span></td>
+            </tr>
+
+            <tr>
+                <td style="width:60px;">&nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                <td class="td_value">缪石乾</td>
+                <td style="width:60px;">性别</td>
+                <td class="td_value">男</td>
+                <td style="width:100px;" rowspan="4"><span class="image_wrapper"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" /></span></td>
+            </tr>
+
+            <tr>
+                <td>出生年月</td>
+                <td class="td_value">1990-11-10</td>
+                <td>身高</td>
+                <td class="td_value">177 cm</td>
+            </tr>
+
+            <tr>
+                <td>毕业院校</td>
+                <td class="td_value">华侨大学</td>
+                <td>专业</td>
+                <td class="td_value">计算机科学与技术</td>
+            </tr>
+
+            <tr>
+                <td>政治面貌</td>
+                <td class="td_value">党员</td>
+                <td>民族</td>
+                <td class="td_value">汉</td>
+            </tr>
+
+            <tr>
+                <td>健康状况</td>
+                <td class="td_value">良好</td>
+                <td>籍贯</td>
+                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
+            </tr>
+
+            <tr>
+                <td>学&nbsp;&nbsp;&nbsp;历</td>
+                <td class="td_value">本科</td>
+                <td>身份证号</td>
+                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
+            </tr>
+
+            <tr>
+                <td>工作经验</td>
+                <td class="td_value">2年工作经验</td>
+                <td>联系电话</td>
+                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
+            </tr>
+
+            <tr>
+                <td>邮&nbsp;&nbsp;&nbsp;箱</td>
+                <td class="td_value">1205924828@qq.com</td>
+                <td>期望工作</td>
+                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
+            </tr>
+
+            <tr>
+                <td>掌握技能</td>
+                <td colspan="4" class="td_value">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td colspan="5">工作经历</td>
+            </tr>
+
+            <tr>
+                <td>主修课程</td>
+                <td colspan="4" class="td_value">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>主修课程</td>
+                <td colspan="4" class="td_value">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>主修课程</td>
+                <td colspan="4" class="td_value">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>主修课程</td>
+                <td colspan="4" class="td_value">&nbsp;</td>
             </tr>
         </table>
-         <p><em>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent aliquam velit a magna sodales quis elementum ipsum auctor. Ut at metus leo, et dictum sem</em></p>
-        <p>In ac libero urna. Suspendisse sed odio ut mi auctor blandit. Duis luctus nulla metus, a vulputate mauris. Integer sed nisi sapien, ut gravida mauris. Nam et tellus libero. Cras purus libero, dapibus nec rutrum in, dapibus nec risus. <a href="#">Ut interdum mi</a> sit amet magna feugiat auctor. </p>
-        <div class="image_wrapper fr_img"><img src="images/templatemo_image_05.jpg" alt="image" /></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat dolor at nulla egestas in vestibulum mauris lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sed accumsan nisl. Donec malesuada augue ac nisl sagittis quis cursus dolor scelerisque. </p>
-        <p><a href="#">Aliquam ac massa ut</a> nibh pulvinar aliquam vel id metus. Nulla id ante a diam volutpat commodo. Curabitur vitae enim sit amet erat ultricies hendrerit. Sed metus leo, condimentum ut ornare sit amet, congue et mauris. Phasellus mattis posuere magna sit amet consectetur.</p>
-        <div class="cleaner_h40"></div>
-        
-        <div class="col_w260 float_l">
-        
-          <h2>Services</h2>
-            <p>In ac libero urna. Suspendisse sed odio ut mi auctor blandit. Duis luctus nulla metus, a vulputate mauris.</p>
-            
-<ul class="templatemo_list">
-                    <li>Est cursus suscipit eu ac lectus.</li>
-                    <li>Nibh nisi, sed eleifend dolor. </li>
-                    <li>Sollicitudin sapien nec aliquet. </li>
-                    <li>Cras rutrum  consectetur dolor </li>
-                </ul>
-        
-        </div>
-        
-        <div class="col_w260 float_r">
-        
-            <h2>Testimonial</h2>
-            
-            <blockquote>
-            <p>Fusce nec felis id lacus sollicitudin vulputate. Proin tincidunt, arcu id pellentesque accumsan, neque dolor imperdiet ligula, quis viverra tellus nulla a odio. Curabitur vitae enim risus, at placerat turpis. Mauris feugiat suscipit tempus fringilla, felis in velit.</p>
-            
-            <cite>Steven Wood - <span>Web Designer</span></cite>
-            </blockquote>
-            
-        
-        </div>
-            
+
       </div>
         
         <div class="cleaner"></div>
     
     </div>
     
-    <div id="templatemo_footer">
-      
-        <div class="footer_box">
-          <h4>园主链接</h4>
-          <ul>
-                <li><a href="https://github.com/shiqianmiao">Github</a></li>
-                <li><a href="http://www.cnblogs.com/miaoshiqian/">博客园</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html" class="last">Contact Us</a></li>
-            </ul>  
- 
-        </div>
-        
-        <div class="footer_box">
-          <h4>友情链接</h4>
-          <ul>
-                <li><a href="#">Flash Templates</a></li>
-                <li><a href="http://www.cssmoban.com/">Website Templates</a></li>
-                <li><a href="http://www.koflash.com">Flash Websites</a></li>
-                <li><a href="#store">Premium Themes</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer_box last">
-          <h4>园主座右铭</h4>
-            <p>没有伞的孩子只能拼命往前奔跑！ </p>
-            <p>不要抱怨，要么闭嘴，要么改变自己！</p>
-        </div>
-        
-        <div class="cleaner"></div>
-    </div>
-    
-    <div id="templatemo_copyright">
-    
-        Copyright © 2014 <a href="http://www.miaosq.com">Miao Shiqian</a> 版权所有 | 
-        闽ICP备14009583号 | 
-        miaosq.com All Rights Reserved 
-    </div>
+    <?php echo $this->load('widget/footer.php');?>
      
 </div> <!-- end of template wrapper -->
 
