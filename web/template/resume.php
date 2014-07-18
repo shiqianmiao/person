@@ -38,7 +38,7 @@
         <div id="content">
 
         <table style="width:900px;margin:auto;border-radius:32px;-moz-border-radius: 32px;-webkit-border-radius: 32px;overflow:hidden;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
-            <tr>
+            <tr id="js-resume-title" style="display:none;">
                 <td colspan="2" style="text-align:left;border:none;background-color:#00CC99;"><span style="color:white;font-weight:bold;font-size:16px;">园主的简历</span></td>
                 <td colspan="3" style="text-align:right;border:none;background-color:#00CC99;"><span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;">下载该简历</span></td>
             </tr>
@@ -48,7 +48,7 @@
                 <td class="td_value">缪石乾</td>
                 <td style="width:60px;">性别</td>
                 <td class="td_value">男</td>
-                <td style="width:100px;" rowspan="4"><span class="image_wrapper"><img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" /></span></td>
+                <td style="width:100px;" rowspan="4"><span class="image_wrapper" style="width:150px;height:180px;border-radius:100px;overflow:hidden;border:none;background-color:orange;padding:0px;"><img style="display:none;" id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" /></span></td>
             </tr>
 
             <tr>
@@ -139,6 +139,10 @@
     <?php echo $this->load('widget/footer.php');?>
      
 </div> <!-- end of template wrapper -->
-
+<script type="text/javascript">
+    G.use(['app/person/web/js/resume.js'], function(R) {
+        R.init();
+    });
+</script>
 </body>
 </html>
