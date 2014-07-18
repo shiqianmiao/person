@@ -19,8 +19,9 @@ class WebBasePage extends BasePage {
     
     public function __construct() {
         parent::__construct();
-        
+        //设置并像模板发送变量
         $this->_setPageType();
+        $this->_setCommonSta();
     }
 
     /**
@@ -33,6 +34,14 @@ class WebBasePage extends BasePage {
         $this->assign('pageType', $this->pageType);
     }
     
+    /**
+     * @desc 公共sta文件设置
+     */
+    private function _setCommonSta() {
+        $commonStaHtml = 'g.js,config.js,app/flatui/bootstrap/css/bootstrap.css,app/flatui/css/flat-ui.css';
+        $commonStaHtml = $this->view->helper('sta', array('files' => $commonStaHtml));
+        $this->assign('commonStaHtml', $commonStaHtml);
+    }
     /**
      * @param $cache 是否需要页面缓存,true的话，返回页面渲染后的静态内容
      */

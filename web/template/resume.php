@@ -5,12 +5,15 @@
     <title>【缪石乾】个人简历_优秀个人简历_缪石乾个人简历</title>
     <meta name="keywords" content="个人简历,miaoshiqian, shiqianmiao, 缪石乾, 优秀个人简历" />
     <meta name="description" content="缪石乾的个人简历" />
+    <link href="http://sta.miaosq.com/app/flatui/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="http://sta.miaosq.com/app/flatui/css/flat-ui.css" rel="stylesheet">
+    <?php echo $this->commonStaHtml;?>
     <?php echo $this->staHtml;?>
 
     <style type="text/css">
-        /*#content_wrapper table {
+        #content_wrapper table {
             border:solid 3px white;
-        }*/
+        }
         #content_wrapper table tr td {
             color: black;
             text-align: center;
@@ -36,6 +39,11 @@
     
     <div id="content_wrapper"> 
         <div id="content">
+        <div class="float_l">
+        </div>
+
+        <div class="float_r">
+        </div>
 
         <table style="width:900px;margin:auto;border-radius:32px;-moz-border-radius: 32px;-webkit-border-radius: 32px;overflow:hidden;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
             <tr id="js-resume-title" style="display:none;">
@@ -44,11 +52,15 @@
             </tr>
 
             <tr>
-                <td style="width:60px;">&nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                <td style="width:100px;">&nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
                 <td class="td_value">缪石乾</td>
-                <td style="width:60px;">性别</td>
+                <td style="width:100px;">性别</td>
                 <td class="td_value">男</td>
-                <td style="width:100px;" rowspan="4"><span class="image_wrapper" style="width:150px;height:180px;border-radius:100px;overflow:hidden;border:none;background-color:orange;padding:0px;"><img style="display:none;" id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" /></span></td>
+                <td style="width:100px;background-color:transparent;" rowspan="4">
+                    <span class="image_wrapper" style="width:150px;height:180px;border-radius:100px;overflow:hidden;border:none;background-color:orange;padding:0px;">
+                        <img style="display:none;" id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" />
+                    </span>
+                </td>
             </tr>
 
             <tr>
@@ -140,6 +152,7 @@
      
 </div> <!-- end of template wrapper -->
 <script type="text/javascript">
+    G.use(['app/flatui/js/backend_v2.cmb.js']);
     G.use(['app/person/web/js/resume.js'], function(R) {
         R.init();
     });

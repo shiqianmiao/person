@@ -15,7 +15,7 @@ class DefaultPage extends WebBasePage{
      */
     function defaultAction() {
 
-        $staHtml .= 'g.js,config.js,app/person/web/css/index_v2.css';
+        $staHtml .= 'app/person/web/css/index_v2.css';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(
@@ -29,7 +29,7 @@ class DefaultPage extends WebBasePage{
      */
     function resumeAction() {
 
-        $staHtml .= 'g.js,config.js,app/person/web/css/index_v2.css';
+        $staHtml .= 'app/person/web/css/index_v2.css';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(
