@@ -37,13 +37,28 @@
     
     <?php $this->load('widget/menu.php');?>
     
-    <div id="content_wrapper"> 
-        <div id="content">
-        <div class="float_l">
+    <div id="content_wrapper">
+        
+        <div id="js-resume-title" style="width:200px;text-align:right;" class="float_l">
+            <ul>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">基本信息</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">教育背景</a></li>
+                <!--<li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">工作经历</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">项目经验</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">自我描述</a></li>-->
+            </ul>
+        </div>
+        
+
+        <div id="basic" class="float_r" style="width:700px;height:300px;border:solid 1px green;margin-right:20px;">
+            <div style="width:100%;height:45px;border-radius:32px 32px 0px 0px;-moz-border-radius: 32px 32px 0px 0px;-webkit-border-radius: 32px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">园主的简历</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
         </div>
 
-        <div class="float_r">
-        </div>
+        <div id="content">
+        
 
         <table style="width:900px;margin:auto;border-radius:32px;-moz-border-radius: 32px;-webkit-border-radius: 32px;overflow:hidden;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
             <tr id="js-resume-title" style="display:none;">
@@ -63,7 +78,7 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr id="education">
                 <td>出生年月</td>
                 <td class="td_value">1990-11-10</td>
                 <td>身高</td>
@@ -153,8 +168,23 @@
 </div> <!-- end of template wrapper -->
 <script type="text/javascript">
     G.use(['app/flatui/js/backend_v2.cmb.js']);
-    G.use(['app/person/web/js/resume.js'], function(R) {
+    G.use(['app/person/web/js/resume.js', 'jquery', 'app/flatui/js/stickUp.min.js'], function(R, $, stickUp) {
         R.init();
+
+        //简历导航
+        $('#js-resume-title').stickUp({
+            parts: {
+               0 : 'basic',
+               1 : 'education',
+               /*2 : 'experience',
+               3 : 'project',
+               4 : 'desc'*/
+            },
+            itemClass: 'btn-primary',
+            itemHover: 'btn-warning',
+            topMargin: 'auto'
+        });
+
     });
 </script>
 </body>
