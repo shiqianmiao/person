@@ -52,7 +52,7 @@
         
 
         <div class="float_r" style="width:700px;margin-right:20px;">
-        
+
             <!--****************************基本信息********************************************************-->
             <div id="basic" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
                 <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">基本信息</span>
