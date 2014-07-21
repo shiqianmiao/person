@@ -41,123 +41,128 @@
         
         <div id="js-resume-title" style="width:200px;text-align:right;" class="float_l">
             <ul>
-                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">基本信息</a></li>
-                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">教育背景</a></li>
-                <!--<li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">工作经历</a></li>
-                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">项目经验</a></li>
-                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">自我描述</a></li>-->
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#basic" class="btn btn-block btn-lg btn-primary">基本信息</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#education" class="btn btn-block btn-lg btn-primary">教育背景</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#experience" class="btn btn-block btn-lg btn-primary">工作经历</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#prject" class="btn btn-block btn-lg btn-primary">项目经验</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#desc" class="btn btn-block btn-lg btn-primary">自我描述</a></li>
+                <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#contact" class="btn btn-block btn-lg btn-primary">联系方式</a></li>
             </ul>
         </div>
         
 
-        <div id="basic" class="float_r" style="width:700px;height:300px;border:solid 1px green;margin-right:20px;">
-            <div style="width:100%;height:45px;border-radius:32px 32px 0px 0px;-moz-border-radius: 32px 32px 0px 0px;-webkit-border-radius: 32px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">园主的简历</span>
+        <div class="float_r" style="width:700px;margin-right:20px;">
+        
+            <!--****************************基本信息********************************************************-->
+            <div id="basic" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">基本信息</span>
                 <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
             </div>
+
+            <div style="width:100%;">
+                <div style="width:300px" class="float_l">
+                    <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                        <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：缪石乾</li>
+                        <li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：男</li>
+                        <li>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：177cm</li>
+                        <li>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：汉</li>
+                        <li>出生年月：1990-11-10</li>
+                        <li>毕业院校：华侨大学(2009-2013)</li>
+                        <li>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：计算机科学与技术</li>
+                        <li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：本科</li>
+                        <li>婚姻状况：未婚</li>
+                        <li>政治面貌：党员</li>
+                        <li>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：* * * * * * * * * * * * * * *</li>
+                        <li>健康状况：良好</li>
+                    </ul>
+                </div>
+
+                <div style="width:400px" class="float_r">
+                    <div style="width:150px;height:180px;border-radius:80px;overflow:hidden;margin-top:20px;">
+                        <img id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="cleaner"></div>
+            <!--****************************教育背景********************************************************-->
+            <div id="education" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">教育背景</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
+
+            <div style="width:100%;">
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>毕业院校：华侨大学</li>
+                    <li>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：计算机科学与技术</li>
+                    <li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：本科</li>
+                    <li>英语水平：CET-4</li>
+                    <li>政治面貌：党员</li>
+                    <li>在校奖惩：* * * * * * * * * * * * * * *</li>
+                </ul>
+            </div>
+
+            <!--****************************工作经历********************************************************-->
+            <div id="experience" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">工作经历</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
+
+            <div style="width:100%;">
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>工作经验：2年工作经验</li>
+                    <li>期望工作：* * * * * * * * * * * * * * *</li> 
+                    <li>2012-7 到 2012-11：实习于赶集网 (<a href="http://www.ganji.com" target="_blank">http://www.ganji.com</a>)</li>
+                    <li>2012-11 至今：就职于福州车友网络有限公司 (<a href="http://www.273.cn" target="_blank">http://www.273.cn</a>)</li>
+                </ul>
+            </div>
+
+            <!--****************************项目经验********************************************************-->
+            <div id="project" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">项目经验</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
+
+            <div style="width:100%;">
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>（2012.08-2012.09）* * * * * * * * * * * * * * *</li>
+                    <li>（2013.01-2013.02）* * * * * * * * * * * * * * *</li> 
+                    <li>（2013.01-2013.03）* * * * * * * * * * * * * * *</li>
+                    <li>（2013.03-2013.04）* * * * * * * * * * * * * * *</li>
+                    <li>（2013.08-2014.01）* * * * * * * * * * * * * * *</li>
+                    <li>（2014.01&nbsp;-&nbsp;至&nbsp;&nbsp;&nbsp;&nbsp;今）* * * * * * * * * * * * * * *</li>
+                </ul>
+            </div>
+
+            <!--****************************自我描述********************************************************-->
+            <div id="desc" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">自我描述</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
+
+            <div style="width:100%;">
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>掌握技能：Html、Css、Javascript、PHP、Nginx、Apache、Mysql、Redis、Memcache、<br/>Bootstrap</li>
+                    <li>编程工具：系统（Ubuntu+Centos）、前端文件（sublime）、服务端文件（eclipse）、<br/>版本控制（svn、git）</li>
+                    <li>兴趣爱好：到山水宜人的地方散心、桌上足球、乒乓球、听听音乐哼哼歌、科幻电影、<br/>喜剧电影、WEB相关的新鲜技术</li> 
+                    <li>梦想追求：有朝一日能有一家自己的公司、出国旅游。</li>
+                </ul>
+            </div>
+
+            <!--****************************联系方式********************************************************-->
+            <div id="contact" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
+                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">联系方式</span>
+                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            </div>
+
+            <div style="width:100%;">
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>联系电话：* * * * * * * * * * * * * * *</li>
+                    <li>微&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信：miaoshiqian</li>
+                    <li>Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q：1205924828</li>
+                    <li>联系邮箱：1205924828@qq.com、miaoshiqian@126.com、miaoshiqians@gmail.com</li>
+                </ul>
+            </div>
         </div>
-
-        <div id="content">
-        
-
-        <table style="width:900px;margin:auto;border-radius:32px;-moz-border-radius: 32px;-webkit-border-radius: 32px;overflow:hidden;" border="5px" bordercolor="white" cellpadding="0px" cellspacing="0px" align=center>
-            <tr id="js-resume-title" style="display:none;">
-                <td colspan="2" style="text-align:left;border:none;background-color:#00CC99;"><span style="color:white;font-weight:bold;font-size:16px;">园主的简历</span></td>
-                <td colspan="3" style="text-align:right;border:none;background-color:#00CC99;"><span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;">下载该简历</span></td>
-            </tr>
-
-            <tr>
-                <td style="width:100px;">&nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
-                <td class="td_value">缪石乾</td>
-                <td style="width:100px;">性别</td>
-                <td class="td_value">男</td>
-                <td style="width:100px;background-color:transparent;" rowspan="4">
-                    <span class="image_wrapper" style="width:150px;height:180px;border-radius:100px;overflow:hidden;border:none;background-color:orange;padding:0px;">
-                        <img style="display:none;" id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg" alt="头像" />
-                    </span>
-                </td>
-            </tr>
-
-            <tr id="education">
-                <td>出生年月</td>
-                <td class="td_value">1990-11-10</td>
-                <td>身高</td>
-                <td class="td_value">177 cm</td>
-            </tr>
-
-            <tr>
-                <td>毕业院校</td>
-                <td class="td_value">华侨大学</td>
-                <td>专业</td>
-                <td class="td_value">计算机科学与技术</td>
-            </tr>
-
-            <tr>
-                <td>政治面貌</td>
-                <td class="td_value">党员</td>
-                <td>民族</td>
-                <td class="td_value">汉</td>
-            </tr>
-
-            <tr>
-                <td>健康状况</td>
-                <td class="td_value">良好</td>
-                <td>籍贯</td>
-                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
-            </tr>
-
-            <tr>
-                <td>学&nbsp;&nbsp;&nbsp;历</td>
-                <td class="td_value">本科</td>
-                <td>身份证号</td>
-                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
-            </tr>
-
-            <tr>
-                <td>工作经验</td>
-                <td class="td_value">2年工作经验</td>
-                <td>联系电话</td>
-                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
-            </tr>
-
-            <tr>
-                <td>邮&nbsp;&nbsp;&nbsp;箱</td>
-                <td class="td_value">1205924828@qq.com</td>
-                <td>期望工作</td>
-                <td colspan="2" class="td_value">* * * * * * * * * * * * * * *</td>
-            </tr>
-
-            <tr>
-                <td>掌握技能</td>
-                <td colspan="4" class="td_value">&nbsp;</td>
-            </tr>
-
-            <tr>
-                <td colspan="5">工作经历</td>
-            </tr>
-
-            <tr>
-                <td>主修课程</td>
-                <td colspan="4" class="td_value">&nbsp;</td>
-            </tr>
-
-            <tr>
-                <td>主修课程</td>
-                <td colspan="4" class="td_value">&nbsp;</td>
-            </tr>
-
-            <tr>
-                <td>主修课程</td>
-                <td colspan="4" class="td_value">&nbsp;</td>
-            </tr>
-
-            <tr>
-                <td>主修课程</td>
-                <td colspan="4" class="td_value">&nbsp;</td>
-            </tr>
-        </table>
-
-      </div>
         
         <div class="cleaner"></div>
     
@@ -171,14 +176,15 @@
     G.use(['app/person/web/js/resume.js', 'jquery', 'app/flatui/js/stickUp.min.js'], function(R, $, stickUp) {
         R.init();
 
-        //简历导航
+        //resume guide
         $('#js-resume-title').stickUp({
             parts: {
                0 : 'basic',
                1 : 'education',
-               /*2 : 'experience',
+               2 : 'experience',
                3 : 'project',
-               4 : 'desc'*/
+               4 : 'desc',
+               5 : 'contact'
             },
             itemClass: 'btn-primary',
             itemHover: 'btn-warning',
