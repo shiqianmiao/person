@@ -41,8 +41,6 @@
         <div class="cleaner"></div>
     
     </div>
-    
-    <?php echo $this->load('widget/footer.php');?>
      
 </div> <!-- end of template wrapper -->
 
