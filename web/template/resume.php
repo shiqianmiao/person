@@ -30,16 +30,23 @@
 </head>
 
 
-<body> 
-<div id="templatemo_wrapper"> 
-    
+<body>
+
+<div id="header">
     <?php $this->load('widget/header.php');?>
-    
-    <?php $this->load('widget/menu.php');?>
-    
+</div>
+
+<div id="templatemo_wrapper"> 
+        
     <div id="content_wrapper">
         
         <div id="js-resume-title" style="width:200px;text-align:right;" class="float_l">
+            <div style="100%" class="float_r">
+                <div style="width:150px;height:180px;border-radius:80px;overflow:hidden;margin-top:20px;border:solid 3px #97b921;">
+                    <img id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg">
+                </div>
+            </div>
+        <!--
             <ul>
                 <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#basic" class="btn btn-block btn-lg btn-primary">基本信息</a></li>
                 <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#education" class="btn btn-block btn-lg btn-primary">教育背景</a></li>
@@ -48,46 +55,39 @@
                 <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#desc" class="btn btn-block btn-lg btn-primary">自我描述</a></li>
                 <li style="list-style:none;margin:0px 0px 10px 0px;"><a href="#contact" class="btn btn-block btn-lg btn-primary">联系方式</a></li>
             </ul>
+            -->
         </div>
         
 
         <div class="float_r" style="width:700px;margin-right:20px;">
 
             <!--****************************基本信息********************************************************-->
-            <div id="basic" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">基本信息</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">基本信息</span>
+                <span class="download">下载该简历</span>
             </div>
 
             <div style="width:100%;">
-                <div style="width:300px" class="float_l">
-                    <ul class="templatemo_list" style="color:yellow;font-size:14px;">
-                        <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：缪石乾</li>
-                        <li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：男</li>
-                        <li>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：177cm</li>
-                        <li>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：汉</li>
-                        <li>出生年月：1990-11-10</li>
-                        <li>毕业院校：华侨大学(2009-2013)</li>
-                        <li>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：计算机科学与技术</li>
-                        <li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：本科</li>
-                        <li>婚姻状况：未婚</li>
-                        <li>政治面貌：党员</li>
-                        <li>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：* * * * * * * * * * * * * * *</li>
-                        <li>健康状况：良好</li>
-                    </ul>
-                </div>
-
-                <div style="width:400px" class="float_r">
-                    <div style="width:150px;height:180px;border-radius:80px;overflow:hidden;margin-top:20px;">
-                        <img id="js-resume-head" width="150" height="180" src="http://sta.miaosq.com/app/person/web/img/templatemo_image_04.jpg">
-                    </div>
-                </div>
+                <ul class="templatemo_list" style="color:yellow;font-size:14px;">
+                    <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：缪石乾</li>
+                    <li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：男</li>
+                    <li>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：177cm</li>
+                    <li>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：汉</li>
+                    <li>出生年月：1990-11-10</li>
+                    <li>毕业院校：华侨大学(2009-2013)</li>
+                    <li>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：计算机科学与技术</li>
+                    <li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：本科</li>
+                    <li>婚姻状况：未婚</li>
+                    <li>政治面貌：党员</li>
+                    <li>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：* * * * * * * * * * * * * * *</li>
+                    <li>健康状况：良好</li>
+                </ul>
             </div>
             <div class="cleaner"></div>
+
             <!--****************************教育背景********************************************************-->
-            <div id="education" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">教育背景</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">教育背景</span>
             </div>
 
             <div style="width:100%;">
@@ -102,9 +102,8 @@
             </div>
 
             <!--****************************工作经历********************************************************-->
-            <div id="experience" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">工作经历</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">工作经历</span>
             </div>
 
             <div style="width:100%;">
@@ -117,9 +116,8 @@
             </div>
 
             <!--****************************项目经验********************************************************-->
-            <div id="project" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">项目经验</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">项目经验</span>
             </div>
 
             <div style="width:100%;">
@@ -134,9 +132,8 @@
             </div>
 
             <!--****************************自我描述********************************************************-->
-            <div id="desc" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">自我描述</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">自我描述</span>
             </div>
 
             <div style="width:100%;">
@@ -149,9 +146,9 @@
             </div>
 
             <!--****************************联系方式********************************************************-->
-            <div id="contact" style="width:100%;height:45px;border-radius:0px 32px 0px 0px;-moz-border-radius: 0px 32px 0px 0px;-webkit-border-radius: 0px 32px 0px 0px;background-color:#00CC99;padding:10px 15px;border-left:solid 3px white;">
-                <span style="color:white;font-weight:bold;font-size:16px;" class="float_l">联系方式</span>
-                <span  style="padding:5px 10px;background:#009966;color:white;cursor:pointer;" class="float_r">下载该简历</span>
+            <div class="resume-title">
+                <span class="title">联系方式</span>
+                <span class="download">下载该简历</span>
             </div>
 
             <div style="width:100%;">
@@ -167,17 +164,18 @@
         <div class="cleaner"></div>
     
     </div>
-    
-    <?php echo $this->load('widget/footer.php');?>
      
 </div> <!-- end of template wrapper -->
+
+<?php echo $this->load('widget/footer.php');?>
+
 <script type="text/javascript">
     G.use(['app/flatui/js/backend_v2.cmb.js']);
-    G.use(['app/person/web/js/resume.js', 'jquery', 'app/flatui/js/stickUp.min.js'], function(R, $, stickUp) {
+    G.use(['app/person/web/js/resume.js', 'jquery'], function(R, $) {
         R.init();
 
         //resume guide
-        $('#js-resume-title').stickUp({
+        /*$('#js-resume-title').stickUp({
             parts: {
                0 : 'basic',
                1 : 'education',
@@ -189,7 +187,9 @@
             itemClass: 'btn-primary',
             itemHover: 'btn-warning',
             topMargin: 'auto'
-        });
+        });*/
+
+        //$('#menu').stickUp();
 
     });
 </script>

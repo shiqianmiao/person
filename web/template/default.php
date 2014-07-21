@@ -10,16 +10,17 @@
 </head>
 
 <body> 
-<div id="templatemo_wrapper">
 
+<div id="header">
     <?php $this->load('widget/header.php');?>
-    
-    <?php $this->load('widget/menu.php');?>
+</div>
+
+<div id="templatemo_wrapper">
     
     <div id="content_wrapper">
       
         <div id="content">
-
+            <h2>Who is this guy ?</h2>
             <p><em>我？是谁？为了方便仇家找上门来，今儿个就在这里做个简单的介绍。我就像一片落叶，随风飘荡，忽东忽西,或许在这里只是瞬间的停靠，片刻的停留，风起了又要继续漂浮......</em> </p>
             <h3>TODO列表</h3>
             <p>别偷懒哦，要及时完成任务哦！！</p>
@@ -44,6 +45,7 @@
                 <div class="col-xs-9" style="width:100%;">
                   <div class="demo-browser">
                     <div class="demo-browser-content">
+                        
                       <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-1.jpg" alt="" />
                       <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-2.jpg" alt="" />
                       <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-3.jpg" alt="" />
@@ -55,6 +57,26 @@
                 </div>
             
                 <div class="cleaner_h30"></div>
+
+                <div class="grid">
+                    <figure class="effect-sarah">
+                        <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-1.jpg" alt="img13"/>
+                        <figcaption>
+                            <h2>Free <span>Sarah</span></h2>
+                            <p>Sarah likes to watch clouds. She's quite depressed.</p>
+                            <a href="http://www.lanrentuku.com/" target="_blank">View more</a>
+                        </figcaption>           
+                    </figure>
+
+                    <figure class="effect-sarah">
+                        <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-1.jpg" alt="img13"/>
+                        <figcaption>
+                            <h2>Free <span>Sarah</span></h2>
+                            <p>Sarah likes to watch clouds. She's quite depressed.</p>
+                            <a href="http://www.lanrentuku.com/" target="_blank">View more</a>
+                        </figcaption>           
+                    </figure>
+                </div>
             
       </div>
         
@@ -102,9 +124,9 @@
         <div class="cleaner"></div>
     </div>
 
-    <?php echo $this->load('widget/footer.php');?>
-     
 </div> <!-- end of template wrapper -->
+
+<?php echo $this->load('widget/footer.php');?>
 
 <script type="text/javascript">
     G.use(['app/flatui/js/backend_v2.cmb.js']);

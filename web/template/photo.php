@@ -25,11 +25,11 @@
 
 
 <body> 
-<div id="templatemo_wrapper"> 
-    
+<div id="header">
     <?php $this->load('widget/header.php');?>
-    
-    <?php $this->load('widget/menu.php');?>
+</div>
+
+<div id="templatemo_wrapper"> 
     
     <div id="content_wrapper"> 
         <div id="content">
@@ -45,6 +45,8 @@
     <?php echo $this->load('widget/footer.php');?>
      
 </div> <!-- end of template wrapper -->
+
+<?php echo $this->load('widget/footer.php');?>
 
 </body>
 </html>

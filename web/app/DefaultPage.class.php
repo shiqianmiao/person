@@ -29,7 +29,7 @@ class DefaultPage extends WebBasePage{
      */
     function resumeAction() {
 
-        $staHtml .= 'app/person/web/css/index_v2.css';
+        $staHtml .= 'app/person/web/css/index_v2.css, app/person/web/css/resume.css';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(
