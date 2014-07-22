@@ -20,44 +20,7 @@
     <div id="content_wrapper">
       
         <div id="content">
-            <h2>Who is this guy ?</h2>
-            <p><em>我？是谁？为了方便仇家找上门来，今儿个就在这里做个简单的介绍。我就像一片落叶，随风飘荡，忽东忽西,或许在这里只是瞬间的停靠，片刻的停留，风起了又要继续漂浮......</em> </p>
-            <h3>TODO列表</h3>
-            <p>别偷懒哦，要及时完成任务哦！！</p>
-            <ul class="templatemo_list col_w260 float_l">
-                <li><a data-action-type="confirm" href="javascript:;">未完成的任务一</a></li>
-                <li><a href="#">未完成的任务一</a></li>
-                <li><a href="#">未完成的任务一</a></li>
-            </ul> 
             
-            <ul class="templatemo_list col_w260 float_l">
-                <li><a href="#">未完成的任务一</a></li>
-                <li><a href="#">未完成的任务一</a></li>
-                <li><a href="#">未完成的任务一</a></li>
-            </ul>
-          <div class="cleaner"></div>
-            <div class="float_r"><a href="javascript:;" class="btn btn-block btn-lg btn-primary">更多TODO列表</a></div>
-            
-            <div class="cleaner_h20"></div>
-            
-            <h3>网络相册</h3>
-             
-                <div class="col-xs-9" style="width:100%;">
-                  <div class="demo-browser">
-                    <div class="demo-browser-content">
-                        
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-1.jpg" alt="" />
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-2.jpg" alt="" />
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-3.jpg" alt="" />
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-4.jpg" alt="" />
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-5.jpg" alt="" />
-                      <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-6.jpg" alt="" />
-                    </div>
-                  </div>
-                </div>
-            
-                <div class="cleaner_h30"></div>
-
                 <div class="grid">
                     <figure class="effect-sarah">
                         <img src="http://sta.miaosq.com/app/flatui/images/demo/browser-pic-1.jpg" alt="img13"/>
@@ -80,47 +43,6 @@
             
       </div>
         
-        <div id="sidebar_wrapper">
-          <div id="sidebar_top"></div>
-            <div id="sidebar">
-                <h3>最新记事</h3>
-                   <div class="sb_news_box">  
-                        <img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_01.jpg" alt="image" />
-                        <div class="nb_right">
-                            <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit dictumst.</a>
-                        </div>
-                        <div class="cleaner"></div>
-                    </div>
-                    
-                    <div class="sb_news_box">
-                        <img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_02.jpg" alt="image" />
-                        <div class="nb_right">
-                            <a href="#">Praesent sed est urna, id adipiscing nunc. Etiam laoreet ante quis.</a>
-                        </div>
-                        <div class="cleaner"></div>
-                    </div>
-                    
-                    <div class="sb_news_box">
-                        <img src="http://sta.miaosq.com/app/person/web/img/templatemo_image_03.jpg" alt="image" />
-                        <div class="nb_right">
-                            <a href="#">Cras bibendum, mi vitae pharetra tincidunt sed ullamcorper mauris</a>
-                        </div>
-                        <div class="cleaner"></div>
-                    </div>
-                    
-                    <div class="button float_r"><a href="#">查看更多</a></div>
-                    <div class="cleaner_h30"></div>
-
-                <h3>记事分类</h3>
-                <ul class="templatemo_list col_w260">
-                  <li><a href="#">PHP学习笔记</a></li>
-                    <li><a href="#">Javascript笔记</a></li>
-                    <li><a href="#">生活趣事</a></li>
-                    <li><a href="#">服务器相关</a></li>
-                </ul>
-            </div>
-            <div id="sidebar_bottom"></div>
-        </div>
         <div class="cleaner"></div>
     </div>
 
