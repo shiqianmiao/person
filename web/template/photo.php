@@ -5,6 +5,7 @@
     <title>Shiqianmiao's Home Page!</title>
     <meta name="keywords" content="个人网站,miaoshiqian, shiqianmiao, 缪石乾" />
     <meta name="description" content="缪石乾的个人网站" />
+    <?php echo $this->commonStaHtml;?>
     <?php echo $this->staHtml;?>
 
     <style type="text/css">
