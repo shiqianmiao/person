@@ -5,7 +5,7 @@
             <ul>
                 <li><a href="https://github.com/shiqianmiao">Github</a></li>
                 <li><a href="http://www.cnblogs.com/miaoshiqian/">博客园</a></li>
-                <li><a href="services.html">微博</a></li>
+                <li><a href="http://shiqianmiao.github.io">园主github博客</a></li>
             </ul>  
         </div>
         
