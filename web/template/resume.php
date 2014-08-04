@@ -58,8 +58,7 @@
             -->
         </div>
         
-<!--
-        <div class="float_r" style="width:700px;margin-right:20px;">
+        <div class="float_r" style="display:none;width:700px;margin-right:20px;">
 
             <!--****************************基本信息********************************************************-->
             <div class="resume-title">
@@ -162,7 +161,7 @@
         </div>
         
         <div class="cleaner"></div>
--->    
+    
     </div>
      
 </div> <!-- end of template wrapper -->
