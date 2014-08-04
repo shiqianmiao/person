@@ -58,7 +58,7 @@
             -->
         </div>
         
-
+<!--
         <div class="float_r" style="width:700px;margin-right:20px;">
 
             <!--****************************基本信息********************************************************-->
@@ -162,7 +162,7 @@
         </div>
         
         <div class="cleaner"></div>
-    
+-->    
     </div>
      
 </div> <!-- end of template wrapper -->
