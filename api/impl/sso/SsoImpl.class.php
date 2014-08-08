@@ -6,7 +6,6 @@
  */
 
 require_once FRAMEWORK_PATH . '/util/http/HttpRequest.class.php';
-require_once FRAMEWORK_PATH . '/util/gearman/LoggerGearman.class.php';
 require_once API_PATH . '/model/SsoGroupModel.class.php';
 require_once API_PATH . '/model/SsoGUModel.class.php'; 
 
@@ -133,13 +132,11 @@ class SsoImpl {
         $userInfo = $userModel->getUserInfoWhenLogin('*', $accountId, $passwd);
         if (empty($userInfo)) {
             $content = $accountId .'_'.$passwd;
-            LoggerGearman::logInfo(array('data'=>$content, 'identity'=>'login.getUserInfo'));
             return false;
         } else {
             $passport = self::getPassport($accountId, $passwd, 0, 0);
             if(empty($passport)) {
                 $content = $accountId .'_'.$passwd;
-                LoggerGearman::logInfo(array('data'=>$content, 'identity'=>'login.getPassport'));
             }
             return $passport;
         }

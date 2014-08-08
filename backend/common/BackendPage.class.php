@@ -2,23 +2,14 @@
 require_once FRAMEWORK_PATH . '/mvc/BasePage.class.php';
 require_once FRAMEWORK_PATH . '/util/common/Session.class.php' ;
 require_once API_PATH . '/interface/SsoInterface.class.php';
-require_once API_PATH . '/interface/car/CarUserInterface.class.php';
-require_once API_PATH . '/interface/MbsDeptInterface.class.php';
 require_once API_PATH . '/interface/StaticInterface.class.php';
-require_once API_PATH . '/interface/BackendNumShowInterface.class.php';
-require_once API_PATH . '/interface/mbs/MbsSmsEmailInterface.class.php';
-require_once API_PATH . '/interface/GetLastSqlInterface.class.php';
 require_once BACKEND . '/common/Menu.class.php';
 require_once BACKEND . '/common/Normal.class.php';
-require_once BACKEND . '/common/Search.class.php';
-require_once COM_PATH . '/car/CarAppVars.class.php';
 
 class BackendPage extends BasePage {
 
     protected $userInfo;
-    protected $deptInfo;
     protected $menu;
-    protected $isInfoUser = 0; //是否终止的车源从特殊表取，同时业管不让搜索
 
     protected $allApp = array(
         'bc', //bc后台
@@ -41,27 +32,9 @@ class BackendPage extends BasePage {
         if ($debugTime) {
             $beginTime = microtime();
         }
-        $this->checkUser();
+        //$this->checkUser();
         if ($debugTime) {
             echo microtime() - $beginTime;
-        }
-        //检测是否需要显示提示设置服务之星的tips
-        $this->checkStarTips();
-
-        //检查是否需要配置特殊数据处理
-        if (!empty(CarAppVars::$COPY_MANAGER)) {
-            if (CarAppVars::$COPY_MANAGER['0'] == '*') {
-                //所有业管帐号都从那张表取
-                $this->isInfoUser = 1;
-            } else if (in_array($this->userInfo['user']['username'], CarAppVars::$COPY_MANAGER)) {
-                $this->isInfoUser = 1;
-            }
-        }
-        $this->view->assign('isInfoUser', $this->isInfoUser);
-        
-        //取得门店信息
-        if (!empty($this->userInfo['user']['dept_id'])) {
-            $this->deptInfo = MbsDeptInterface::getDeptInfoByDeptId(array('id' => $this->userInfo['user']['dept_id']));
         }
 
         $permissions = (array) $this->userInfo['Permisssions'];
@@ -71,12 +44,12 @@ class BackendPage extends BasePage {
 
         $routeParams = Bootstrap::getRouteParams();
         $channel = $routeParams['channel'];
-        if ($channel != 'universal' && !isset($channels[$channel])) {
+        if ( !isset($channels[$channel])) {
             $this->renderError('未配置管理后台[' . $channel . ']');
         }
         
         $channelInfo = $channels[$channel];
-        if ($channel != 'default' && $channel != 'universal') {
+        if ($channel != 'default') {
             // 判断频道是否有权限
             $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
             $this->checkPermission($channelCode);
@@ -95,11 +68,7 @@ class BackendPage extends BasePage {
         }
 
         // 过滤频道
-        $numberArray = BackendNumShowInterface::getNumber($this->userInfo);
         foreach ($channels as $key => $tmp) {
-            if (isset($numberArray[$tmp['code']])) {
-                $channels[$key]['text'] .= ' <font color="red">'.$numberArray[$tmp['code']].'</font>';
-            }
             $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
             if ($code != 'default' && !isset($permissions[$code])) {
                 unset($channels[$key]);
@@ -133,19 +102,6 @@ class BackendPage extends BasePage {
                     }
                     break;
                 }
-                if ($rediUrl && $_SERVER['REQUEST_URI'] != $rediUrl) {
-                    //判断业管是否欠费，欠费则跳转到缴费页面
-                    $payUrl = "http://bc.corp.273.cn/pay/dept/iframePaymentManagement";
-                    if ($this->userInfo['user']['role_id'] == 27) {
-                        require_once API_PATH . '/interface/MbsDeptClauseInterface.class.php';
-                        $hasRight = MbsDeptClauseInterface::hasRight(array('dept_id'=>$this->userInfo['user']['dept_id'],'right'=>1));
-                        if (!$hasRight) {
-                            ResponseUtil::redirect($payUrl);
-                        }
-                    }
-                    $host = $_SERVER['HTTP_HOST'];
-                    ResponseUtil::redirect('http://' . $host . $rediUrl);
-                }
             }
             // 设置一些模板变量
             if (defined('SET_MBS_MODULE')) {
@@ -158,8 +114,6 @@ class BackendPage extends BasePage {
             
             $this->view->assign('userInfo', $this->userInfo);
             
-            $this->view->assign('deptInfo', $this->deptInfo);
-            
             $changePwdUrl = SsoInterface::getChangePwdUrl();
             //print_r($changePwdUrl); exit;
             $this->view->assign('changePwdUrl', $changePwdUrl);
@@ -167,30 +121,7 @@ class BackendPage extends BasePage {
             $logoutUrl = SsoInterface::getLogoutUrl();
             
             $this->view->assign('logoutUrl', $logoutUrl);
-            //home.273.com.cn
-            $id = rand(11111,99999);
-            $key = $this->makeKey($id, $this->userInfo['user']['username']);
-            $commulicationUrl = 'http://home.273.com.cn/member/login.php?onlineId='.intval($id).'&username='.intval($this->userInfo['user']['username']).'&key='.$key;
-            $this->view->assign('commulicationUrl', $commulicationUrl);
-            $videoUrl = 'http://mbs.corp.273.cn/mbs_video/videoAll/iframeIndex';
-            $this->view->assign('videoUrl', $videoUrl);
-            //高级搜索相关变量
-            $proList = Search::getProList();
-            $this->view->assign('provinceList',$proList);
-            $searchPathUrl = '/mbs_index/Search/advancedSearch';
-            $this->view->assign('searchPathUrl', $searchPathUrl);
         }
-    }
-
-    public function makeKey($onlineId, $userId, $mid = null) {
-        $string = md5($onlineId . $userId . $mid);
-        $array = str_split($string, 2);
-        $newSort = array(4, 5, 6, 0, 1, 2, 13, 14, 15, 3, 7, 8, 12, 11, 10, 9);
-        $newArray = array();
-        foreach ($newSort as $k) {
-            $newArray[] = $array[$k];
-        }
-        return implode('', $newArray);
     }
 
     public function init() {
@@ -208,9 +139,6 @@ class BackendPage extends BasePage {
 
     // 检测是否拥用$code的权限，如果没有权限将提示错误
     protected function checkPermission ($code) {
-        if ($code=='video' || $code == 'shop') {
-            return true;
-        }
         if (isset($this->userInfo['Permisssions'][$code])) {
             return true;
         }
@@ -258,14 +186,6 @@ class BackendPage extends BasePage {
                 }
             }
             if (!$error) {
-                /*
-                include_once FRAMEWORK_PATH . '/util/gearman/LoggerGearman.class.php';
-                session_start();
-                LoggerGearman::logWarn(array(
-                    'data' => $_COOKIE['m_AUTH_STRING'] .  var_export($_SESSION, true) . var_export($_SERVER, true),
-                    'identity' => 'sso.debug.' . $_COOKIE['m_AUTH_STRING'],
-                ));
-                */
                 $ret = array();
                 $infoAndCode = array();
                 if ($permissionApp == 'bc') {
@@ -328,33 +248,6 @@ class BackendPage extends BasePage {
             }
         }
     }
-    
-    //检测是否需要显示门店管理处的服务之星
-    private function checkStarTips() {
-        if (empty($this->userInfo['user']['dept_id'])) {
-            return false;
-        }
-        include_once API_PATH . '/interface/mbs/MbsUserInterface2.class.php';
-        $uParams = array(
-            'filters' => array(
-                array('dept_id', '=', $this->userInfo['user']['dept_id']),
-                array('status', '=', 1),
-                array('is_server_star', '=', 1),
-            ),
-            'fields' => 'id',
-            'limit' => 1,
-        );
-        
-        $starUserList = MbsUserInterface2::getUserList($uParams);
-        $cn = $starUserList['total'];
-        $showTips = $cn > 0 ? 0 : 1;
-        if ($showTips && ($this->userInfo['user']['role_id'] == 26 || $this->userInfo['user']['role_id'] == 27)) {
-            $showTips = 1;
-        } else {
-            $showTips = 0;
-        }
-        $this->view->assign('showStarTips', $showTips);
-    }
 
     protected function render($data, $tpl = '') {
         $routeParams = Bootstrap::getRouteParams();
@@ -377,7 +270,6 @@ class BackendPage extends BasePage {
                 parent::render($data, $tpl);
             } else {
                 //小菜单也要把数字调出来，以菜单的URL地址进行匹对，因为权限编号很多会重复
-                $numberArray = BackendNumShowInterface::getNumber($this->userInfo);
                 $menuData    = $this->menu->getData();
                 if (is_array($menuData['menu'])) {
                     foreach ($menuData['menu'] as $mKey => $mItem) {
@@ -386,9 +278,6 @@ class BackendPage extends BasePage {
                             foreach ($childMenu as $cKey => $cItem) {
                                 //数量的KEY
                                 $numKey = urlencode($cItem['text']) . $cItem['url'] . $cItem['code'];
-                                if ($numberArray[$numKey]) {
-                                    $menuData['menu'][$mKey]['menu'][$cKey]['text'] .= '<span class="mr10">' . $numberArray[$numKey] . '</span>';
-                                }
                             }
                         }
                     }
@@ -401,31 +290,4 @@ class BackendPage extends BasePage {
         XhprofLog::logXhprof('backend');
         exit;
     }
-/*
-    protected function renderError($msg='操作失败，请重试！ ', $code=1) {
-        $routeParams = Bootstrap::getRouteParams();
-        $url = '/default/error/';
-        if ($routeParams['is_ajax']) {
-            $url .= 'ajax/';
-        } else if ($routeParams['is_iframe']) {
-            $url .= 'iframe/';
-        } else {
-            $url .= 'default/';
-        }
-        $url .= '?errorMessage=' . rawurlencode($msg) . '&errorCode=' . rawurlencode($code);
-        
-        $this->redirect($url);
-    }
-    
-    protected function redirect($url) {
-        if (!empty(BackendPageConfig::$JSONP_CALLBACK)) {
-            $url .= (strpos($url, '?') === false) ? '?' : '&';
-            $url .= BackendPageConfig::$JSONP_CALLBACK_NAME . '=' . rawurlencode(BackendPageConfig::$JSONP_CALLBACK);
-        }
-        
-        $routeParams = Bootstrap::getRouteParams();
-        
-        ResponseUtil::redirect($url, $routeParams['is_iframe']);
-    }
-    */
 }
