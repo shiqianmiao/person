@@ -6,7 +6,7 @@ require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
 require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
 require_once FRAMEWORK_PATH . '/mvc/PageVars.class.php';
 require_once FRAMEWORK_PATH . '/mvc/Bootstrap.class.php';
-require_once FRAMEWORK_PATH . '/util/gearman/LoggerGearman.class.php';
+
 // 加载配置文件
 require_once dirname(__FILE__) . '/' . (defined('APP_CONFIG_FILE_NAME') ? APP_CONFIG_FILE_NAME : 'config.inc.php');
 
@@ -42,7 +42,6 @@ if (!$displayError) {
     //捕获错误，显示404
     function sys_my_error($errno, $errstr, $errfile, $errline) {
         $attrs = Bootstrap::getRouteParams();
-        LoggerGearman::logFatal(array('data' => 'error--' . $errstr, 'identity' => 'sys_my_error'));
         ResponseUtil::redirect(sys_get_404_url(), $attrs['iframe']);
     }
     set_error_handler('sys_my_error', E_USER_ERROR);
@@ -50,7 +49,6 @@ if (!$displayError) {
     //捕获异常
     function sys_my_exception($exception) {
         $attrs = Bootstrap::getRouteParams();
-        LoggerGearman::logFatal(array('data' => 'exception--' . var_export($exception, TRUE), 'identity' => 'sys_my_exception'));
         ResponseUtil::redirect(sys_get_404_url(), $attrs['iframe']);
     }
     set_exception_handler('sys_my_exception');
