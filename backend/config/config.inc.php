@@ -15,109 +15,10 @@ class BackendPageConfig {
                 'code' => 'default',
                 'text' => '首页',
             ),            
-            'common' => array(
-                'code' => 'common',
-                'text' => '基础数据库',
-            ),
             'sso' => array(
                 'code' => 'sso',
                 'text' => '单点登录',
                 'dir'  => dirname(__FILE__) . '/../../sso/backend',
-            ),
-            'phone' => array(
-                'code' => 'phone',
-                'text' => '电话转接',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/phone',
-            ),            
-            'mbsNew' => array(
-                'code' => 'mbsNew',
-                'text' => '业管系统',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/mbsNew',
-            ),
-            'zs' => array(
-                'code' => 'zs',
-                'text' => '招商管理系统',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/zs',
-            ),
-            'score' => array(
-                'code' => 'score',
-                'text' => '积分排名系统',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/score',
-            ),
-            'log' => array(
-                'code' => 'log',
-                'text' => '日志查询系统',
-                'dir'  => dirname(__FILE__) . '/../../log'
-            ),
-//            'pay' => array(
-//                'code' => 'pay',
-//                'text' => '收银台系统',
-//                'dir'  => dirname(__FILE__) . '/../../pay/backend'
-//            ),
-            'adCenter' => array(
-                'code' => 'adCenter',
-                'text' => '推广中心 <font color="red">new</font>',
-                'dir'  => dirname(__FILE__) . '/../../ad_center/backend'
-            ),
-            'check' => array(
-                'code' => 'check',
-                'text' => '检测平台',
-                'dir'  => dirname(__FILE__) . '/../../check'
-            ),            
-//            'info' => array(
-//                    'code' => 'info',
-//                    'text' => '信息管理',
-//                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/info'
-//            ),
-            'push' => array(
-                    'code' => 'push',
-                    'text' => '消息推送',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/push'
-            ),
-            'webBackend' => array(
-                'code' => 'webBackend',
-                'text' => '主站后台',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/web_backend',
-            ),
-            'dept_payment' => array(
-                    'code' => 'dept_payment',
-                    'text' => '门店缴费',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/dept_payment'
-            ),
-            'shopInfo' => array(
-                'code' => 'shopInfo',
-                'text' => '门店信息管理系统',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/shopInfo',
-            ),
-            'feedback' => array(
-                    'code' => 'feedback',
-                    'text' => '用户评价',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/feedback'
-            ),
-            'chefubao' => array(
-                    'code' => 'chefubao',
-                    'text' => '车付宝',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/chefubao'
-            ),
-            'weixin' => array(
-                    'code' => 'weixin',
-                    'text' => '微信管理',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_common/weixin'
-            ),
-            'spider' => array(
-                    'code' => 'spider',
-                    'text' => '采集管理',
-                    'dir'  => dirname(__FILE__) . '/../../mbs_v3/spider'
-            ),
-            'distribution' => array(
-                    'code' => 'distribution',
-                    'text' => '分销平台',
-                    'dir'  => dirname(__FILE__) . '/../../distribution/backend'
-            ),            
-            'car_type' => array(
-                'code' => 'car_type',
-                'text' => '车型库管理',
-                'dir'  => dirname(__FILE__) . '/../../mbs_v3/car_type'
             ),
         );
     }

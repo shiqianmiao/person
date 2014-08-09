@@ -1,7 +1,6 @@
 <?php
 
 require_once dirname(__FILE__) . '/include/SsoBasePage.class.php';
-require_once API_PATH . '/model/MbsDeptModel.class.php';
 
 /**
  * @brief 组管理
@@ -128,39 +127,6 @@ class GroupPage extends SsoBasePage {
             'number' => $number,
             'name' => $groupRow['name'],
         ), 'group_user_manager.php');
-    }
-    
-    public function ajaxGetOtherUserAction() {
-        
-        $userTable = new SsoUserModel();
-        $account = RequestUtil::getPOST('account');
-        
-        //用于提取‘拍车宝车源交易顾问’
-        if($account == '拍车宝车源交易顾问'){
-        $deptTable = new MbsDeptModel();
-        $deptIds = $deptTable->getAll('id', array(array('dept_name', 'like', '%福州%')));
-        $tmp = array();
-        foreach ($deptIds as $val) {
-        	foreach ($val as $value) {
-        		$tmp[] = $value;
-        	}
-        }
-        $all = $userTable->getAll('*', array(array('dept_id', 'in', $tmp), array('status', '=', 1), array('role_id', '=', 28)));
-        } else {
-        	$id = (int) $account;
-        	$all = $userTable->getAll('*', array(
-        			array('OR'=> array(
-        					array('id', '=', $id),
-        					array('username', '=', $id),
-        					array('real_name', 'like', '%' . $account . '%'),
-        			)),
-        			array('status', '=', 1),
-        	));
-        }
-        
-        $this->render(array(
-            'all' => $all,
-        ));
     }
     
     public function ajaxAddUserToGroupAction() {

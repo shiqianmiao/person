@@ -279,12 +279,12 @@ class HttpRequest
             $errno = curl_errno($ch);
             $error = curl_error($ch);
             curl_close($ch);
-            throw new Exception(sprintf('curl_errno=%s, curl_error=%s', $errno, $error));
+            //throw new Exception(sprintf('curl_errno=%s, curl_error=%s', $errno, $error));
         } elseif (empty($result)) {
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             if ($httpCode != 200) {
                 curl_close($ch);
-                throw new Exception(sprintf('http response status code: %s', $httpCode));
+                //throw new Exception(sprintf('http response status code: %s', $httpCode));
             }
         }
 

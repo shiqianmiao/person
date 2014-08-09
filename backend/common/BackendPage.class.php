@@ -32,7 +32,7 @@ class BackendPage extends BasePage {
         if ($debugTime) {
             $beginTime = microtime();
         }
-        $this->checkUser();
+        //$this->checkUser();
         if ($debugTime) {
             echo microtime() - $beginTime;
         }
@@ -52,30 +52,30 @@ class BackendPage extends BasePage {
         if ($channel != 'default') {
             // 判断频道是否有权限
             $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
-            $this->checkPermission($channelCode);
+            //$this->checkPermission($channelCode);
             //判断模块是否有权限
             $file = $routeParams['channel_dir'] . '/config/code.inc.php';
             if (file_exists($file)) {
                 $codeData = include $file;
                 $moduleAction = $routeParams['module'] . '.' . $routeParams['action'];
                 $module = $routeParams['module'];
-                if (isset($codeData[$moduleAction])) {
+                /*if (isset($codeData[$moduleAction])) {
                     $this->checkPermission($codeData[$moduleAction]);
                 } else if (isset($codeData[$module])) {
                     $this->checkPermission($codeData[$module]);
-                }
+                }*/
             }
         }
 
         // 过滤频道
-        foreach ($channels as $key => $tmp) {
+        /*foreach ($channels as $key => $tmp) {
             $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
             if ($code != 'default' && !isset($permissions[$code])) {
                 unset($channels[$key]);
             } elseif (!$this->deptInfo['is_contract'] && $code == 'mbs_contract') {
                 unset($channels[$key]);
             }
-        }
+        }*/
         if (!$routeParams['is_ajax'] && !$routeParams['is_iframe']) {
             // 载入菜单
             $this->menu = new Menu((array) $permissions, (array) $channels);
