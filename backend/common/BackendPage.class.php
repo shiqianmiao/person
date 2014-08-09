@@ -7,7 +7,7 @@ require_once BACKEND . '/common/Menu.class.php';
 require_once BACKEND . '/common/Normal.class.php';
 
 class BackendPage extends BasePage {
-
+    const BC_DOMAIN = '.miaosq.com';
     protected $userInfo;
     protected $menu;
 
@@ -32,7 +32,7 @@ class BackendPage extends BasePage {
         if ($debugTime) {
             $beginTime = microtime();
         }
-        //$this->checkUser();
+        $this->checkUser();
         if ($debugTime) {
             echo microtime() - $beginTime;
         }
@@ -164,7 +164,7 @@ class BackendPage extends BasePage {
             if (!empty($sessUesrInfo['user']['username']) && $_COOKIE['m_AUTH_STRING'] == $sessUesrInfo['cookie']) {
                 $info = SsoInterface::parsePassport(array('passport' => $_COOKIE['m_AUTH_STRING']));
                 if (count($info) < 4) {
-                    setcookie('m_AUTH_STRING', '', time()-1, '/', '.corp.273.cn');
+                    setcookie('m_AUTH_STRING', '', time()-1, '/', SELF::BC_DOMAIN);
                     $error = 1;
                 } elseif (time() - $info[3] > 300 && false) {
                     if (substr($sessUesrInfo['user']['passwd'],0,16) == $info[1]) {
@@ -175,9 +175,9 @@ class BackendPage extends BasePage {
                                         'create_time' => $info[2], 
                                         'check_time' => time()
                         ));
-                        setcookie('m_AUTH_STRING', $newPassport, 0, '/', '.corp.273.cn');
+                        setcookie('m_AUTH_STRING', $newPassport, 0, '/', SELF::BC_DOMAIN);
                     } else {
-                        setcookie('m_AUTH_STRING', '', time()-1, '/', '.corp.273.cn');
+                        setcookie('m_AUTH_STRING', '', time()-1, '/', SELF::BC_DOMAIN);
                         $error = 1;
                     }
                 } else {
@@ -226,7 +226,7 @@ class BackendPage extends BasePage {
                     $this->userInfo = $ret;
                     return true;
                 } else {
-                    setcookie('m_AUTH_STRING', '', time()-1, '/', '.corp.273.cn');
+                    setcookie('m_AUTH_STRING', '', time()-1, '/', SELF::BC_DOMAIN);
                     $this->renderError('你没有权限，请尝试刷新页面，或重新登录', 'not-login');
                 }
             }

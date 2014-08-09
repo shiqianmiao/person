@@ -5,8 +5,8 @@ require_once dirname(__FILE__) . '/include/SsoData.class.php';
  */
 
 class AccountPage extends Page {
-    
-    public $defaultUrl = 'http://mbs.corp.273.cn/';
+    public $bcDomain = '.miaosq.com';
+    public $defaultUrl = 'http://bc.miaosq.com/';
     public function loginAction() {
         
         $ssoTicket = $_COOKIE['m_AUTH_STRING'];
@@ -41,7 +41,7 @@ class AccountPage extends Page {
         
         // 设置m_AUTH_STRING，设置cookie
         $ssoTicket = SsoData::encodeSsoTicket($account, $password);
-        setcookie('m_AUTH_STRING', $ssoTicket, 0, '/', '.corp.273.cn');
+        setcookie('m_AUTH_STRING', $ssoTicket, 0, '/', $this->bcDomain);
         
         $userTable = new SsoUserModel();
         $logTable = new SsoLogModel();

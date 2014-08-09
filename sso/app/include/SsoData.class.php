@@ -58,7 +58,7 @@ class SsoData {
      */
     public static function getUserWhenLogin($account, $password) {
         
-        if (empty($account) || empty($password) || !is_numeric($account)) {
+        if (empty($account) || empty($password) ) {
             return null;
         }
         

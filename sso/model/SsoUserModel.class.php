@@ -10,11 +10,11 @@ require_once CONF_PATH . '/db/DBConfig.class.php';
 class SsoUserModel extends BaseModel {
     
     protected function init($id = '') {
-        $this->dbName         = DBConfig::DB_MBS;
-        $this->tableName      = 'mbs_user'; 
+        $this->dbName              = DBConfig::DB_BC;
+        $this->tableName         = 'user'; 
         $this->dbMasterConfig = DBConfig::$SERVER_MASTER; 
-        $this->dbSlaveConfig  = DBConfig::$SERVER_SLAVE; 
-        $this->fieldTypes     = array(
+        $this->dbSlaveConfig    = DBConfig::$SERVER_SLAVE; 
+        $this->fieldTypes           = array(
             'id'         => 'INT',
             'username'   => 'VARCHAR',
             'passwd'     => 'VARCHAR',
@@ -23,11 +23,9 @@ class SsoUserModel extends BaseModel {
             'email'      => 'VARCHAR',
             'mobile'     => 'BIGINT',
             'role_id'    => 'INT',
-            'dept_id'    => 'INT',
             'inert_time' => 'INT',
             'status'     => 'INT',
             'birth_day'   => 'INT',
-            'modify_pwd'  => 'INT',
             'login_count' => 'INT',
             'last_login_time' => 'INT',
         );

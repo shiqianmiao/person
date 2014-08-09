@@ -7,18 +7,9 @@ class DBConfig {
    /**
     * 数据库名称
     */
-    const DB_CAR          = 'wcar';
-    const DB_LOG          = 'wcar_o2m';
-    const DB_MBS          = 'mbs';
-    const DB_CARTYPE      = 'car_type';
-    const DB_CHECK        = 'car_check';
-    const DB_PAYMENT      = 'payment';
-    const DB_TEST         = '273test';
-    const DB_DISTRIBUTION = 'distribution';
-    const DB_PAYFOR = 'pay_for';
-    const DB_AUCTION = 'auction';
-    //日志库
-    const DB_LOGS = 'logs';
+   //后台数据库
+    const DB_BC = 'bc';
+    const DB_SSO = 'sso';
 
    /**
     * 主库
@@ -34,12 +25,45 @@ class DBConfig {
     const COMMON_SLAVE_USERNAME = 'root';
     const COMMON_SLAVE_PASSWD   = 'MSQ110mm';
     const COMMON_SLAVE_PORT     = '3306';
-    
-   /**
-    * 响应慢查询从库
-    */
-    const SLOW_SLAVE_HOST = '192.168.5.31';
 
+    /**
+     * sso数据库
+     */
+    const SSO_HOST = '218.244.141.149';
+    const SSO_USERNAME = 'root';
+    const SSO_PASSWD = 'MSQ110mm';
+    const SSO_PORT = '3306';
+
+
+    public static $SERVER_MASTER = array(
+        'host'            => self::COMMON_MASTER_HOST,
+        'username'  => self::COMMON_MASTER_USERNAME,
+        'password'  => self::COMMON_MASTER_PASSWD,
+        'port'            => self::COMMON_MASTER_PORT,
+    );
+
+    public static $SERVER_SLAVE = array(
+        'host'      => self::COMMON_SLAVE_HOST,
+        'username'  => self::COMMON_SLAVE_USERNAME,
+        'password'  => self::COMMON_SLAVE_PASSWD,
+        'port'      => self::COMMON_SLAVE_PORT,
+    );
+
+    public static $SSO_MASTER = array(
+        'host'      => self::SSO_HOST,
+        'username'  => self::SSO_USERNAME,
+        'password'  => self::SSO_PASSWD,
+        'port'      => self::SSO_PORT,
+    );
+    
+    public static $SSO_SLAVE = array(
+        'host'      => self::SSO_HOST,
+        'username'  => self::SSO_USERNAME,
+        'password'  => self::SSO_PASSWD,
+        'port'      => self::SSO_PORT,
+    );
+
+//====================================================
    /**
     * 电话转接数据库
     */
@@ -62,15 +86,6 @@ class DBConfig {
     const TONJI_USERNAME = 'tongji_backend';
     const TONJI_PASSWD = 'tongji273';
     const TONJI_PORT = '3306';
-    
-    /**
-     * sso数据库
-     */
-    const DB_SSO = 'sso';
-    const SSO_HOST = '192.168.5.15';//192.168.5.15
-    const SSO_USERNAME = 'tongji_backend';
-    const SSO_PASSWD = 'tongji273';
-    const SSO_PORT = '3306';
 
     public static $TONGJI_MASTER = array(
             'host'      => self::TONGJI_HOST,
@@ -86,27 +101,6 @@ class DBConfig {
         'port' => 3306
     );
 
-    public static $SERVER_MASTER = array(
-        'host'      => self::COMMON_MASTER_HOST,
-        'username'  => self::COMMON_MASTER_USERNAME,
-        'password'  => self::COMMON_MASTER_PASSWD,
-        'port'      => self::COMMON_MASTER_PORT,
-    );
-
-    public static $SERVER_SLAVE = array(
-        'host'      => self::COMMON_SLAVE_HOST,
-        'username'  => self::COMMON_SLAVE_USERNAME,
-        'password'  => self::COMMON_SLAVE_PASSWD,
-        'port'      => self::COMMON_SLAVE_PORT,
-    );
-    //响应慢查询从库
-    public static $SLOW_SERVER_SLAVE = array(
-        'host'      => self::SLOW_SLAVE_HOST,
-        'username'  => self::COMMON_SLAVE_USERNAME,
-        'password'  => self::COMMON_SLAVE_PASSWD,
-        'port'      => self::COMMON_SLAVE_PORT,
-    );
-
     public static $CT_PHONE_MASTER = array(
         'host'      => self::CT_PHONE_HOST,
         'username'  => self::CT_PHONE_USERNAME,
@@ -120,19 +114,6 @@ class DBConfig {
         'port'      => self::CT_PHONE_PORT,
     );
     
-    public static $SSO_MASTER = array(
-        'host'      => self::SSO_HOST,
-        'username'  => self::SSO_USERNAME,
-        'password'  => self::SSO_PASSWD,
-        'port'      => self::SSO_PORT,
-    );
-    
-    public static $SSO_SLAVE = array(
-        'host'      => self::SSO_HOST,
-        'username'  => self::SSO_USERNAME,
-        'password'  => self::SSO_PASSWD,
-        'port'      => self::SSO_PORT,
-    );
     public static $PAYFOR_MASTER = array(
         'host'      => self::PAYFOR_HOST,
         'username'  => self::PAYFOR_USERNAME,

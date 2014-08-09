@@ -4,7 +4,7 @@ require_once FRAMEWORK_PATH . '/util/db/BaseModel.class.php';
 require_once CONF_PATH . '/db/DBConfig.class.php';
 
 /**
- * @author aozhongxu
+ * @author miaoshiqian
  */
 
 class SsoLogModel extends BaseModel {

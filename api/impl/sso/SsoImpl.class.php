@@ -15,7 +15,7 @@ class SsoImpl {
      * @return array
      */
     public static function getUserInfo($passport) {
-        $ret = HttpRequest::curlPost('http://sso.corp.273.cn/account/getUserInfo', array(
+        $ret = HttpRequest::curlPost('http://sso.miaosq.com/account/getUserInfo', array(
             'm_AUTH_STRING' => $passport,
         ), 20);
         return (array) json_decode($ret);
@@ -28,7 +28,7 @@ class SsoImpl {
         if (empty($app)) {
             return false;
         }
-        $ret = HttpRequest::curlPost('http://sso.corp.273.cn/account/getAllCode', array(
+        $ret = HttpRequest::curlPost('http://sso.miaosq.com/account/getAllCode', array(
             'app' => $app,
             'm_AUTH_STRING' => $passport,
         ), 20);
@@ -42,7 +42,7 @@ class SsoImpl {
         if (empty($app)) {
             return false;
         }
-        $ret = HttpRequest::curlPost('http://sso.corp.273.cn/account/getInfoAndCode', array(
+        $ret = HttpRequest::curlPost('http://sso.miaosq.com/account/getInfoAndCode', array(
             'app' => $app,
             'm_AUTH_STRING' => $passport,
             ), 20);
@@ -53,7 +53,7 @@ class SsoImpl {
      * @return boolean
      */
     public static function checkCode($code, $app, $passport) {
-        $ret = HttpRequest::curlPost('http://sso.corp.273.cn/account/checkCode', array(
+        $ret = HttpRequest::curlPost('http://sso.miaosq.com/account/checkCode', array(
             'code' => $code,
             'app' => $app,
             'm_AUTH_STRING' => $passport,
@@ -65,7 +65,7 @@ class SsoImpl {
      * @return boolean
      */
     private static function checkUser($passport) {
-        $ret = HttpRequest::curlPost('http://sso.corp.273.cn/account/checkUser', array(
+        $ret = HttpRequest::curlPost('http://sso.miaosq.com/account/checkUser', array(
             'm_AUTH_STRING' => $passport,
         ), 20);
         return json_decode($ret);
@@ -83,14 +83,14 @@ class SsoImpl {
 
     public static function getLoginUrl() {
         $refer = urlencode('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-        return 'http://sso.corp.273.cn/account/login/?refer=' . $refer;
+        return 'http://sso.miaosq.com/account/login/?refer=' . $refer;
     }
     
     /**
      * @brief logout是手动的，所以返url
      */
     public static function getLogoutUrl() {
-        return 'http://sso.corp.273.cn/account/logout/';
+        return 'http://sso.miaosq.com/account/logout/';
     }
     /**
      *@breif 获取passport
@@ -165,7 +165,7 @@ class SsoImpl {
      * @return string
      */
     public static function getChangePwdUrl() {
-        return 'http://sso.corp.273.cn/Account/changePwd/';
+        return 'http://sso.miaosq.com/Account/changePwd/';
     }
     
     /**
