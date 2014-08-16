@@ -1,6 +1,6 @@
 <?php
 return array(
-            array(
+            /*array(
                 'text' => '添加用户',
                 'url'  => '/sso/user/add',
             ),
@@ -15,7 +15,7 @@ return array(
             array(
                 'text' => '物理删除用户',
                 'url'  => '/sso/user/delete',
-            ),
+            ),*/
             array(
                 'text' => '添加组',
                 'url'  => '/sso/group/add',
