@@ -5,7 +5,7 @@
  * @since 2013-9-2
  */
 set_time_limit(0);
-define('APP_CONFIG_FILE_NAME', 'config.inc.php');
+define('APP_CONFIG_FILE_NAME', 'mbsConfig.inc.php');
 define('PERMISSION_APP_NAME', 'mbs.bc');
 //define('SET_DEFAULT_PAGE', '/mbs_index/showIndex'); //定义默认页面
 

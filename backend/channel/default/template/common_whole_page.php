@@ -2,7 +2,7 @@
 <html lang="zh_CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>273后台管理系统</title>
+<title>后台管理系统</title>
 <script type="text/javascript" charset="utf-8" src="http://sta.273.cn/cgi/ganji_sta.php?file=ganji,js/util/jquery/jquery-1.7.2.js,app/backend/js/backend.js,app/backend/css/bootstrap.css&configDir=<?php echo $this->channelInfo['sta_config_dir']; ?>"></script>
 </head>
 <body>

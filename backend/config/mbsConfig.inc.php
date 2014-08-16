@@ -19,7 +19,12 @@ class BackendPageConfig {
                 'code' => 'default',
                 'text' => '首页',
             ),
-            'mbs_index' => array(
+            'sso' => array(
+                'code' => 'sso',
+                'text' => '单点登录',
+                'dir'  => dirname(__FILE__) . '/../../sso/backend',
+            ),
+            /*'mbs_index' => array(
                 'text' => '业管首页',
                 'banner_code' => 'can not see',
                 'dir'  => dirname(__FILE__) . '/../../mbs_yg/mbs_index',
@@ -31,7 +36,7 @@ class BackendPageConfig {
             'mbs_post' => array(
                 'text' => '车源管理',
                 'dir'  => dirname(__FILE__) . '/../../mbs_yg/mbs_post',
-            ),            
+            ),   */         
         );
     }
 
