@@ -46,7 +46,9 @@
         <div class="nav-collapse1">
             <ul class="nav navigation">
                 <?php foreach ($this->channels as $channel => $channelInfo) {?>
-                    <li><a href="/<?php echo $channel; ?>/"><?php echo $channelInfo['text']; ?></a></li>
+                    <li <?php if ($this->channelInfo['code'] == $channelInfo['code']){?>class="active"<?php }?>>
+                        <a href="/<?php echo $channel; ?>/"><?php echo $channelInfo['text']; ?></a>
+                    </li>
                 <?php } ?>
             </ul>
         </div>
