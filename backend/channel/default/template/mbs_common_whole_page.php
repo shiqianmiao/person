@@ -99,7 +99,6 @@
             </div>
             <div id='alerts-container'></div>
         </div>
-
     </div>
 </div>
 <style>
@@ -135,7 +134,7 @@ G.use(['app/backend/js/backend.js', 'jquery', 'util/cookie.js'], function (Backe
     });
 });
 
-G.use(['util/log_v2.js', 'jquery', 'util/uuid_v2.js'], function (Log, $, Uuid) {
+/*G.use(['util/log_v2.js', 'jquery', 'util/uuid_v2.js'], function (Log, $, Uuid) {
     var log = new Log({eqsch:'mbs/'} || {});
 
     log.bindTrackEvent();
@@ -144,7 +143,7 @@ G.use(['util/log_v2.js', 'jquery', 'util/uuid_v2.js'], function (Log, $, Uuid) {
     setTimeout(function () {
         Uuid.detect();
     }, 1000);
-});
+});*/
 </script>
 
 </body>
