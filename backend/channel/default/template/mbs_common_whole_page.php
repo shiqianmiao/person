@@ -67,84 +67,74 @@
             -->
         </div>
     </div>
-
-<div class="container-fluid containers">
-    <div class="row-fluid">
-        <!--sidebar-->
-        <div data-widget="sidebar" data-source="<?php echo htmlspecialchars(json_encode($this->menu)); ?>" id="sidebar" class="sidebar">
-            <div id="caidan" class="clearfix">
-                <div class="clearfix">
-                    <?php if (empty($this->mbsAppModule)) {?>
-                          <a href="/mbs_index/showIndex" style="margin-left:35px;font-size:12px;font-weight:bold;text-decoration:none;color:#205484;"><i></i>业管首页</a>
-                    <?php }?>
-                </div>
-                <ul class="nav nav-list" id="menu">
-                </ul>
-            </div>
-        </div>
-        <!--/sidebar-->
-        <!-- 是否显示菜单判断 -->
-        <?php 
-            $showNoMueu = false;
-            if($this->showNoMenu) {
-                $showNoMueu = true;
-            } 
-        ?>
-
-        <div class="container-fluid">
-            <div class='row-fluid' id="main">
-                <div class="main">
-                <?php $this->load($this->fileBody); ?>
+    
+    <div class="container-fluid containers">
+        <div class="row-fluid">
+            <!--sidebar-->
+            <div data-widget="sidebar" data-source="<?php echo htmlspecialchars(json_encode($this->menu)); ?>" id="sidebar" class="sidebar">
+                <div id="caidan" class="clearfix">
+                    <div class="clearfix">
+                        <?php if (empty($this->mbsAppModule)) {?>
+                              <a href="/mbs_index/showIndex" style="margin-left:35px;font-size:12px;font-weight:bold;text-decoration:none;color:#205484;"><i></i>业管首页</a>
+                        <?php }?>
+                    </div>
+                    <ul class="nav nav-list" id="menu">
+                    </ul>
                 </div>
             </div>
-            <div id='alerts-container'></div>
+            <!--/sidebar-->
+            <!-- 是否显示菜单判断 -->
+            <?php 
+                $showNoMueu = false;
+                if($this->showNoMenu) {
+                    $showNoMueu = true;
+                } 
+            ?>
+            
+            <div class="container-fluid">
+                <div class='row-fluid' id="main">
+                    <div class="main">
+                    <?php $this->load($this->fileBody); ?>
+                    </div>
+                </div>
+                <div id='alerts-container'></div>
+            </div>
         </div>
     </div>
-</div>
-<style>
-.tipsbox{ border:1px solid #ff7300; background:#fef6df; font-size:12px; color:#000; position:relative;}
-.tipsw250{ width:250px;}
-.tipsw200{ width:200px;}
-.tipsclose{ background:url(http://att.273.com.cn/ms/crm_tipsico.gif) -28px 0; width:10px; height:10px; overflow:hidden; text-indent:-999em; position:absolute; right:10px; top:10px}
-.tipsclose a{ display:block;width:10px; height:10px;}
-.tipsclose a:hover{background:url(http://att.273.com.cn/ms/crm_tipsico.gif) -38px 0; }
-.tipstxt{padding:10px; line-height:20px;}
-.tipstxt h4{ font-size:18px; padding:10px 0 10px; margin:0; text-align:center;}
-.tipstxt p{ margin:0; padding:0; text-align:center;}
-.tipsico1,.tipsico2,.tipsico3{width:14px; height:8px; overflow:hidden; position:absolute; background-image:url(http://att.273.com.cn/ms/crm_tipsico.gif); background-position:0 0; }
-.tipsico1{ right:25px; top:-8px}
-.tipsico2{ left:25px; top:-8px}
-.tipsico3{ background-position:-14px 0; left:25px; bottom:-8px}
-.tipsbtn{ background:#FF7E53; height:24px; text-align:center; line-height:24px; color:#fff; margin:0 10px 10px;}
-.tipsbtn a,.tipsbtn2 a{color:#fff; text-decoration:none; display:block; height:24px;}
-.tipsbtn a:hover,.tipsbtn2 a:hover{text-decoration:underline;}
-.tipsbtn2{ background:#FF7E53; height:24px; text-align:center; line-height:24px; color:#fff; margin:0 10px 10px; width:100px; float:right;}
-.tipsform{ width:100px; float:left; padding:3px 0 0 10px; vertical-align:middle;}
-.tipsform input{ float:left}
-.tipsinfo label{ float:left;font-size:12px;}
-.clear{ clear:both; height:0px; line-height:1px; font-size:0; overflow:hidden;}
-</style>
-<script type="text/javascript">
-
-G.use(['app/backend/js/backend.js', 'jquery', 'util/cookie.js'], function (Backend, $, Cookie) {
-    Backend.run();
-
-    Backend.on('dept_name_click', function() {
-        $('.setting_nume').toggle();
+    <style>
+    .tipsbox{ border:1px solid #ff7300; background:#fef6df; font-size:12px; color:#000; position:relative;}
+    .tipsw250{ width:250px;}
+    .tipsw200{ width:200px;}
+    .tipsclose{ background:url(http://att.273.com.cn/ms/crm_tipsico.gif) -28px 0; width:10px; height:10px; overflow:hidden; text-indent:-999em; position:absolute; right:10px; top:10px}
+    .tipsclose a{ display:block;width:10px; height:10px;}
+    .tipsclose a:hover{background:url(http://att.273.com.cn/ms/crm_tipsico.gif) -38px 0; }
+    .tipstxt{padding:10px; line-height:20px;}
+    .tipstxt h4{ font-size:18px; padding:10px 0 10px; margin:0; text-align:center;}
+    .tipstxt p{ margin:0; padding:0; text-align:center;}
+    .tipsico1,.tipsico2,.tipsico3{width:14px; height:8px; overflow:hidden; position:absolute; background-image:url(http://att.273.com.cn/ms/crm_tipsico.gif); background-position:0 0; }
+    .tipsico1{ right:25px; top:-8px}
+    .tipsico2{ left:25px; top:-8px}
+    .tipsico3{ background-position:-14px 0; left:25px; bottom:-8px}
+    .tipsbtn{ background:#FF7E53; height:24px; text-align:center; line-height:24px; color:#fff; margin:0 10px 10px;}
+    .tipsbtn a,.tipsbtn2 a{color:#fff; text-decoration:none; display:block; height:24px;}
+    .tipsbtn a:hover,.tipsbtn2 a:hover{text-decoration:underline;}
+    .tipsbtn2{ background:#FF7E53; height:24px; text-align:center; line-height:24px; color:#fff; margin:0 10px 10px; width:100px; float:right;}
+    .tipsform{ width:100px; float:left; padding:3px 0 0 10px; vertical-align:middle;}
+    .tipsform input{ float:left}
+    .tipsinfo label{ float:left;font-size:12px;}
+    .clear{ clear:both; height:0px; line-height:1px; font-size:0; overflow:hidden;}
+    </style>
+    
+    <script type="text/javascript">
+        
+    G.use(['app/backend/js/backend.js', 'jquery', 'util/cookie.js'], function (Backend, $, Cookie) {
+        Backend.run();
+        
+        Backend.on('dept_name_click', function() {
+            $('.setting_nume').toggle();
+        });
     });
-});
-
-/*G.use(['util/log_v2.js', 'jquery', 'util/uuid_v2.js'], function (Log, $, Uuid) {
-    var log = new Log({eqsch:'mbs/'} || {});
-
-    log.bindTrackEvent();
-
-    // uuid 检测
-    setTimeout(function () {
-        Uuid.detect();
-    }, 1000);
-});*/
-</script>
-
+    </script>
+    
 </body>
 </html>
