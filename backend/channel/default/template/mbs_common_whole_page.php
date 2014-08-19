@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh_CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>后台系统</title>
-<?php echo $this->commonStaHtml;?>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>后台系统</title>
+    <?php echo $this->commonStaHtml;?>
 </head>
+
 <body>
 <div class="topnav clearfix">
     <div class="fl ml10">
