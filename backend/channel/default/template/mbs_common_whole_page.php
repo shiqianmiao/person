@@ -7,66 +7,66 @@
 </head>
 
 <body>
-<div class="topnav clearfix">
-    <div class="fl ml10">
-        <span class="topnav-user"><a data-action-type="dept_name_click" href="javascript:;"><?php echo $this->userInfo['user']['real_name'];?> (<?php echo $this->deptInfo['dept_name'];?>)<i></i></a></span>
-        <span class="ml10"><a href="<?php echo $this->logoutUrl; ?>?refer=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST']);?>">退出</a></span>
-    </div>
-    
-    <div class="setting_nume" style="display:none;">
-        <ul>
-            <li><a target="_blank" href="http://sso.corp.273.cn/profile/userView/">个人设置</a></li>
-            <li><a target="_blank" href="<?php echo $this->changePwdUrl; ?>">修改密码</a></li>
-        </ul>
-    </div>
-    
-    <div class="fr mr10">
-        <span><i></i><a href="http://v.youku.com/v_show/id_XNjMzODQ3MDgw.html" target="_blank">一路阳光MV</a></span>
-        <span><i class="app"></i><a href="/mbs_index/showPhone" target="_blank">手机业管</a></span>
-        <span><a href="<?php echo $this->videoUrl; ?>" title="" target="_blank">培训视频</a></span>
-        <span><a href="<?php echo $this->commulicationUrl; ?>" title="" target="_blank">内部论坛</a></span>
-        <span><a href="http://shop107160827.taobao.com" title="" target="_blank">物资申领</a></span>
-        <span><a href="http://273.21tb.com" target="_blank">在线学习</a></span>
-        <span class="wtfk"><a href="/mbs_post/carListOp/addFeed/" target="_blank">投诉反馈</a></span>
-    </div>
-</div>
-
-<div class="navbar" id="navbar" name="navbar">
-    <div class="container-fluid">
-        <div style="display:none">
-        <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button> 
+    <div class="topnav clearfix">
+        <div class="fl ml10">
+            <span class="topnav-user"><a data-action-type="dept_name_click" href="javascript:;"><?php echo $this->userInfo['user']['real_name'];?> (<?php echo $this->deptInfo['dept_name'];?>)<i></i></a></span>
+            <span class="ml10"><a href="<?php echo $this->logoutUrl; ?>?refer=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST']);?>">退出</a></span>
         </div>
-        <a class="logo" href="/mbs_index/showIndex/">273业务管理系统</a>
-        <span class="localname"></span>
-        <div class="nav-collapse1" style="display:none"></div>
-        <div class="nav-collapse1">
-            <ul class="nav navigation">
-                <?php foreach ($this->channels as $channel => $channelInfo) {?>
-                    <li <?php if ($this->channelInfo['code'] == $channelInfo['code']){?>class="active"<?php }?>>
-                        <a href="/<?php echo $channel; ?>/"><?php echo $channelInfo['text']; ?></a>
-                    </li>
-                <?php } ?>
+        
+        <div class="setting_nume" style="display:none;">
+            <ul>
+                <li><a target="_blank" href="http://sso.corp.273.cn/profile/userView/">个人设置</a></li>
+                <li><a target="_blank" href="<?php echo $this->changePwdUrl; ?>">修改密码</a></li>
             </ul>
         </div>
         
-        <!--
-        <div class="nav-collapse">
-            <div class="btn-group userexit-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown"  data-widget="dropdown"><i class="i-user"></i><?php echo $this->userInfo['user']['account']; ?><span class="icon-chevron-down"></span></button>
-                <ul class="dropdown-menu">
-                    <li><a href=""><i class="icon-off"></i>修改密码</a></li>
-                    <li><a href=""><i class="icon-off"></i>Logout</a></li>
+        <div class="fr mr10">
+            <span><i></i><a href="http://v.youku.com/v_show/id_XNjMzODQ3MDgw.html" target="_blank">一路阳光MV</a></span>
+            <span><i class="app"></i><a href="/mbs_index/showPhone" target="_blank">手机业管</a></span>
+            <span><a href="<?php echo $this->videoUrl; ?>" title="" target="_blank">培训视频</a></span>
+            <span><a href="<?php echo $this->commulicationUrl; ?>" title="" target="_blank">内部论坛</a></span>
+            <span><a href="http://shop107160827.taobao.com" title="" target="_blank">物资申领</a></span>
+            <span><a href="http://273.21tb.com" target="_blank">在线学习</a></span>
+            <span class="wtfk"><a href="/mbs_post/carListOp/addFeed/" target="_blank">投诉反馈</a></span>
+        </div>
+    </div>
+
+    <div class="navbar" id="navbar" name="navbar">
+        <div class="container-fluid">
+            <div style="display:none">
+            <button type="button" class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> 
+            </div>
+            <a class="logo" href="/mbs_index/showIndex/">273业务管理系统</a>
+            <span class="localname"></span>
+            <div class="nav-collapse1" style="display:none"></div>
+            <div class="nav-collapse1">
+                <ul class="nav navigation">
+                    <?php foreach ($this->channels as $channel => $channelInfo) {?>
+                        <li <?php if ($this->channelInfo['code'] == $channelInfo['code']){?>class="active"<?php }?>>
+                            <a href="/<?php echo $channel; ?>/"><?php echo $channelInfo['text']; ?></a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
-            <button class="btn btn-yjfk" data-action-type="feed"><i class="i-yjfk"></i>意见反馈</button>
+            
+            <!--
+            <div class="nav-collapse">
+                <div class="btn-group userexit-group">
+                    <button class="btn dropdown-toggle" data-toggle="dropdown"  data-widget="dropdown"><i class="i-user"></i><?php echo $this->userInfo['user']['account']; ?><span class="icon-chevron-down"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href=""><i class="icon-off"></i>修改密码</a></li>
+                        <li><a href=""><i class="icon-off"></i>Logout</a></li>
+                    </ul>
+                </div>
+                <button class="btn btn-yjfk" data-action-type="feed"><i class="i-yjfk"></i>意见反馈</button>
+            </div>
+            -->
         </div>
-        -->
     </div>
-</div>
 
 <div class="container-fluid containers">
     <div class="row-fluid">
