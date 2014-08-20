@@ -1,11 +1,9 @@
 <?php
-
-require_once dirname(__FILE__) . '/include/SsoBasePage.class.php';
-
 /**
- * @brief 组管理
- * @author aozhongxu
+ * @desc miaoshiqian
+ * @since 2014-08-20
  */
+require_once dirname(__FILE__) . '/include/SsoBasePage.class.php';
 
 class GroupPage extends SsoBasePage {
     
@@ -68,13 +66,12 @@ class GroupPage extends SsoBasePage {
     }
     
     public function ajaxAddAction() {
-        
         $groupTable = new SsoGroupModel();
         
         $ret = $groupTable->insert(array(
-            'name' => RequestUtil::getPOST('name'),
+            'name'  => RequestUtil::getPOST('name'),
             'brief' => RequestUtil::getPOST('brief'),
-            'code' => RequestUtil::getPOST('code'),
+            'code'  => RequestUtil::getPOST('code'),
         ));
         
         $this->render(array(
