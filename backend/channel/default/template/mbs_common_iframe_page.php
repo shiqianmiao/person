@@ -8,6 +8,7 @@
     <link href="http://sta.miaosq.com/app/mbs/css/responsive.css" rel="stylesheet" type="text/css" />
     <link href="http://sta.miaosq.com/app/mbs/css/operationmanage.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <?php $this->load($this->fileBody); ?>
 <script type="text/javascript">
