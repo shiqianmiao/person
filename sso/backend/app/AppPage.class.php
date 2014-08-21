@@ -77,7 +77,6 @@ class AppPage extends SsoBasePage {
     }
 
     public function iframeEditAction() {
-        
         $appTable = new SsoAppModel();
         $row = $appTable->getRow('*', array(
             array('id', '=', RequestUtil::getGET('id')),
@@ -88,12 +87,17 @@ class AppPage extends SsoBasePage {
     }
     
     public function ajaxEditAction() {
-        
         $appTable = new SsoAppModel();
-        $appTable->update(array(
+        $ret = $appTable->update(array(
             'brief' => RequestUtil::getPOST('brief'),
         ), array(
             array('id', '=', RequestUtil::getPOST('id')),
         ));
+        
+        if ($ret === false) {
+            $this->render(array('errorCode' => 1, 'msg' => '编辑失败！'));
+        }
+        
+        $this->render(array('errorCode' => 0, 'msg' => ''));
     }
 }

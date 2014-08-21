@@ -7,33 +7,31 @@
         <input type="submit" class="btn btn-success" value="查询" />
     </form>
 </div>
-
-
 <?php echo $this -> datagrid -> toHTML('datagrid-1'); ?>
 <script type="text/javascript" charset="utf-8">
-    G.use(["app/backend/js/backend.js"], function(Backend) {
-        /*GJ.app.backend.widget("#datagrid-1").ready(function() {
-            var datagrid = this;
-            datagrid.loadData();
-            
-            GJ.app.backend.on("edit", function ($el, e) {
+    G.use(["app/backend/js/backend.js", "jquery"], function(Backend, $) {
+        Backend.widget('#datagrid-1').ready(function () {
+            Backend.on("edit", function (e) {
+                var url = this.href;
                 e.preventDefault();
-                GJ.use("js/util/panel/panel.js", function () {
-                    GJ.panel({
-                        url : $el.attr("href"),
-                        title : "",
-                        iframe : true,
-                        style: "text",
-                        width: 420,
-                        height: 260,
-                        resizeAble: false,
-                        onClose: function () {
-                            datagrid.loadData();
-                        },
+                G.use(["widget/dialog/dialog.js"], function (Dialog) {
+                    var dialog = new Dialog({
+                        title : "编辑应用",
+                        width : 500,
+                        height: 280,
+                        close : function() {
+                            //重新载入列表的数据
+                            Backend.widget('#datagrid-1').ready(function () {
+                                this.load();
+                            });
+                        }
                     });
+                    dialog.ready(function () {
+                        this.open(url);
+                    });
+                    window.dialog = dialog;
                 });
             });
-        });*/
-
-    }); 
+        });
+    });
 </script>

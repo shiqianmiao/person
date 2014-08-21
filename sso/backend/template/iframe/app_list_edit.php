@@ -21,10 +21,10 @@
 </table>
 </form>
 <script type="text/javascript" charset="utf-8">
-    GJ.use("app/backend/js/backend.js", function() {
-        var input_id = $("input[name=id]");
+    G.use(["app/backend/js/backend.js", "jquery"], function(Backend, $) {
+        var input_id    = $("input[name=id]");
         var input_brief = $("input[name=brief]");
-        GJ.app.backend.on("submit", function($el, e) {
+        Backend.on("submit", function(e) {
             e.preventDefault();
             $.ajax({
                 url : "/sso/app/ajaxEdit",
@@ -35,12 +35,17 @@
                     "brief" : input_brief.val()
                 },
                 success : function(result) {
-                    setTimeout(function () {
-                        GJ.remote("close");
-                    }, 100);
+                    if (result.errorCode == 1) {
+                        Backend.trigger("alert-error", result.msg);
+                    } else if (result.errorCode == 0) {
+                        Backend.trigger("alert-success", "编辑成功");
+                        setTimeout(function () {
+                            parent.dialog.close();
+                        }, 100);
+                    }
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         });
