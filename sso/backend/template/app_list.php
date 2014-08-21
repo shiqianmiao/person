@@ -11,25 +11,10 @@
 
 <?php echo $this -> datagrid -> toHTML('datagrid-1'); ?>
 <script type="text/javascript" charset="utf-8">
-    GJ.use("app/backend/js/backend.js", function() {
-        GJ.app.backend.widget("#datagrid-1").ready(function() {
+    G.use(["app/backend/js/backend.js"], function(Backend) {
+        /*GJ.app.backend.widget("#datagrid-1").ready(function() {
             var datagrid = this;
             datagrid.loadData();
-
-            GJ.app.backend.on("delete", function($el, e) {
-                e.preventDefault();
-                $.ajax({
-                    url : $el.attr("href"),
-                    type : "GET",
-                    dataType : "json",
-                    success : function() {
-                        datagrid.loadData();
-                    },
-                    error : function() {
-                        GJ.app.backend.trigger("alert-error", "服务器超时");
-                    }
-                })
-            });
             
             GJ.app.backend.on("edit", function ($el, e) {
                 e.preventDefault();
@@ -48,7 +33,7 @@
                     });
                 });
             });
-        });
+        });*/
 
     }); 
 </script>

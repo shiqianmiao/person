@@ -36,21 +36,23 @@ class AppPage extends SsoBasePage {
     }
     
     public function ajaxGetDataAction() {
-        
         // 定义datagrid每页显示条数
         $pageSize = 20;
-        
+        $app = RequestUtil::getGET('app', '');
+        $name = RequestUtil::getGET('name', '');
         $dataGrid = $this->getDataGrid();
         $page = (int)RequestUtil::getGET('page', 1);
-        
         // 获取记录，总数
         $appTable = new SsoAppModel();
-        $filter = array(
-            array('app', 'like', '%' . RequestUtil::getGET('app', '') . '%'),
-            array('name', 'like', '%' . RequestUtil::getGET('name', '') . '%'),
-        );
+        $filter = array();
+        if (!empty($app)) {
+            $filter[] = array('app', 'like', '%' . $app . '%');
+        }
+        if (!empty($name)) {
+            $filter[] = array('name', 'like', '%' . $name . '%');
+        }
         $all = $appTable->getAll('*', $filter, '', $pageSize, ($page-1)*$pageSize);
-        $count = $appTable->getOne('count(1)');
+        $count = $appTable->getOne('count(*)');
         
         $dataGrid->setData($all);
         $dataGrid->setPager($count, $page, $pageSize);

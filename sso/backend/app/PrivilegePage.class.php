@@ -159,11 +159,8 @@ class PrivilegePage extends SsoBasePage {
     }
     
     public function addAction() {
-        
         $appTable = new SsoAppModel();
-        $allApp = $appTable->getAll('*', '', array(
-            'app' => 'ASC',
-        ));
+        $allApp = $appTable->getAll('*', '');
         $this->render(array(
             'allApp' => $allApp,
         ), 'privilege_add.php');
