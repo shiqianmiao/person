@@ -20,6 +20,7 @@
 <script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/_lib/jquery.js"></script>
 <script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/jquery.jstree.js"></script>
 <script type="text/javascript">
+G.use(["app/backend/js/backend.js"], function (Backend) {
     $(function() {
         var trie = $("#trie");
         var btn_select = $("input[op=select]");
@@ -54,7 +55,7 @@
                     });
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         }
@@ -89,7 +90,7 @@
                     trieReload();
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         })
@@ -113,5 +114,6 @@
                 btn_look.val("展开全部");
             }
         })
-    }); 
+    });
+});
 </script>

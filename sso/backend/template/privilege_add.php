@@ -40,7 +40,7 @@
 </form>
 
 <script type="text/javascript" charset="utf-8">
-    GJ.use("app/backend/js/backend.js", function() {
+    G.use(["app/backend/js/backend.js", "jquery"], function(Backend, $) {
         var div_code = $("div[name=code]");
         var div_name = $("div[name=name]");
         var div_app = $("div[name=app]");
@@ -87,7 +87,7 @@
             });
         });
         
-        GJ.app.backend.on("submit", function($el, e) {
+        Backend.on("submit", function(e) {
             e.preventDefault();
             hintInit();
             var notSubmit = false;
@@ -119,13 +119,13 @@
                 },
                 success : function(result) {
                     if (result.errorCode == 0) {
-                        GJ.app.backend.trigger("alert-success", "添加成功");
+                        Backend.trigger("alert-success", "添加成功");
                     } else {
-                        GJ.app.backend.trigger("alert-error", "已经添加");
+                        Backend.trigger("alert-error", "已经添加");
                     }
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         });

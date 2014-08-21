@@ -10,11 +10,8 @@ require_once dirname(__FILE__) . '/include/SsoBasePage.class.php';
 class PrivilegePage extends SsoBasePage {
     
     public function listAction() {
-        
         $appTable = new SsoAppModel();
-        $allApp = $appTable->getAll('*', '', array(
-            'app' => 'ASC',
-        ));
+        $allApp = $appTable->getAll('*', '');
         $this->render(array(
             'allApp' => $allApp,
         ), 'privilege_list.php');
