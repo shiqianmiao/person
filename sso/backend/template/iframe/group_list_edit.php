@@ -21,12 +21,12 @@
 </table>
 </form>
 <script type="text/javascript" charset="utf-8">
-    GJ.use("app/backend/js/backend.js", function() {
+    G.use(["app/backend/js/backend.js", "jquery"], function(Backend, $) {
         var input_id = $("input[name=id]");
         var input_brief = $("input[name=brief]");
         var input_name = $("input[name=name]");
         var input_code = $("input[name=code]");
-        GJ.app.backend.on("submit", function($el, e) {
+        Backend.on("submit", function(e) {
             e.preventDefault();
             $.ajax({
                 url : "/sso/group/ajaxEdit",
@@ -40,11 +40,11 @@
                 },
                 success : function(result) {
                     setTimeout(function () {
-                        GJ.remote("close");
+                        parent.dialog.close();
                     }, 100);
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         });
