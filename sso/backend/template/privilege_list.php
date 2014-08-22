@@ -17,8 +17,8 @@
     </div>
     <div id="trie" style="margin-top: 20px;"></div>
 </div>
-<script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/_lib/jquery.js"></script>
-<script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/jquery.jstree.js"></script>
+<script type="text/javascript" src="http://sta.miaosq.com/app/jstree/_lib/jquery.js"></script>
+<script type="text/javascript" src="http://sta.miaosq.com/app/jstree/jquery.jstree.js"></script>
 <script type="text/javascript">
 G.use(["app/backend/js/backend.js"], function (Backend) {
     $(function() {
