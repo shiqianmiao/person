@@ -5,7 +5,7 @@ require_once dirname(__FILE__) . '/include/SsoData.class.php';
  */
 
 class AccountPage extends Page {
-    public $bcDomain = '.miaosq.com';
+    public $bcDomain   = '.miaosq.com';
     public $defaultUrl = 'http://bc.miaosq.com/';
     public function loginAction() {
         
