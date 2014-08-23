@@ -10,6 +10,7 @@ require_once dirname(__FILE__) . '/include/SsoBasePage.class.php';
 class AppPage extends SsoBasePage {
     
     public function listAction() {
+
         $this->render(array(
             'datagrid' => $this->getDataGrid(),
         ), 'app_list.php');
