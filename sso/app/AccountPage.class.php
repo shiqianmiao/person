@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/include/SsoData.class.php';
 /**
- * @author aozhongxu
+ * @author miaoshiqian
  */
 
 class AccountPage extends Page {
