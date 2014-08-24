@@ -1,6 +1,7 @@
 <?php
 require_once dirname(__FILE__) . '/include/SsoData.class.php';
 /**
+ * @since 2014-8-20
  * @author miaoshiqian
  */
 
