@@ -38,7 +38,7 @@
 <script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/_lib/jquery.js"></script>
 <script type="text/javascript" src="http://sta.273.cn/app/sso/jstree/jquery.jstree.js"></script>
 <script type="text/javascript">
-    
+//G.use(["app/backend/js/backend.js", "jquery"]， function(Backend, $) {
     $(function() {
         
         var select_app = $("select[name=app]");
@@ -94,7 +94,7 @@
                     });
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
             
@@ -122,14 +122,14 @@
                 type : "post",
                 dataType : "json",
                 data : {
-                    "privilege_ids" : GJ.jsonEncode(ids),
+                    "privilege_ids" : JSON.stringify(ids),
                     "group_id" : input_id.val(),
                 },
                 success : function() {
                     trieReload();
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         })
@@ -152,14 +152,14 @@
                 type : "post",
                 dataType : "json",
                 data : {
-                    "privilege_ids" : GJ.jsonEncode(ids),
+                    "privilege_ids" : JSON.stringify(ids),
                     "group_id" : input_id.val(),
                 },
                 success : function() {
                     trieReload();
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         })
@@ -204,5 +204,6 @@
             }
         })
     });
-
+    
+//});
 </script>
