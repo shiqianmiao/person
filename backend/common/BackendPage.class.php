@@ -32,7 +32,7 @@ class BackendPage extends BasePage {
         if ($debugTime) {
             $beginTime = microtime();
         }
-        //$this->checkUser();
+        $this->checkUser();
         if ($debugTime) {
             echo microtime() - $beginTime;
         }

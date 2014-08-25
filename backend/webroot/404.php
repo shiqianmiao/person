@@ -40,13 +40,13 @@ if ($msg == 'low_agent') {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>错误提示 - 273后台管理系统</title>
-<script type="text/javascript" charset="utf-8" src="http://sta.273.cn/cgi/ganji_sta.php?file=ganji,js/util/jquery/jquery-1.7.2.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://sta.miaosq.com/g.js"> </script><script type="text/javascript" charset="utf-8" src="http://sta.miaosq.com/config.js"></script>
 </head>
 <body>
 <div style="height:150px;line-height:150px;text-align:center">
     '.$msg.'<br>
 <a href="javascript:if(window.opener){window.close()}else {history.go(-1)};">返回</a>
-<a href="http://sso.corp.273.cn/account/logout/?refer=' . urlencode('http://' . $_SERVER['HTTP_HOST']) . '">退出</a>
+<a href="http://sso.miaosq.com/account/logout/?refer=' . urlencode('http://' . $_SERVER['HTTP_HOST']) . '">退出</a>
 </div>
 </body>
 </html>

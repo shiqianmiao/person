@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台登录页面</title>
-<script type="text/javascript" charset="utf-8" src="http://sta.273.cn/cgi/ganji_sta.php?file=ganji,js/util/jquery/jquery-1.7.2.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://sta.miaosq.com/g.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://sta.miaosq.com/config.js"></script>
 <style type="text/css">
     html,body{height:100%;overflow:hidden;}
 	body{margin:0;font-size:14px;background: -moz-linear-gradient(top, #173147, #8396a3 45%,#8396a3 70%);
@@ -50,7 +51,7 @@
 </body>
 </html>
 <script>
-    GJ.use("jquery", function() {
+    G.use(["jquery"], function($) {
         var input_account = $("input[name=account]");
         var input_password = $("input[name=password]");
         var input_valid = $("input[name=valid]");
