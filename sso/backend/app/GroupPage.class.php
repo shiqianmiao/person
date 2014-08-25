@@ -126,6 +126,26 @@ class GroupPage extends SsoBasePage {
         ), 'group_user_manager.php');
     }
     
+    public function ajaxGetOtherUserAction() {
+        
+        $userTable = new SsoUserModel();
+        $account = RequestUtil::getPOST('account');
+
+        $id = (int) $account;
+        $all = $userTable->getAll('*', array(
+                array('OR'=> array(
+                        array('id', '=', $id),
+                        array('username', '=', $id),
+                        array('real_name', 'like', '%' . $account . '%'),
+                )),
+                array('status', '=', 1),
+        ));
+        
+        $this->render(array(
+            'all' => $all,
+        ));
+    }
+    
     public function ajaxAddUserToGroupAction() {
         $user_ids = json_decode(RequestUtil::getPOST('user_ids'));
         $group_id = RequestUtil::getPOST('group_id');

@@ -35,7 +35,7 @@
     </tr>
 </table>
 <script>
-    GJ.use('jquery', function() {
+    G.use(["app/backend/js/backend.js", "jquery"], function(Backend, $) {
         
         var btn_add = $("input[name=add]");
         var btn_remove = $("input[name=remove]");
@@ -55,13 +55,13 @@
                 dataType : "json",
                 data : {
                     "group_id" : input_id.val(),
-                    "user_ids" : GJ.jsonEncode(user_ids)
+                    "user_ids" : JSON.stringify(user_ids)
                 },
                 success : function(result) {
                     location.reload();
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         })
@@ -89,7 +89,7 @@
                     $("#list_b").html(str);
                 },
                 error : function() {
-                    GJ.app.backend.trigger("alert-error", "表单提交失败");
+                    Backend.trigger("alert-error", "表单提交失败");
                 }
             });
         })

@@ -21,7 +21,7 @@ class DBConfig {
    /**
     * 从库
     */
-    const COMMON_SLAVE_HOST     = '192.168.5.32';
+    const COMMON_SLAVE_HOST     = '218.244.141.149';
     const COMMON_SLAVE_USERNAME = 'root';
     const COMMON_SLAVE_PASSWD   = 'MSQ110mm';
     const COMMON_SLAVE_PORT     = '3306';
