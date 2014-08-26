@@ -90,7 +90,7 @@ class SsoData {
      */
     public static function getUser($account) {
         
-        if (empty($account) || !is_numeric($account)) {
+        if (empty($account)) {
             return null;
         }
         
@@ -99,10 +99,6 @@ class SsoData {
             array('username', '=', $account),
         );
         $row = $userTable->getRow('*', $filter);
-        require_once API_PATH . '/interface/MbsDeptInterface.class.php';
-        $deptInfo = MbsDeptInterface::getDeptInfoByDeptId(array('id' => $row['dept_id']));
-        $row['city'] = $deptInfo['city'];
-        $row['province'] = $deptInfo['province'];
         return $row;
     }
     

@@ -66,16 +66,19 @@ class BackendPage extends BasePage {
                 }*/
             }
         }
-
-        // 过滤频道
-        /*foreach ($channels as $key => $tmp) {
-            $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
-            if ($code != 'default' && !isset($permissions[$code])) {
-                unset($channels[$key]);
-            } elseif (!$this->deptInfo['is_contract'] && $code == 'mbs_contract') {
-                unset($channels[$key]);
+        
+        // 过滤频道,拥有超级权限的人不用过滤菜单
+        if (!isset($permissions['super'])) {
+            foreach ($channels as $key => $tmp) {
+                $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
+                if ($code != 'default' && !isset($permissions[$code])) {
+                    unset($channels[$key]);
+                } elseif (!$this->deptInfo['is_contract'] && $code == 'mbs_contract') {
+                    unset($channels[$key]);
+                }
             }
-        }*/
+        }
+        
         if (!$routeParams['is_ajax'] && !$routeParams['is_iframe']) {
             // 载入菜单
             $this->menu = new Menu((array) $permissions, (array) $channels);
@@ -201,11 +204,6 @@ class BackendPage extends BasePage {
                 }
                 $ret['Permisssions'] = $infoAndCode['code'];
                 $ret['user'] = $infoAndCode['user'];
-                if ($ret['user'] && $ret['user']['username']) {
-                    $ret['car_user_info'] = CarUserInterface::getRowUser(array( // car_user 客服后台用户信息
-                        'filters'    => array(array('mbs_user_id', '=', $ret['user']['username'])),
-                    ));
-                }
                 $ret['Permisssions'] = array_flip($ret['Permisssions']);
                 $ret['cookie'] = $_COOKIE['m_AUTH_STRING'];
                 $ret['role'] = SsoInterface::getGroupByUser(array('field' => 'code', 'user_id' => $ret['user']['id']));
