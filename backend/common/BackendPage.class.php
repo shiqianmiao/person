@@ -37,20 +37,20 @@ class BackendPage extends BasePage {
         }
         $channelInfo = $channels[$channel];
         if ($channel != 'default') {
-            // 判断频道是否有权限
+            //判断频道是否有权限
             $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
-            //$this->checkPermission($channelCode);
+            $this->checkPermission($channelCode);
             //判断模块是否有权限
             $file = $routeParams['channel_dir'] . '/config/code.inc.php';
             if (file_exists($file)) {
                 $codeData = include $file;
                 $moduleAction = $routeParams['module'] . '.' . $routeParams['action'];
                 $module = $routeParams['module'];
-                /*if (isset($codeData[$moduleAction])) {
+                if (isset($codeData[$moduleAction])) {
                     $this->checkPermission($codeData[$moduleAction]);
                 } else if (isset($codeData[$module])) {
                     $this->checkPermission($codeData[$module]);
-                }*/
+                }
             }
         }
         
@@ -127,12 +127,11 @@ class BackendPage extends BasePage {
         )));
     }
 
-    // 检测是否拥用$code的权限，如果没有权限将提示错误
+    //检测是否拥用$code的权限，如果没有权限将提示错误
     protected function checkPermission ($code) {
-        if (isset($this->userInfo['Permisssions'][$code])) {
+        if (isset($this->userInfo['Permisssions']['super']) || isset($this->userInfo['Permisssions'][$code])) {
             return true;
         }
-
         $this->renderError('对不起！您没有相关操作权限', 'no-permission');
     }
     //检查浏览器
