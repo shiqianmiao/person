@@ -21,23 +21,12 @@ class BackendPage extends BasePage {
 
     public function __construct() {
         parent::__construct();
-        
         //检查浏览器
         $this->checkAgent();
-        
         // 判断用户是否登录
-        if ($_GET['fix_bug_slow']) {
-            $debugTime = 1;
-        }
-        if ($debugTime) {
-            $beginTime = microtime();
-        }
         $this->checkUser();
-        if ($debugTime) {
-            echo microtime() - $beginTime;
-        }
         
-        $permissions = (array) $this->userInfo['Permisssions'];
+        $permissions = $this->userInfo['Permisssions'];
         
         // 取所有频道
         $channels = BackendPageConfig::getChannels();
