@@ -36,12 +36,12 @@ class BackendPage extends BasePage {
         if ($debugTime) {
             echo microtime() - $beginTime;
         }
-
+        
         $permissions = (array) $this->userInfo['Permisssions'];
-
+        
         // 取所有频道
         $channels = BackendPageConfig::getChannels();
-
+        
         $routeParams = Bootstrap::getRouteParams();
         $channel = $routeParams['channel'];
         if ( !isset($channels[$channel])) {
@@ -118,7 +118,7 @@ class BackendPage extends BasePage {
             $this->view->assign('userInfo', $this->userInfo);
             
             $changePwdUrl = SsoInterface::getChangePwdUrl();
-            //print_r($changePwdUrl); exit;
+            
             $this->view->assign('changePwdUrl', $changePwdUrl);
             
             $logoutUrl = SsoInterface::getLogoutUrl();
