@@ -106,7 +106,7 @@ class BackendPage extends BasePage {
                     break;
                 }
             }
-            // 设置一些模板变量
+            //设置一些模板变量
             if (defined('SET_MBS_MODULE')) {
                 $this->assign('mbsAppModule', SET_MBS_MODULE);
             }
