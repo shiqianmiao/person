@@ -29,14 +29,12 @@ class BackendPage extends BasePage {
         $permissions = $this->userInfo['Permisssions'];
         
         // 取所有频道
-        $channels = BackendPageConfig::getChannels();
-        
+        $channels    = BackendPageConfig::getChannels();
         $routeParams = Bootstrap::getRouteParams();
-        $channel = $routeParams['channel'];
-        if ( !isset($channels[$channel])) {
+        $channel     = $routeParams['channel'];
+        if (!isset($channels[$channel])) {
             $this->renderError('未配置管理后台[' . $channel . ']');
         }
-        
         $channelInfo = $channels[$channel];
         if ($channel != 'default') {
             // 判断频道是否有权限
