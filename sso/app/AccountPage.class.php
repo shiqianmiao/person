@@ -63,7 +63,7 @@ class AccountPage extends Page {
         );
         $logTable->insert($row);
         
-        // 所有操作执行完毕，跳转到原页面
+        //所有操作执行完毕，跳转到原页面
 
         ResponseUtil::redirect($refer);
         
