@@ -40,7 +40,7 @@ class AccountPage extends Page {
             ));
         }
         
-        // 设置m_AUTH_STRING，设置cookie
+        //设置m_AUTH_STRING，设置cookie
         $ssoTicket = SsoData::encodeSsoTicket($account, $password);
         setcookie('m_AUTH_STRING', $ssoTicket, 0, '/', $this->bcDomain);
         
