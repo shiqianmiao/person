@@ -18,7 +18,7 @@ class AccountPage extends Page {
                 'refer' => RequestUtil::getGET('refer',$this->defaultUrl),
             ));
         }
-        // 再次验证用户名和密码的合法性
+        //再次验证用户名和密码的合法性
         $refer = urldecode(RequestUtil::getPOST('refer', $this->defaultUrl));
         $valid = RequestUtil::getPOST('valid', '');
         $account = RequestUtil::getPOST('account', '');
