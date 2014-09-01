@@ -36,10 +36,12 @@ class BackendPage extends BasePage {
             $this->renderError('未配置管理后台[' . $channel . ']');
         }
         $channelInfo = $channels[$channel];
-        if ($channel != 'default') {
-            //判断频道是否有权限
-            $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
-            $this->checkPermission($channelCode);
+        //if ($channel != 'default') {
+            if ($channel != 'default') {
+                //判断频道是否有权限
+                $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
+                $this->checkPermission($channelCode);
+            }
             //判断模块是否有权限
             $file = $routeParams['channel_dir'] . '/config/code.inc.php';
             if (file_exists($file)) {
@@ -52,15 +54,13 @@ class BackendPage extends BasePage {
                     $this->checkPermission($codeData[$module]);
                 }
             }
-        }
+        //}
         
         // 过滤频道,拥有超级权限的人不用过滤菜单
         if (!isset($permissions['super'])) {
             foreach ($channels as $key => $tmp) {
                 $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
                 if ($code != 'default' && !isset($permissions[$code])) {
-                    unset($channels[$key]);
-                } elseif (!$this->deptInfo['is_contract'] && $code == 'mbs_contract') {
                     unset($channels[$key]);
                 }
             }
@@ -70,7 +70,7 @@ class BackendPage extends BasePage {
             // 载入菜单
             $this->menu = new Menu((array) $permissions, (array) $channels);
 
-            if ($routeParams['channel'] == 'default') {
+            /*if ($routeParams['channel'] == 'default') {
                 $count = 1;
                 $default = '';  
                 foreach ($channels as $key=>$item) {
@@ -81,7 +81,7 @@ class BackendPage extends BasePage {
                     }
                     $count ++;
                 }
-            }
+            }*/
             if ($routeParams['module'] == 'index' && $routeParams['action'] == 'default') {
                 $menus = $this->menu->getData();
                 $rediUrl = '';
