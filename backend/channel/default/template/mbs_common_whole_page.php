@@ -9,7 +9,7 @@
 <body>
     <div class="topnav clearfix">
         <div class="fl ml10">
-            <span class="topnav-user"><a data-action-type="dept_name_click" href="javascript:;"><?php echo $this->userInfo['user']['real_name'];?> (<?php echo $this->deptInfo['dept_name'];?>)<i></i></a></span>
+            <span class="topnav-user"><a data-action-type="dept_name_click" href="javascript:;"><?php echo $this->userInfo['user']['real_name'];?> (<?php echo $this->userInfo['user']['username'];?>)<i></i></a></span>
             <span class="ml10"><a href="<?php echo $this->logoutUrl; ?>?refer=<?php echo urlencode('http://' . $_SERVER['HTTP_HOST']);?>">退出</a></span>
         </div>
         
