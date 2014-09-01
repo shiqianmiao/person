@@ -45,6 +45,7 @@
             <div class="nav-collapse1" style="display:none"></div>
             <div class="nav-collapse1">
                 <ul class="nav navigation">
+                    <li <?php if ($this->channelInfo['code'] == 'default'){?>class="active"<?php }?>><a href="/default/">首页</a></li>
                     <?php foreach ($this->channels as $channel => $channelInfo) {?>
                         <li <?php if ($this->channelInfo['code'] == $channelInfo['code']){?>class="active"<?php }?>>
                             <a href="/<?php echo $channel; ?>/"><?php echo $channelInfo['text']; ?></a>

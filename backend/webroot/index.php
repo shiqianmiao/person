@@ -7,7 +7,7 @@
 set_time_limit(0);
 define('APP_CONFIG_FILE_NAME', 'mbsConfig.inc.php');
 define('PERMISSION_APP_NAME', 'mbs.bc');
-//define('SET_DEFAULT_PAGE', '/mbs_index/showIndex'); //定义默认页面
+define('SET_DEFAULT_PAGE', '/default/'); //定义默认页面
 
 require_once dirname(__FILE__) . '/../config/bootstrap.php';
 if (strpos($_SERVER['HTTP_USER_AGENT'],'MSIE 6.0')) {

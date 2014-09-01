@@ -17,6 +17,7 @@ class BackendPageConfig {
         return array(
             'default' => array(
                 'code' => 'default',
+                'banner_code' => 'can not see',
                 'text' => '首页',
                 'dir'  => dirname(__FILE__) . '/../channel/default',
             ),

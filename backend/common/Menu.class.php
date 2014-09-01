@@ -13,9 +13,9 @@ class Menu {
         $menuData = array();
         foreach ($channels as $channel) {
             $menuDataRow = array();
-            if ($channel['code'] == 'default') {
+            /*if ($channel['code'] == 'default') {
                 continue;
-            }
+            }*/
             $file = $channel['dir'] . '/config/menu.inc.php';
             if (!is_file($file)) {
                 trigger_error('菜单文件不存在', E_USER_ERROR);

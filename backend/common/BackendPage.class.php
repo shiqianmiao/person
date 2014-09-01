@@ -57,14 +57,20 @@ class BackendPage extends BasePage {
         //}
         
         // 过滤频道,拥有超级权限的人不用过滤菜单
-        if (!isset($permissions['super'])) {
+        //if (!isset($permissions['super'])) {
             foreach ($channels as $key => $tmp) {
                 $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
+                if ($code == 'can not see') {
+                    unset($channels[$key]);
+                }
+                if (isset($permissions['super'])) {
+                    continue;
+                }
                 if ($code != 'default' && !isset($permissions[$code])) {
                     unset($channels[$key]);
                 }
             }
-        }
+        //}
         
         if (!$routeParams['is_ajax'] && !$routeParams['is_iframe']) {
             // 载入菜单
@@ -88,6 +94,7 @@ class BackendPage extends BasePage {
                 foreach ($menus['menu'] as $firstMenu) {
                     foreach ($firstMenu['menu'] as $secondMenu) {
                         $rediUrl = $secondMenu['url'];
+                        ResponseUtil::redirect('http://' . $_SERVER['HTTP_HOST'] . $rediUrl);
                         break;
                     }
                     break;
