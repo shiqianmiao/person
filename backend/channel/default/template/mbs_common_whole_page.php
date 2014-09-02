@@ -74,11 +74,6 @@
             <!--sidebar-->
             <div data-widget="sidebar" data-source="<?php echo htmlspecialchars(json_encode($this->menu)); ?>" id="sidebar" class="sidebar">
                 <div id="caidan" class="clearfix">
-                    <div class="clearfix">
-                        <?php if (empty($this->mbsAppModule)) {?>
-                              <a href="/index/index" style="margin-left:35px;font-size:12px;font-weight:bold;text-decoration:none;color:#205484;"><i></i>后台首页</a>
-                        <?php }?>
-                    </div>
                     <ul class="nav nav-list" id="menu">
                     </ul>
                 </div>
