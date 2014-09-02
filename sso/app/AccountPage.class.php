@@ -178,7 +178,7 @@ class AccountPage extends Page {
     }
     
     public function logoutAction() {
-        setcookie('m_AUTH_STRING', $ssoTicket, time() - 1, '/', '.corp.273.cn');
+        setcookie('m_AUTH_STRING', '', time() - 1, '/', '.miaosq.com');
         $refer = RequestUtil::getGet('refer', $this->defaultUrl);
         ResponseUtil::redirect($refer);
     }
