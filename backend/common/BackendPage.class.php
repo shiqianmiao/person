@@ -4,31 +4,29 @@ require_once FRAMEWORK_PATH . '/util/common/Session.class.php' ;
 require_once API_PATH . '/interface/SsoInterface.class.php';
 require_once API_PATH . '/interface/StaticInterface.class.php';
 require_once BACKEND . '/common/Menu.class.php';
-require_once BACKEND . '/common/Normal.class.php';
 
 class BackendPage extends BasePage {
+    
     const BC_DOMAIN = '.miaosq.com';
+    
     protected $userInfo;
+    
     protected $menu;
 
     protected $allApp = array(
         'bc', //bc后台
         'mbs.bc', //业管后台
-        'cs', //客服后台
-        'zb.bc', //总部后台
-        'data', //数据后台
     );
 
     public function __construct() {
         parent::__construct();
         //检查浏览器
         $this->checkAgent();
-        // 判断用户是否登录
+        //判断用户是否登录
         $this->checkUser();
-        
+        //权限数组
         $permissions = $this->userInfo['Permisssions'];
-        
-        // 取所有频道
+        //取所有频道
         $channels    = BackendPageConfig::getChannels();
         $routeParams = Bootstrap::getRouteParams();
         $channel     = $routeParams['channel'];
@@ -36,25 +34,24 @@ class BackendPage extends BasePage {
             $this->renderError('未配置管理后台[' . $channel . ']');
         }
         $channelInfo = $channels[$channel];
-        //if ($channel != 'default') {
-            if ($channel != 'default') {
-                //判断频道是否有权限
-                $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
-                $this->checkPermission($channelCode);
+        
+        if ($channel != 'default') {
+            //判断频道是否有权限,后台首页大家都能看到，无需判断权限
+            $channelCode = !empty($channelInfo['code']) ? $channelInfo['code'] : $channel;
+            $this->checkPermission($channelCode);
+        }
+        //判断模块是否有权限
+        $file = $routeParams['channel_dir'] . '/config/code.inc.php';
+        if (file_exists($file)) {
+            $codeData = include $file;
+            $moduleAction = $routeParams['module'] . '.' . $routeParams['action'];
+            $module = $routeParams['module'];
+            if (isset($codeData[$moduleAction])) {
+                $this->checkPermission($codeData[$moduleAction]);
+            } else if (isset($codeData[$module])) {
+                $this->checkPermission($codeData[$module]);
             }
-            //判断模块是否有权限
-            $file = $routeParams['channel_dir'] . '/config/code.inc.php';
-            if (file_exists($file)) {
-                $codeData = include $file;
-                $moduleAction = $routeParams['module'] . '.' . $routeParams['action'];
-                $module = $routeParams['module'];
-                if (isset($codeData[$moduleAction])) {
-                    $this->checkPermission($codeData[$moduleAction]);
-                } else if (isset($codeData[$module])) {
-                    $this->checkPermission($codeData[$module]);
-                }
-            }
-        //}
+        }
         
         foreach ($channels as $key => $tmp) {
             $code = empty($tmp['banner_code']) ? $key : $tmp['banner_code'];
@@ -102,9 +99,6 @@ class BackendPage extends BasePage {
                 }
             }
             //设置一些模板变量
-            if (defined('SET_MBS_MODULE')) {
-                $this->assign('mbsAppModule', SET_MBS_MODULE);
-            }
             $channelInfo['url'] = $channel;
             $this->view->assign('channelInfo', $channelInfo);
             
@@ -145,7 +139,7 @@ class BackendPage extends BasePage {
     //检查浏览器
     protected function checkAgent() {
         if (strpos($_SERVER['HTTP_USER_AGENT'],'MSIE 6.0') || strpos($_SERVER['HTTP_USER_AGENT'],'MSIE 7.0')) {
-            $this->renderError('low_agent');
+            $this->renderError('浏览器版本太低，请下载高版本的浏览器！');
         }
     }
 
@@ -258,22 +252,9 @@ class BackendPage extends BasePage {
             }
             if ($routeParams['iframe']) {
                 $content = $this->view->fetch(BackendPageConfig::IFRAME_SUPER_TPL, $data);
-            } elseif (isset(Normal::$NORMAL_MODULE[$routeParams['channel']][$routeParams['module']])) {
-                parent::render($data, $tpl);
             } else {
                 //小菜单也要把数字调出来，以菜单的URL地址进行匹对，因为权限编号很多会重复
                 $menuData    = $this->menu->getData();
-                if (is_array($menuData['menu'])) {
-                    foreach ($menuData['menu'] as $mKey => $mItem) {
-                        $childMenu = $mItem['menu'];
-                        if (is_array($childMenu)) {
-                            foreach ($childMenu as $cKey => $cItem) {
-                                //数量的KEY
-                                $numKey = urlencode($cItem['text']) . $cItem['url'] . $cItem['code'];
-                            }
-                        }
-                    }
-                }
                 $this->view->assign('menu', $menuData);
                 $content = $this->view->fetch(BackendPageConfig::WHOLE_SUPER_TPL, $data);
             }
