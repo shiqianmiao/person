@@ -6,7 +6,7 @@ require_once API_PATH . '/interface/SmsMobileInterface.class.php';
 require_once FRAMEWORK_PATH . '/util/image/Image.class.php' ;
 
 /**
- * @author        chenhan <chenhan@273.cn>
+ * @author        miaoshiqian <chenhan@273.cn>
  * @since         2013-6-26
  * @copyright     Copyright (c) 2003-2013 273 Inc. (http://www.273.cn)
  * @desc          业管个人安全增强:找回密码
