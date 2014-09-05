@@ -209,7 +209,7 @@ class ImproveSavePage extends BcProfilePage {
      */
     public function passBindAction() {
         $this->getUserInfo();
-        //设置一个一年的cookie
+        // 设置一个一年的cookie
         setcookie('m_PASS_tiket' . $this->userInfo['username'], '1', time() + 3600 * 24 * 365, '/', '.corp.273.cn');
                     $this->render('improve_save/improve_success.php', array(
                     'userInfo' =>$this->userInfo,
