@@ -69,7 +69,6 @@ class AccountPage extends Page {
         
     }
 
-
     public function showImageAction() {
         require_once FRAMEWORK_PATH . '/util/image/Image.class.php';
         $cookieName = 'validString';
