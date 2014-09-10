@@ -1,6 +1,5 @@
 <?PHP
 require_once dirname(__FILE__) . '/config.php';
-
 require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
 require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
 
