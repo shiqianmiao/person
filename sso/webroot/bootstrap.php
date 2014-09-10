@@ -21,7 +21,7 @@ require_once SSO_SITE . '/core/PhpTpl.class.php';
 require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
 require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
 
-$display_errors = false;
+$display_errors = true;
 
 if ($display_errors) { 
     error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE ^ E_DEPRECATED);
