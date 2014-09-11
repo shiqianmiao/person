@@ -22,9 +22,9 @@ class BasePage {
     public function __construct() {
         $this->view = new BaseView();
     }
-
+    
     public function init() {}
-
+    
     protected function assign($key, $val='') {
         $this->view->assign($key, $val);
     }
@@ -32,7 +32,7 @@ class BasePage {
     public function fetch($data, $tpl = '') {
         return $this->view->fetch($tpl, $data);
     }
-
+    
     protected function render($data, $tpl = '') {
         $attrs = Bootstrap::getRouteParams();
         if ($attrs['ajax']) {
