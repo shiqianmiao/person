@@ -1,5 +1,4 @@
 <?php
-
 require_once dirname(__FILE__) . '/include/BcProfilePage.class.php';
 require_once dirname(__FILE__) . '/include/SsoData.class.php';
 require_once API_PATH . '/interface/SmsMobileInterface.class.php';
