@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @brief sso外部接口，sso验证通过http请求，该接口对http请求的操作进行封装，方便调用
  * @author aozhongxu
