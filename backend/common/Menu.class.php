@@ -1,7 +1,5 @@
 <?PHP
-
 // 菜单管理类
-
 class Menu {
     protected $_data = array();
     public $defaultMenuIcon = "icon-play-circle";
