@@ -10,10 +10,10 @@ class SsoGroupModel2 extends BaseModel {
         $this->dbMasterConfig = DBConfig::$SSO_MASTER;
         $this->dbSlaveConfig  = DBConfig::$SSO_SLAVE;
         $this->fieldTypes     = array(
-            'id' => 'int',
-            'name' => 'char',
+            'id'    => 'int',
+            'name'  => 'char',
             'brief' => 'char',
-            'code' => 'varchar',
+            'code'  => 'varchar',
         );
     }
 }
