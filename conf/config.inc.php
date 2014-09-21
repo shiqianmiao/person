@@ -2,7 +2,7 @@
 /**
  * 基础配置文件
  *
- * @author    gaosk <gaoshikao@qq.com>
+ * @author    miaoshiqian<miaoshiqians@gmail.com> 
  * @since     2013-2-28
  * @copyright Copyright (c) 2003-2013 273 Inc. (http://www.273.cn)
  * @desc       基础配置文件
