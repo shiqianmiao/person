@@ -2,7 +2,7 @@
 /**
  * @desc 静态文件调用
  * @copyright (c) 2011 273 Inc
- * @author 马鑫 <maxin@273.cn>
+ * @author miaosq
  * @since 2013-06-13
  */
 
