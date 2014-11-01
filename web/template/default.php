@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>【缪石乾】个人主页_优秀个人网站_缪石乾个人网站</title>
+    <title>【缪石乾】缪石乾的官方网站_个人主页_优秀个人网站_缪石乾个人网站</title>
     <meta name="keywords" content="个人网站,miaoshiqian, shiqianmiao, 缪石乾, 优秀个人网站" />
     <meta name="description" content="缪石乾的个人网站" />
     <?php echo $this->commonStaHtml;?>
