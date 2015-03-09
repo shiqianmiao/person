@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="缪石乾">
 
-    <title>【缪石乾】缪石乾的官方网站_优秀个人网站_缪石乾的个人网站</title>
+    <title>【缪石乾】缪石乾的官方网站_个人主页_优秀个人网站_缪石乾的个人网站</title>
 
     <?php echo $this->commonStaHtml;?>
     <?php echo $this->staHtml;?>
