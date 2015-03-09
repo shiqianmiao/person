@@ -38,7 +38,8 @@ class WebBasePage extends BasePage {
      * @desc 公共sta文件设置
      */
     private function _setCommonSta() {
-        $commonStaHtml = 'g.js,config.js,app/flatui/bootstrap/css/bootstrap.css,app/flatui/css/flat-ui.css';
+        $commonStaHtml = 'g.js,config.js,app/agency/js/bootstrap.min.js,app/agency/css/bootstrap.min.css';
+        //$commonStaHtml = 'app/agency/css/bootstrap.min.css';
         $commonStaHtml = $this->view->helper('sta', array('files' => $commonStaHtml));
         $this->assign('commonStaHtml', $commonStaHtml);
     }

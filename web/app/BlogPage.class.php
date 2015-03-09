@@ -14,7 +14,7 @@ class BlogPage extends WebBasePage{
      */
     function defaultAction() {
 
-        $staHtml .= 'app/person/web/css/index_v2.css';
+        $staHtml .= '';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(

@@ -15,12 +15,12 @@ class DefaultPage extends WebBasePage{
      */
     function defaultAction() {
 
-        $staHtml .= 'app/person/web/css/index_v2.css';
+        $staHtml .= 'app/agency/js/animate_head.js,app/agency/css/agency.css';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(
             'staHtml' => $staHtml,
-        ), 'default.php');
+        ), 'default_v2.php');
 
     }
 
