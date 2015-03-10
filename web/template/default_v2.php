@@ -15,7 +15,7 @@
     <?php echo $this->staHtml;?>
 
     <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 
     <script>
@@ -53,13 +53,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#services">技术杂志</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#services"><i class="fa fa-fw fa-book"></i>技术期刊</a>
                     </li>
                     <li>
-                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio">新视界</a>
+                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-eye"></i>新视界</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#about">About Me</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>关于</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="javascript:;" data-target="#team">Team</a>
@@ -82,8 +82,8 @@
         <div class="container">
             <div class="intro-text">
                 <div class="intro-lead-in">欢迎来到我的官方网站！</div>
-                <div class="intro-heading">和你一起分享我的世界！</div>
-                <a href="#services" class="page-scroll btn btn-xl">进入分享</a>
+                <div class="intro-heading">一起分享我的记录和珍藏！</div>
+                <a href="javascript:;" data-target="#services" class="page-scroll" style="font-size:80px;"><i class="fa fa-fw fa-hand-o-down"></i></a>
             </div>
         </div>
     </header>
@@ -93,8 +93,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading"><i class="fa fa-fw fa-book"></i>技术期刊</h2>
+                    <h3 class="section-subheading text-muted">有用的文章值得记录和珍藏！以下是我的记录和收藏！欢迎大家一起来分享！</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -131,8 +131,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">视频世界</h2>
-                    <h3 class="section-subheading text-muted">以下全是主人精心分类的哦！选择您感兴趣的进入吧！</h3>
+                    <h2 class="section-heading"><i class="fa fa-fw fa-eye"></i>视频世界</h2>
+                    <h3 class="section-subheading text-muted">以下是我精心分类的哦！选择您感兴趣的进入吧！</h3>
                 </div>
             </div>
             <div class="row">
@@ -231,7 +231,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About Me</h2>
+                    <h2 class="section-heading"><i class="fa fa-fw fa-user"></i>关于</h2>
                     <h3 class="section-subheading text-muted">Where I come from, where to go!</h3>
                 </div>
             </div>
@@ -412,6 +412,8 @@
                     </form>
                 </div>
             </div>
+
+
         </div>
     </section>
 
@@ -586,12 +588,6 @@
             </div>
         </div>
     </div>
-
-     <!-- 
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/cbpAnimatedHeader.js"></script>
-     -->
 </body>
 
 </html>
