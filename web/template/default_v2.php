@@ -94,34 +94,20 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading"><i class="fa fa-fw fa-book"></i>技术期刊</h2>
-                    <h3 class="section-subheading text-muted">有用的文章值得记录和珍藏！以下是我的记录和收藏！欢迎大家一起来分享！</h3>
+                    <h3 class="section-subheading">有用的文章值得记录和珍藏！以下是我的记录和收藏！欢迎大家一起来分享！</h3>
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            <?php for($i = 1; $i <= 10; $i++){?>
+                <div class="col-md-2" style="margin:10px 15px;">
+                    <span>
+                        <img style="box-shadow: 2px 3px 3px black;" width="150px" src="http://sta.miaosq.com/app/agency/img/cover.png"/>
                     </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="service-heading">2015-3月期刊</h4>
+                    <p class="text-muted">本期看点：PHP7性能解说、LNMP新看点、大神面试分享......</p>
                 </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
+            <?php }?>
+                
             </div>
         </div>
     </section>
@@ -132,7 +118,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading"><i class="fa fa-fw fa-eye"></i>视频世界</h2>
-                    <h3 class="section-subheading text-muted">以下是我精心分类的哦！选择您感兴趣的进入吧！</h3>
+                    <h3 class="section-subheading text-muted-video">以下是我精心分类的哦！选择您感兴趣的进入吧！</h3>
                 </div>
             </div>
             <div class="row">
@@ -147,7 +133,7 @@
                     </a>
                     <div class="portfolio-caption">
                         <h4>我爱看的电影</h4>
-                        <p class="text-muted">是否有您想看、但还未看过的？</p>
+                        <p class="text-muted-video">是否有您想看、但还未看过的？</p>
                     </div>
                 </div>
 
@@ -232,7 +218,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading"><i class="fa fa-fw fa-user"></i>关于</h2>
-                    <h3 class="section-subheading text-muted">Where I come from, where to go!</h3>
+                    <h3 class="section-subheading text-muted-video">Where I come from, where to go!</h3>
                 </div>
             </div>
             <div class="row">
@@ -313,7 +299,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted-video">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
             </div>
             <div class="row">
