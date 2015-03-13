@@ -48,6 +48,12 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            
+                <span style="margin-left:50px;line-height:50px;">
+                    <input  style="width:250px;line-height:30px;background-color:#eee;border:solid 1px orange;"  type="text" placeholder="找找看有没有你想要的？"/>
+                     <a style="line-height:20px;" href="javascript:;" class="btn btn-warning">Go！</a>
+                </span>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -56,16 +62,16 @@
                         <a class="page-scroll" href="javascript:;" data-target="#services"><i class="fa fa-fw fa-book"></i>技术期刊</a>
                     </li>
                     <li>
-                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-eye"></i>新视界</a>
+                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-eye"></i>视频世界</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>关于</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>关于本站</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#team">Team</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#team"><i class="fa fa-fw fa-spinner"></i>Team</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#contact">联系我</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#contact"><i class="fa fa-fw fa-comment-o"></i>联系我</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="javascript:;"  href="javascript:;">闲人勿进</a>
@@ -126,7 +132,7 @@
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                这里是浮层说明哦哦
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/roundicons.png" class="img-responsive" alt="">
@@ -141,7 +147,7 @@
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/startup-framework.png" class="img-responsive" alt="">
@@ -156,7 +162,7 @@
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/treehouse.png" class="img-responsive" alt="">
@@ -170,7 +176,7 @@
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/golden.png" class="img-responsive" alt="">
@@ -184,7 +190,7 @@
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/escape.png" class="img-responsive" alt="">
@@ -198,7 +204,7 @@
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
+                                <i class="fa fa-fw fa-play-circle fa-3x"></i>
                             </div>
                         </div>
                         <img src="http://sta.miaosq.com/app/agency/img/portfolio/dreams.png" class="img-responsive" alt="">
@@ -357,12 +363,12 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="padding-bottom:10px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading" style="color:orange;">联系我</h2>
-                    <h3 class="section-subheading text-muted" style="color:orange;">为确保联系上、请填写您的真实邮箱哦！</h3>
+                    <h2 class="section-heading" style="color:orange;"><i class="fa fa-fw fa-comment-o"></i>联系我</h2>
+                    <h3 class="section-subheading text-muted" style="color:orange;text-align:center;">为确保联系上、请填写您的真实邮箱哦！</h3>
                 </div>
             </div>
             <div class="row">
@@ -398,7 +404,84 @@
                     </form>
                 </div>
             </div>
+<style>
+#footer-link{
+    margin-top: 40px;
+}
+.span4 {
+    display: block;
+    float: left;
+    min-height: 30px;
+    text-align: left;
+}
+.span4 h6 {
+   
+    color:yellow;
+}
+.span4 ul {
+    padding: 0px;
+    margin-right: 20px;
+}
+.span4 ul li {
+    list-style: none;
+    line-height: 25px;
+    text-align: -webkit-match-parent;
+}
+</style>
+            <div class="col-lg-12" id="footer-link">
 
+                <div class="row-fluid" style="float:left;width:50%;">
+                    <img alt="Alexa logo" src="http://www.alexa.com/images/logos/alexalogo-footer.png">
+                    <br><br>
+                    <p style="color:yellow;">Founded in 1996, Alexa has a rich history of providing deep analytical<br>
+insights to benchmark, compare and optimize businesses on the web.</p>
+                </div>
+
+                    <div class="row-fluid" style="float:left;">
+                        <span class="span4">
+                            <h6 class="h6">Products</h6>
+                            <ul>
+                                <li><a href="/pro/digital_marketer">For Digital Marketers</a></li>
+                                <li><a href="/pro/publisher">For Site Owners</a></li>
+                                <li><a href="/pro/content_strategist">For Content Strategists</a></li>
+                                <li><a href="/plans">Plans And Pricing</a></li>
+                                <li><a href="https://aws.amazon.com/alexa/">API</a></li>
+                            </ul>
+                        </span>
+
+                        <span class="span4">
+                            <h6 class="h6">Company</h6>
+                            <ul>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/about/management">Team</a></li>
+                                <li><a href="/about/careers">Careers</a></li>
+                                <li><a href="/support">Support</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                            </ul>
+                        </span>
+
+                        <span class="span4">
+                            <h6 class="h6">Connect with us</h6>
+                            <ul class="list-img">
+                                <li>
+                                    <a href="http://blog.alexa.com" rel="nofollow"><i class="fa fa-fw fa-asterisk"></i>我的博客</a>
+                                </li>
+                                <li>
+                                    <a href="http://blog.alexa.com" rel="nofollow"><i class="fa fa-fw fa-asterisk"></i>我的博客</a>
+                                </li><li>
+                                    <a href="http://blog.alexa.com" rel="nofollow"><i class="fa fa-fw fa-asterisk"></i>我的博客</a>
+                                </li><li>
+                                    <a href="http://blog.alexa.com" rel="nofollow"><i class="fa fa-fw fa-asterisk"></i>我的博客</a>
+                                </li>
+                            </ul>
+                        </span>
+                </div>
+
+                <div class="row-fluid" style="margin-left:20px;float:left;">
+                    <img style="width:136px;" src="http://www.php100.com/statics/images//php100/weixin_b.jpg" class="weixin"/>
+                     <p style="margin-left:2px;color:yellow;">关注本站官方微信</p>
+                </div>
+            </div>
 
         </div>
     </section>
