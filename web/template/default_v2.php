@@ -62,7 +62,7 @@
                         <a class="page-scroll" href="javascript:;" data-target="#services"><i class="fa fa-fw fa-book"></i>技术期刊</a>
                     </li>
                     <li>
-                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-eye"></i>视频世界</a>
+                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-spinner fa-spin"></i>DEMO记录</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>关于本站</a>
@@ -74,7 +74,7 @@
                         <a class="page-scroll" href="javascript:;" data-target="#contact"><i class="fa fa-fw fa-comment-o"></i>联系我</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;"  href="javascript:;">闲人勿进</a>
+                        <a class="page-scroll" href="javascript:;"  href="javascript:;"><i class="fa fa-fw fa-bell-o"></i>招聘信息</a>
                     </li>
                 </ul>
             </div>
@@ -171,9 +171,9 @@
                  <aside id="home-tab">
                     <div class="panel  panel-zan" style="background-color:transparent;">
                         <ul class="nav nav-pills">
-                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
-                            <li class=""><a href="#sidebar-tags" data-toggle="tab">热门标签</a></li>
-                            <li class=""><a href="#sidebar-links" data-toggle="tab">友情链接</a></li>
+                            <li class="active"><a href="#sidebar-categories" data-toggle="tab"><i class="fa fa-refresh fa-spin"></i> 最新分享</a></li>
+                            <li class=""><a href="#sidebar-tags" data-toggle="tab"><i class="fa fa-tags"></i> 热门标签</a></li>
+                            <li class=""><a href="#sidebar-links" data-toggle="tab"><i class="fa fa-fire"></i> 今日热门事件</a></li>
                         </ul>
 
                         <div class="home-tab-box">
@@ -217,7 +217,7 @@
                  <aside id="home-tab">
                     <div class="panel  panel-zan" style="background-color:transparent;">
                         <ul class="nav nav-pills">
-                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
+                            <li class="active"><a href="#sidebar-categories" data-toggle="tab"><i class="fa fa-fw fa-comments"></i> 最新评论</a></li>
                         </ul>
 
                         <div class="home-tab-box">
@@ -239,12 +239,18 @@
             <aside class="col-md-6" id="sidebar" style="float:left;">
                  <aside id="home-tab">
                     <div class="panel  panel-zan" style="background-color:transparent;">
-                        <ul class="nav nav-pills">
-                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
+                        <ul class="nav nav-pills" style="border:none;">
+                            <li class="active"><a style="top:0px;border:none;" href="#sidebar-categories" data-toggle="tab"><i class="fa fa-fw fa-book"></i> 技术期刊（3月份)</a></li>
                         </ul>
 
-                        <div class="home-tab-box">
-                        <div class="tab-content">
+                        <div class="home-tab-box" style="border:none;">
+                        <div class="tab-content" style="padding:5px;">
+                            <div >
+                                <span>
+                                    <img style="box-shadow: 2px 3px 3px black;" width="150px" src="http://sta.miaosq.com/app/agency/img/cover.png"/>
+                                </span>
+                            </div>
+                <!--
                             <div class="tab-pane nav bs-sidenav fade active in" id="sidebar-categories">
                             <?php for ($i = 0 ; $i <= 4; $i++) {?>
                                 <li class="list-group-item <?php if ($i == 8) {?> last<?php }?>">
@@ -253,6 +259,7 @@
                                  </li>
                             <?php } ?>
                             </div>
+                            -->
                             </div>
                         </div>
                     </div>
@@ -296,7 +303,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading"><i class="fa fa-fw fa-eye"></i>最新推荐DEMO示例！</h2>
+                    <h2 class="section-heading"><i class="fa fa-fw fa-spinner fa-spin"></i> 最新推荐DEMO示例！</h2>
                     <h3 class="section-subheading text-muted-video">让那些漂亮的小应用以Demo的形式更完美的展示出来吧！</h3>
                 </div>
             </div>
