@@ -291,13 +291,13 @@
     -->
 
     <!-- Portfolio Grid Section -->
-    <!--
+    
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading"><i class="fa fa-fw fa-eye"></i>视频世界</h2>
-                    <h3 class="section-subheading text-muted-video">以下是我精心分类的哦！选择您感兴趣的进入吧！</h3>
+                    <h2 class="section-heading"><i class="fa fa-fw fa-eye"></i>最新推荐DEMO示例！</h2>
+                    <h3 class="section-subheading text-muted-video">让那些漂亮的小应用以Demo的形式更完美的展示出来吧！</h3>
                 </div>
             </div>
             <div class="row">
@@ -390,7 +390,7 @@
             </div>
         </div>
     </section>
-    -->
+    
 
     <!-- About Section -->
     <!--
@@ -481,24 +481,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
-                    <h3 class="section-subheading text-muted-video">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Demo 直通车</h2>
+                    <h3 class="section-subheading text-muted-video">让那些漂亮的小应用以Demo的形式更完美的展示出来吧！</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="http://sta.miaosq.com/app/agency/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>Kay Garland</h4>
-                        <p class="text-muted">Lead Designer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        <h4>最新JS图片轮播DEMO</h4>
+                        <p class="text-muted">最新JS图片轮播DEMO</p>
+                        
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -506,14 +499,7 @@
                         <img src="http://sta.miaosq.com/app/agency/img/team/2.jpg" class="img-responsive img-circle" alt="">
                         <h4>Larry Parker</h4>
                         <p class="text-muted">Lead Marketer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -521,14 +507,7 @@
                         <img src="http://sta.miaosq.com/app/agency/img/team/3.jpg" class="img-responsive img-circle" alt="">
                         <h4>Diana Pertersen</h4>
                         <p class="text-muted">Lead Developer</p>
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>
