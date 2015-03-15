@@ -15,7 +15,7 @@ class DefaultPage extends WebBasePage{
      */
     function defaultAction() {
 
-        $staHtml .= 'app/agency/js/animate_head.js,app/agency/css/agency.css';
+        $staHtml .= 'app/agency/js/animate_head.js,app/agency/css/white.css,app/agency/css/slider-pro.min.css,app/agency/js/jquery.sliderPro.min.js';
         $staHtml = $this->view->helper('sta', array('files' => $staHtml));
 
         $this->render(array(

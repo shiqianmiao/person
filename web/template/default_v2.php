@@ -51,7 +51,7 @@
             
                 <span style="margin-left:50px;line-height:50px;">
                     <input  style="width:250px;line-height:30px;background-color:#eee;border:solid 1px orange;"  type="text" placeholder="找找看有没有你想要的？"/>
-                     <a style="line-height:20px;" href="javascript:;" class="btn btn-warning">Go！</a>
+                     <a style="line-height:21px;" href="javascript:;" class="btn btn-warning"><i class="fa fa-fw fa-search"></i></a>
                 </span>
 
                 <ul class="nav navbar-nav navbar-right">
@@ -85,16 +85,187 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">欢迎来到我的官方网站！</div>
-                <div class="intro-heading">一起分享我的记录和珍藏！</div>
-                <a href="javascript:;" data-target="#services" class="page-scroll" style="font-size:80px;"><i class="fa fa-fw fa-hand-o-down"></i></a>
+    <div class="container" style="padding:0px;">
+    <div style="width:100%;height:90px;background-color:transparent;"></div>
+
+        <div id="portfolio" class="row-fluid" style="float:left;width:720px;margin-top:50px;">
+            <div id="example5" class="slider-pro" style="padding-right: 277px; width: 100%; max-width: 835px;text-align:right;">
+              <div class="sp-slides">
+                <div class="sp-slide" style="width: 670px; height: 500px;"><img class="sp-image" src="/images/blank.gif" data-src="/images/image1_medium.jpg" data-retina="/images/image1_large.jpg"/>
+                  <div class="sp-caption">16素材网 - www.16sucai.com</div>
+                </div>
+                
+                <div class="sp-slide"><img class="sp-image" src="/images/blank.gif" data-src="/images/image2_medium.jpg" data-retina="images/image2_large.jpg"/>
+                  <div class="sp-caption">16素材网 - www.16sucai.com</div>
+                </div>
+                
+               <div class="sp-slide"><img class="sp-image" src="/images/blank.gif" data-src="/images/image3_medium.jpg" data-retina="images/image3_large.jpg"/>
+                  <div class="sp-caption">16素材网 - www.16sucai.com</div>
+                </div>
+                
+                <div class="sp-slide"><img class="sp-image" src="/images/blank.gif" data-src="/images/image4_medium.jpg" data-retina="images/image4_large.jpg"/>
+                  <div class="sp-caption">16素材网 - www.16sucai.com</div>
+                </div>
+                
+                <div class="sp-slide"><img class="sp-image" src="/images/blank.gif" data-src="/images/image5_medium.jpg" data-retina="images/image5_large.jpg"/>
+                  <div class="sp-caption">16素材网 - www.16sucai.com</div>
+                </div>
+              </div>
+  
+              <div class="sp-thumbnails">
+                <div class="sp-thumbnail">
+                  <div class="sp-thumbnail-image-container"> <img class="sp-thumbnail-image" src="/images/image1_thumbnail.jpg"/> </div>
+                  <div class="sp-thumbnail-text">
+                    <div class="sp-thumbnail-title">16素材网</div>
+                    <div class="sp-thumbnail-description">16sucai.com</div>
+                  </div>
+                </div>
+                <div class="sp-thumbnail">
+                  <div class="sp-thumbnail-image-container"> <img class="sp-thumbnail-image" src="/images/image2_thumbnail.jpg"/> </div>
+                  <div class="sp-thumbnail-text">
+                    <div class="sp-thumbnail-title">16素材网</div>
+                    <div class="sp-thumbnail-description">16sucai.com</div>
+                  </div>
+                </div>
+                <div class="sp-thumbnail">
+                  <div class="sp-thumbnail-image-container"> <img class="sp-thumbnail-image" src="/images/image3_thumbnail.jpg"/> </div>
+                  <div class="sp-thumbnail-text">
+                    <div class="sp-thumbnail-title">16素材网</div>
+                    <div class="sp-thumbnail-description">16sucai.com</div>
+                  </div>
+                </div>
+                <div class="sp-thumbnail">
+                  <div class="sp-thumbnail-image-container"> <img class="sp-thumbnail-image" src="/images/image4_thumbnail.jpg"/> </div>
+                  <div class="sp-thumbnail-text">
+                    <div class="sp-thumbnail-title">16素材网</div>
+                    <div class="sp-thumbnail-description">16sucai.com</div>
+                  </div>
+                </div>
+                <div class="sp-thumbnail">
+                  <div class="sp-thumbnail-image-container"> <img class="sp-thumbnail-image" src="/images/image5_thumbnail.jpg"/> </div>
+                  <div class="sp-thumbnail-text">
+                    <div class="sp-thumbnail-title">16素材网</div>
+                    <div class="sp-thumbnail-description">16sucai.com</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!--视频模块-->
+            <?php for ($i = 0 ; $i <= 14; $i++) {?>
+            <div class="col-md-2 portfolio-item" style="padding:0px;margin:10px 20px 0px 0px;">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-fw fa-play-circle fa-2x"></i>
+                        </div>
+                    </div>
+                    <img src="http://sta.miaosq.com/app/agency/img/portfolio/roundicons.png" class="img-responsive" alt="">
+                </a>
+            </div>
+            <?php }?>
         </div>
+
+        <div class="row-fluid" style="float:left;width:430px;margin-top:50px;">
+            <aside class="col-md-12" id="sidebar" style="float:left;">
+                 <aside id="home-tab">
+                    <div class="panel  panel-zan" style="background-color:transparent;">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
+                            <li class=""><a href="#sidebar-tags" data-toggle="tab">热门标签</a></li>
+                            <li class=""><a href="#sidebar-links" data-toggle="tab">友情链接</a></li>
+                        </ul>
+
+                        <div class="home-tab-box">
+                        <div class="tab-content">
+                            <div class="tab-pane nav bs-sidenav fade active in" id="sidebar-categories">
+                            <?php for ($i = 0 ; $i <= 7; $i++) {?>
+                                <li class="list-group-item <?php if ($i == 7) {?> last<?php }?>">
+                                  <span class="post-title"><a href="http://www.yeahzan.com/zanblog/archives/763.html" title="Zanblog 2.0.7（稳定版）更新">Zanblog 2.0.7（稳定版）更新</a></span>
+                                   <span class="badge"><i class="fa fa-comment"></i> <?php echo rand(1, 100);?></span>
+                                   <span class="badge" style="background-color:orange;" title="浏览了"><i class="fa fa-fw fa-eye"></i> <?php echo rand(1, 100);?></span>
+                                 </li>
+                            <?php } ?>
+
+                                
+                            </div>
+
+                            <div class="tab-pane fade" id="sidebar-tags">
+                            <?php for ($i = 0 ; $i <= 7; $i++) {?>
+                                <a href="http://www.yeahzan.com/zanblog/archives/tag/wordpress%e4%b8%bb%e9%a2%98" class="tag-link-22" title="4个话题" style="color:#db5866;font-size: 12.897959183673pt;;">WordPress</a>
+                                <a href="http://www.yeahzan.com/zanblog/archives/tag/zanblog" class="tag-link-29" title="18个话题" style="color:#d69f31;font-size: 20pt;;">Zanblog</a>
+                                <a href="http://www.yeahzan.com/zanblog/archives/tag/zanui" class="tag-link-32" title="1个话题" style="color:#5c1f12;font-size: 8pt;;">ZanUI</a>
+                                <a href="http://www.yeahzan.com/zanblog/archives/tag/%e4%b8%bb%e9%a2%98%e8%ae%be%e7%bd%ae" class="tag-link-33" title="3个话题" style="color:#b9ea25;font-size: 11.673469387755pt;;">主题设置</a>
+                                <?php }?>
+                            </div>
+
+                            <div class="tab-pane nav bs-sidenav fade" id="sidebar-links">
+                                <?php for ($i = 0 ; $i <= 7; $i++) {?>
+                                <li class="list-group-item">
+                                  <span class="post-title"><a href="http://www.yeahzan.com/zanblog/archives/763.html" title="Zanblog 2.0.7（稳定版）更新">Zanblog 2.0.7（稳定版）更新</a></span>
+                                   <span class="badge"><i class="fa fa-comment"></i> <?php echo rand(1, 100);?></span>
+                                 </li>
+                            <?php } ?>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </aside>
+
+            <aside class="col-md-6" id="sidebar" style="float:left;">
+                 <aside id="home-tab">
+                    <div class="panel  panel-zan" style="background-color:transparent;">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
+                        </ul>
+
+                        <div class="home-tab-box">
+                        <div class="tab-content">
+                            <div class="tab-pane nav bs-sidenav fade active in" id="sidebar-categories">
+                            <?php for ($i = 0 ; $i <= 4; $i++) {?>
+                                <li class="list-group-item <?php if ($i == 8) {?> last<?php }?>">
+                                  <span class="post-title"><a href="http://www.yeahzan.com/zanblog/archives/763.html" title="Zanblog 2.0.7（稳定版）更新">Zanblog 2.0.7</a></span>
+                                   <span class="badge"><i class="fa fa-comment"></i> <?php echo rand(1, 100);?></span>
+                                 </li>
+                            <?php } ?>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </aside>
+
+            <aside class="col-md-6" id="sidebar" style="float:left;">
+                 <aside id="home-tab">
+                    <div class="panel  panel-zan" style="background-color:transparent;">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#sidebar-categories" data-toggle="tab">分类目录</a></li>
+                        </ul>
+
+                        <div class="home-tab-box">
+                        <div class="tab-content">
+                            <div class="tab-pane nav bs-sidenav fade active in" id="sidebar-categories">
+                            <?php for ($i = 0 ; $i <= 4; $i++) {?>
+                                <li class="list-group-item <?php if ($i == 8) {?> last<?php }?>">
+                                  <span class="post-title"><a href="http://www.yeahzan.com/zanblog/archives/763.html" title="Zanblog 2.0.7（稳定版）更新">Zanblog 2.0.7</a></span>
+                                   <span class="badge"><i class="fa fa-comment"></i> <?php echo rand(1, 100);?></span>
+                                 </li>
+                            <?php } ?>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </aside>
+        </div>
+        
+
+        <div class="row-fluid" style="width:100%;height:100px;clear:both;"></div>
     </header>
 
     <!-- Services Section -->
+    <!--
     <section id="services">
         <div class="container">
             <div class="row">
@@ -117,8 +288,10 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Portfolio Grid Section -->
+    <!--
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
@@ -128,7 +301,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-md-4  portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -217,8 +390,10 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- About Section -->
+    <!--
     <section id="about">
         <div class="container">
             <div class="row">
@@ -298,8 +473,10 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- Team Section -->
+    
     <section id="team" class="bg-light-gray">
         <div class="container">
             <div class="row">
@@ -362,13 +539,13 @@
             </div>
         </div>
     </section>
+    
 
     <section id="contact" style="padding-bottom:10px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading" style="color:orange;"><i class="fa fa-fw fa-comment-o"></i>联系我</h2>
-                    <h3 class="section-subheading text-muted" style="color:orange;text-align:center;">为确保联系上、请填写您的真实邮箱哦！</h3>
                 </div>
             </div>
             <div class="row">
@@ -657,6 +834,35 @@ insights to benchmark, compare and optimize businesses on the web.</p>
             </div>
         </div>
     </div>
+<script type="text/javascript">
+    G.use(['jquery'], function ($) {
+        $( document ).ready(function( $ ) {
+            $( '#example5' ).sliderPro({
+                width: 670,
+                height: 500,
+                orientation: 'vertical',
+                loop: false,
+                arrows: true,
+                buttons: false,
+                thumbnailsPosition: 'right',
+                thumbnailPointer: true,
+                thumbnailWidth: 290,
+                breakpoints: {
+                    800: {
+                        thumbnailsPosition: 'bottom',
+                        thumbnailWidth: 270,
+                        thumbnailHeight: 100
+                    },
+                    500: {
+                        thumbnailsPosition: 'bottom',
+                        thumbnailWidth: 120,
+                        thumbnailHeight: 50
+                    }
+                }
+            });
+        });
+    });
+    </script
 </body>
 
 </html>
