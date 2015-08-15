@@ -36,9 +36,9 @@ class ApcCacheAdapter {
 	public function read($key) {
         if (!function_exists('apc_exists')) return false;
         $key  = CacheNamespace::encodeKey($key);
-        if (apc_exists($key)) {
+        //if (apc_exists($key)) {
             return apc_fetch($key);
-        }
+        //}
         return null;
 	}
 

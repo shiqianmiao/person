@@ -1,84 +1,82 @@
 <?PHP
+require_once dirname(__FILE__) . '/BaseController.class.php';
+require_once dirname(__FILE__) . '/../util/http/Response.class.php';
+require_once dirname(__FILE__) . '/../util/http/Request.class.php';
 
-/** 
- * @Copyright (c) 2014 miao Inc.
- * @author        miaoshiqian
- * @date          2014-05-20
- *
- * 流程分发
- */
-
-require_once dirname(__FILE__) . '/../util/http/ResponseUtil.class.php';
-
-/**
- * @class: Dispatch
- * 流程分发类
- * 所有用户的访问都是通过此类进行分发到app下不同目录下的BasePage派生类的*Action()方法执行
- */
 class Dispatch {
-    public static $APP_PATH             = '';          // app所在的路径，结尾不要“/” 
-    public static $MODULE_NAME_EXT      = 'Page';      // 模块名称的后缀
-    public static $ACTION_NAME_EXT      = 'Action';    // 方法名称的后缀
-    
-    public static function run($moduleName, $actionName, $moduleDir = '', $contentType = '', $jsonpCallback = '', $args = null) {
-        if (!empty($contentType)) {
-            ResponseUtil::setContentType($contentType, $jsonpCallback);
+    public static function run($controller = null, $action = null, $params = null, $module = null) {
+        if (empty($controller)) {
+            self::_error($action, '未指定controller');
         }
 
-        $moduleDirPath = self::getModuleDirPath($moduleDir);
-        $className = self::getName('module', $moduleName, self::$MODULE_NAME_EXT);
-        $filePath = $moduleDirPath . "/" . $className . ".class.php";
-        if (!file_exists($filePath)) {
-            trigger_error("文件{$filePath}不存在", E_USER_ERROR);
+        if (empty($action)) {
+            self::_error($action, '未指定action');
         }
-        
+
+        $className = self::_getName('controller', $controller, 'Controller');
+        $dirPath = PROJECT_PATH;
+        if (!empty($module)) {
+            $dirPath .= '/modules/' . $module;
+        }
+        $filePath  = $dirPath . '/controller/' . $className . '.class.php';
+        $actionName = self::_getName('action', $action, 'Action');
+        if (!file_exists($filePath)) {
+            self::_error($action, "文件 {$filePath} 不存在");
+            if ($actionName == 'errorAction') {
+                $className = 'IndexController';
+                $filePath = PROJECT_PATH . '/controller/' . $className . '.class.php';
+            }
+            if (!file_exists($filePath)) {
+                self::_error($action, "文件 {$filePath} 不存在");
+            }
+        }
         include_once $filePath;
         if (!class_exists($className)) {
-            trigger_error("类{$className}不存在", E_USER_ERROR);
+            self::_error($action, "文件 {$filePath} 的 {$className} 类不存在");
         }
 
         $instance = new $className();
-
-        if (method_exists($instance, 'init')) {
-            $instance->init();
+        if (!method_exists($instance, $actionName)) {
+            self::_error($action, "文件 {$filePath} 的 {$actionName}方法不存在");
         }
+        try {
+            if (method_exists($instance, 'init')) {
+                $instance->init();
+            }
         
-        $actionName = self::getName('action', $actionName, self::$ACTION_NAME_EXT);
-        if (method_exists($instance, $actionName)) {
-            
-            if (isset($args) && !empty($args)) {
-
-                call_user_func_array(array(&$instance, $actionName), $args);
-            } else {
-
-                $instance->$actionName();
-            }
-        } else {
-            trigger_error("类{$className}的{$actionName}方法不存在", E_USER_ERROR);
+            $instance->$actionName($params);
+        } catch (Exception $e) {
+            self::_error($action, $e->getMessage(), $e->getCode());
         }
     }
 
-    protected static function getModuleDirPath($moduleDir) {
-        $moduleDirPath = self::$APP_PATH;
-        if (!empty($moduleDir)) {
-            if (is_dir($moduleDir)) {
-                $moduleDirPath = $moduleDir;
+    private static function _error($action, $errorMessage, $errorCode = 1) {
+        if ($action == 'error') {
+            if (!empty($_SERVER['DEBUG'])) {
+                echo $errorMessage . "\n";
+                print_r(debug_backtrace());
+                exit;
             } else {
-                $moduleDirPath .= '/' . $moduleDir;
+                $params = array(
+                    'errorMessage' => '对不起！系统错误，请稍后再试。',
+                    'errorCode'    => $errorCode,
+                );
+                if (Request::isAjax()) {
+                    Response::outputJson($params);
+                } else if (in_array('?', $_GET)) {
+                    $key = array_search('?', $_GET);
+                    Response::outputJsonp($params['errorMessage'], $key);
+                } else {
+                    Response::output($params['errorMessage']);
+                }
+                exit;
             }
         }
-        if (!is_dir($moduleDirPath)) {
-            trigger_error("目录{$moduleDirPath}不存在", E_USER_ERROR);
-        }
-        return $moduleDirPath;
+        throw new Exception($errorMessage);
     }
 
-    protected static function getName($type = 'module', $name, $ext) {
-        if (empty($name)) {
-            trigger_error("未指定{$type}名称", E_USER_ERROR);
-        }
-
-        if ($type == 'module') {
+    private static function _getName($type, $name, $ext) {
+        if ($type == 'controller') {
             $name = ucfirst($name);
         }
 
@@ -97,6 +95,4 @@ class Dispatch {
         
         return $str . $ext;
     }
-
 }
-

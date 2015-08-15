@@ -7,6 +7,8 @@
 
 require_once dirname(__FILE__) . '/DBMysqli.class.php';
 require_once dirname(__FILE__) . '/SqlBuilder.class.php';
+//require_once GLOBAL_CONF_PATH . '/cache/MemcacheConfig.class.php';
+//require_once FRAMEWORK_PATH . '/util/cache/CacheNamespace.class.php';
 
 abstract class BaseModel {
 
@@ -16,11 +18,13 @@ abstract class BaseModel {
     protected $fieldTypes = array();
     protected $dbMasterConfig = array();
     protected $dbSlaveConfig = array();
+//    protected $memConfig = array();
 
     // 基类成员变量
     protected $dbConnMaster;
     protected $dbConnSlave;
     protected $sqlBuilder;
+//    public $memHandle;
 
     public function __construct() {
         $this->init();
@@ -37,6 +41,7 @@ abstract class BaseModel {
 
         $this->sqlBuilder = new SqlBuilder($this->dbName, $this->tableName, $this->fieldTypes);
         $this->sqlBuilder->setDbName($this->dbName);
+//        $this->memHandle = CacheNamespace::createCache(CacheNamespace::MODE_MEMCACHE, $this->memConfig);
         //$this->checkAndCreateTable($this->tableName);
     }
 
@@ -105,6 +110,12 @@ abstract class BaseModel {
         return DBMysqli::insertAndGetID($conn, $sql);
     }
 
+    public function mutilInsert($columnsAndValues) {
+        $sql = $this->sqlBuilder->createInsertSql($columnsAndValues);
+        $conn = $this->getMasterConn();
+        return DBMysqli::execute($conn, $sql);
+    }
+
     public function update($columnsAndValues, $filters) {
         $sql = $this->sqlBuilder->createUpdateSql($columnsAndValues, $filters);
         $conn = $this->getMasterConn();
@@ -123,8 +134,8 @@ abstract class BaseModel {
         return false;
     }
 
-    public function getAll($field = '*', $filters = '', $orderBy = '', $limit = 0, $offset = 0, $fromMaster = false) {
-        $sql = $this->sqlBuilder->createSelectSql($field, $filters, $orderBy, $limit, $offset);
+    public function getAll($field = '*', $filters = '', $orderBy = '', $limit = 0, $offset = 0, $fromMaster = false, $useIndex='') {
+        $sql = $this->sqlBuilder->createSelectSql($field, $filters, $orderBy, $limit, $offset, $useIndex);
         $conn = $fromMaster ? $this->getMasterConn() : $this->getSlaveConn();
         return DBMysqli::queryAll($conn , $sql);
     }
@@ -143,9 +154,9 @@ abstract class BaseModel {
         return $this->getRow($field = '*', $filters, $orderBy, $offset, true);
     }
 
-    public function getOne($field = '*', $filters = '', $fromMaster = false) {
+    public function getOne($field = '*', $filters = '', $fromMaster = false, $useIndex='') {
         $conn = $fromMaster ? $this->getMasterConn() : $this->getSlaveConn();
-        $sql = $this->sqlBuilder->createSelectSql($field, $filters);
+        $sql = $this->sqlBuilder->createSelectSql($field, $filters, array(), 0, 0, $useIndex);
         return DBMysqli::queryOne($conn , $sql);
     }
 

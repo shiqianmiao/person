@@ -90,7 +90,8 @@ class StaticImpl {
 
     private static function mapToAlias($file) {
 
-        $aliasInfo = self::$configInfo['alias'];
+        //$aliasInfo = self::$configInfo['alias'];
+        $aliasInfo = array();
 
         if (!$aliasInfo) {
             $aliasInfo = array();

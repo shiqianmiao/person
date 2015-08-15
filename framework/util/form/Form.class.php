@@ -130,4 +130,16 @@ class Form {
         }
         return $data;
     }
+    
+    /**
+     * @desc 是否存在该名字的表单域
+     * @return bool
+     */
+    public function isField($name = '') {
+        if (empty($name)) {
+            return false;
+        }
+        
+        return isset($this->fields[$name]) ? true : false;
+    }
 }

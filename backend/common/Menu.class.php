@@ -20,7 +20,7 @@ class Menu {
             }
             $menuDataRow['text'] = $channel['text'];
             $menuDataRow['menu'] = include $file;
-            $menuDataRow['old'] = !empty($channel['old']) ? true : false;
+            //$menuDataRow['old'] = !empty($channel['old']) ? true : false;
             $menuData[] = $menuDataRow;
             if (!is_array($menuData) || count($menuData) == 0) {
                 trigger_error('菜单数据不正常', E_USER_ERROR);
@@ -42,10 +42,6 @@ class Menu {
                 $val['icon'] = $this->defaultMenuIcon;
             }
             foreach ($val['menu'] as $k => $v) {
-                if ($val['old']) {
-                    $v['url'] = 'http://bc.corp.273.cn' . $v['url'];
-                    $v['target'] = '_blank';
-                }
                 if (!empty($v['code']) && !isset($permissions[$v['code']])) {
                     unset($val['menu'][$k]);
                     continue;

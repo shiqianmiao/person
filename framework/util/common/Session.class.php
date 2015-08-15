@@ -25,7 +25,7 @@ class Session {
                 session_unset();
                 session_destroy();
                 session_id($newId);
-                setcookie(session_name(), $newId, 0, '/', 'ganji.com');
+                setcookie(session_name(), $newId, 0, '/', '273.cn');
                 error_log(date('Y-m-d H:i:s ') . 'fix session:' . $newId . "\n");
             }
         }

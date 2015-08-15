@@ -26,6 +26,11 @@ class BackendPageConfig {
                 //'banner_code' => 'can not see',
                 'dir'  => dirname(__FILE__) . '/../../mbs_yg/shop/',
             ),
+            'admin' => array(
+                'code' => 'admin',
+                'text' => 'banner管理',
+                'dir'  => dirname(__FILE__) . '/../../admin/banner',
+            ),
         );
     }
 

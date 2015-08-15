@@ -5,7 +5,7 @@
  * @author 缪石乾<miaosq@273.cn>
  */
 
-require_once FRAMEWORK_PATH . '/mvc/BasePage.class.php' ;
+require_once FRAMEWORK_PATH . '/mvc_org/BasePage.class.php';
 
 class WebBasePage extends BasePage {
     

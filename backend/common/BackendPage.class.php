@@ -1,5 +1,5 @@
 <?php
-require_once FRAMEWORK_PATH . '/mvc/BasePage.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/BasePage.class.php';
 require_once FRAMEWORK_PATH . '/util/common/Session.class.php' ;
 require_once API_PATH . '/interface/SsoInterface.class.php';
 require_once API_PATH . '/interface/StaticInterface.class.php';

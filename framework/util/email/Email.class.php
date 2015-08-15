@@ -38,8 +38,8 @@ function sendmail($to, $from, $subject = "", $body = "", $mailtype,$additional_h
 {
 $mail_from = $this->get_address($this->strip_comment($from));
 $subject ="=?".$additional_headers."?B?".base64_encode($subject)."?=";
-$body = ereg_replace("(^|(\r\n))(\\.)", "\\1.\\3", $body);
-$header .= "MIME-Version:1.0\r\n";
+$body = preg_replace("/(^|(\r\n))(\\.)/", "\\1.\\3", $body);
+$header = "MIME-Version:1.0\r\n";
 if($mailtype=="HTML"){
      $header .= "Content-Type:text/html;Charset=\"".$additional_headers."\"\r\n";  
 }
@@ -154,7 +154,7 @@ return TRUE;;
 
 function smtp_sockopen_mx($address)
 {
-$domain = ereg_replace("^.+@([^@]+)$", "\\1", $address);
+$domain = preg_replace("/^.+@([^@]+)$/", "\\1", $address);
 if (!@getmxrr($domain, $MXHOSTS)) {
 $this->log_write("Error: Cannot resolve MX \"".$domain."\"\n");
 return FALSE;
@@ -195,7 +195,7 @@ function smtp_ok()
 $response = str_replace("\r\n", "", fgets($this->sock, 512));
 $this->smtp_debug($response."\n");
 
-if (!ereg("^[23]", $response)) {
+if (!preg_match("/^[23]/", $response)) {
 fputs($this->sock, "QUIT\r\n");
 fgets($this->sock, 512);
 $this->log_write("Error: Remote host returned \"".$response."\"\n");
@@ -245,9 +245,9 @@ return TRUE;
 
 function strip_comment($address)
 {
-$comment = "\\([^()]*\\)";
-while (ereg($comment, $address)) {
-$address = ereg_replace($comment, "", $address);
+$comment = "/\\([^()]*\\)/";
+while (preg_match($comment, $address)) {
+$address = preg_replace($comment, "", $address);
 }
 
 return $address;
@@ -255,8 +255,8 @@ return $address;
 
 function get_address($address)
 {
-$address = ereg_replace("([ \t\r\n])+", "", $address);
-$address = ereg_replace("^.*<(.+)>.*$", "\\1", $address);
+$address = preg_replace("/([ \t\r\n])+/", "", $address);
+$address = preg_replace("/^.*<(.+)>.*$/", "\\1", $address);
 
 return $address;
 }

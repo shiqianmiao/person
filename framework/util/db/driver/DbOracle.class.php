@@ -174,7 +174,7 @@ class DbOracle {
 	 * @see DbOracle::open
 	 */
 	public function query($sql = '', $rowFrom = 0, $rowTo = self::MAX_ROW_NUM) {
-		if ($rowFrom != 0 && $rowTo != self::MAX_ROW_NUM) {
+		if ($rowFrom != 0 || $rowTo != self::MAX_ROW_NUM) {
 			$sql = 'select * from (select row_.*, rownum rownum_ from ('
 					. $sql . ') row_ where rownum <= '
 					. $rowTo . ') where rownum_ >= ' . $rowFrom;
@@ -241,8 +241,8 @@ class DbOracle {
 	 * @access public
 	 * @see getPrior()
 	 */
-	public function next() {
-		return $this->fetchRecord();
+	public function next($resultType=OCI_ASSOC) {
+		return $this->fetchRecord(null,$resultType);
 	}
 
 	/**

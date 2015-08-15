@@ -6,7 +6,7 @@
  */
 
 require_once dirname(__FILE__) . '/bootstrap.php';
-require_once FRAMEWORK_PATH . '/mvc/XhprofLog.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/XhprofLog.class.php';
 XhprofLog::beginXhprof();
 
 $str = $_GET['_sys_url_path'];

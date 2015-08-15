@@ -19,6 +19,11 @@ class BackendPageConfig {
                 'text' => '单点登录',
                 'dir'  => dirname(__FILE__) . '/../../sso/backend',
             ),
+            'admin' => array(
+                'code' => 'admin',
+                'text' => 'banner管理',
+                'dir'  => dirname(__FILE__) . '/../../admin/banner',
+            ),
         );
     }
 

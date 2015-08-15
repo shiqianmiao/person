@@ -18,6 +18,7 @@ class DBMysqli {
     //const SLOW_QUERY_MIN = 1;
     const SLOW_QUERY_MIN = 50;
     const SLOW_QUERY_SAMPLE = 500;
+    const SLOW_QUERY_MAX = 2000;
 
     private static $_lastSql;
     /**
@@ -64,8 +65,18 @@ class DBMysqli {
         $db_config_array['encoding']    = $encoding;
         $handle_key = self::_getHandleKey($db_config_array);
 
+        //有存在连接句柄的情况，并且是命令行请求进行ping
         if (isset(self::$_HANDLE_ARRAY[$handle_key])) {
-            return self::$_HANDLE_ARRAY[$handle_key];
+            // MSC-2077 命令行模式
+            if ((PHP_SAPI === 'cli' || self::$_HANDLE_PING === true) && method_exists(self::$_HANDLE_ARRAY[$handle_key], 'ping')) {
+                if (self::$_HANDLE_ARRAY[$handle_key]->ping()) {
+                    return self::$_HANDLE_ARRAY[$handle_key];
+                } else {
+                    mysqli_close(self::$_HANDLE_ARRAY[$handle_key]);
+                }
+            } else {
+                return self::$_HANDLE_ARRAY[$handle_key];
+            }
         }
 
         $port = 3306;
@@ -149,10 +160,17 @@ class DBMysqli {
      * @param[in] handle $handle, 你懂的
      * @return void
      */
-    public static function releaseDBHandle($handle) {
+    public static function releaseDBHandle($handle=null) {
         //if (!self::_checkHandle($handle)) {
             //return;
         //}
+        if (empty($handle)) {
+            foreach (self::$_HANDLE_ARRAY as $handle_key => $handleObj) {
+                mysqli_close($handleObj);
+            }
+            self::$_HANDLE_ARRAY = array();
+            return 0;
+        }
         foreach (self::$_HANDLE_ARRAY as $handle_key => $handleObj) {
             if ($handleObj->thread_id == $handle->thread_id) {
                 unset(self::$_HANDLE_ARRAY[$handle_key]);
@@ -339,14 +357,12 @@ class DBMysqli {
      * @param[in] string $category, 错误的子类别
      */
     protected static function logError($message, $category) {
-//        echo $message . "<br />\n";
-        if(class_exists('LoggerGearman')) {
-
+        if (!extension_loaded('gearman')) {
             $logData = array(
                 'data' => $message . var_export(debugBackTrace(array('function','class','type','args','object')), true),
-                'identity' => $category
+                'tag' => $category
             );
-            LoggerGearman::logWarn($logData);
+            Log::logWarn($logData);
         }
     }
 
@@ -357,10 +373,10 @@ class DBMysqli {
      */
     protected static function logWarn($message, $category) {
 
-        if(class_exists('LoggerGearman')) {
+        /*if (extension_loaded('gearman')) {
 
             $logData = array(
-                'data' => $message,
+                'data' => $message . var_export(debugBackTrace(array('function','class','type','args','object')), true),
                 'identity' => $category
             );
             if ($category == 'mysqlns.slow') {
@@ -368,12 +384,13 @@ class DBMysqli {
                 $logData['prob'] = 0.002;
                 //@test
                 //$logData['prob'] = 1;
-                LoggerGearman::logProb($logData);
-            } else {
-
-                LoggerGearman::logWarn($logData);
+            } elseif ($category == 'mysqlns.sloer') {
+                $logData['prob'] = 0.02;
+            } elseif ($category == 'mysqlns.sloest') {
+                $logData['prob'] = 0.2;
             }
-        }
+            LoggerGearman::logProb($logData);
+        }*/
     }
 
     protected static function getMicrosecond() {
@@ -404,15 +421,20 @@ class DBMysqli {
         $tmUsed = self::getMicrosecond() - $tm;
         //毫秒
         $tmp = intval($tmUsed * 1000);
-        if( $tmp >= self::SLOW_QUERY_MIN) {
+        if( $tmp >= self::SLOW_QUERY_MIN && $tmp < self::SLOW_QUERY_SAMPLE) {
             //这里不用进行随机的判断了，log那边会进行处理
             self::logWarn("seconds={$tmUsed}, SQL={$sql}", 'mysqlns.slow');
+        } elseif ($tmp >= self::SLOW_QUERY_SAMPLE && $tmp < self::SLOW_QUERY_MAX) {
+            self::logWarn("seconds={$tmUsed}, SQL={$sql}", 'mysqlns.sloer');
+        } elseif ($tmp > self::SLOW_QUERY_MAX) {
+            self::logWarn("seconds={$tmUsed}, SQL={$sql}", 'mysqlns.sloest');
         }
         return $result;
     }
 }
 function debugBackTrace($filters = array()) {
     $debug = debug_backtrace();
+
     $result = $debug;
     if (!empty($debug) && !empty($filters)) {
         foreach ($debug as $k => $arr) {
@@ -422,5 +444,29 @@ function debugBackTrace($filters = array()) {
                 }
             }
         }
-    } return $result;
+    } 
+    //处理格式
+    $res = array();
+    if($result){
+        foreach ($result as $key => &$value) {
+            if(array_key_exists('file', $value)){
+                if(strstr($value['file'], 'DBMysqli.class.php')  ||
+                    strstr($value['file'], 'BaseModel.class.php')||
+                    strstr($value['file'], 'Dispatch.class.php') ||
+                    strstr($value['file'], 'Bootstrap.class.php') ||
+                    strstr($value['file'], 'index.php')
+                 ){
+                    unset($result[$key]);
+                }else{
+                    $value = $value['file'] .  '[' . $value['line'] . ']';
+                }
+               
+            }
+        }
+      
+        foreach ($result as $rkey => $rvalue) {
+            $res[] = $rvalue;
+        }
+    }
+    return $res;
 }

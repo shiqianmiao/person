@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2003-2013 273 Inc. (http://www.273.cn)
  * @desc      
  */
-require_once FRAMEWORK_PATH . '/util/redis/RedisClient.class.php';
+require_once dirname(__FILE__) . '/RedisClient.class.php';
 require_once CONF_PATH . '/cache/RedisConfig.class.php';
 class RedisQueue {
     
@@ -25,7 +25,7 @@ class RedisQueue {
      * @param type $key
      * @param type $val
      */
-    public static function push($key,$val) {return true;
+    public static function push($key,$val) {
         $redis = self::_redis();
         return $redis->lpush($key,$val);
     }
@@ -57,17 +57,15 @@ class RedisQueue {
         return $redis->lSize($key);
     }
 
-	/***
-	 * 获取队列n个值
-	 * @param type $key
-	 * @param int $start
-	 * @param int $offset
-	 * **/
-	public static function listRange( $key, $offset, $start=0 ) {
+    /***
+     * 获取队列n个值
+     * @param type $key
+     * @param int $start
+     * @param int $offset
+     * **/
+    public static function listRange( $key, $offset, $start=0 ) {
         $redis = self::_redis();
-		return $redis->lRange($key, $start, $offset );
-	}
-
-
+        return $redis->lRange($key, $start, $offset );
+    }
 }
 

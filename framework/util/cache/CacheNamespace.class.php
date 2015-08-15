@@ -9,7 +9,6 @@
  * @lastmodified         $Date: 2011-03-11 17:29:21 +0800 (五, 2011-03-11) $
  * @copyright            Copyright (c) 2011, ganji.com
  */
-
 require_once CONF_PATH . '/cache/MemcacheConfig.class.php';
 
 class CacheNamespace
@@ -30,6 +29,9 @@ class CacheNamespace
 
 	/** memcache */
 	const MODE_MEMCACHE = 2;
+
+    /** yac */
+    const MODE_YAC = 3;
 
     private static $_HANDLE_ARRAY   = array();
 
@@ -70,6 +72,10 @@ class CacheNamespace
 			    require_once dirname(__FILE__) . '/adapter/ApcCacheAdapter.class.php';
 				$objCache = new ApcCacheAdapter();
 				break;
+            case self::MODE_YAC:
+                require_once dirname(__FILE__) . '/adapter/YacCacheAdapter.class.php';
+                $objCache = new YacCacheAdapter();
+                break;
 			default:
 			    require_once dirname(__FILE__) . '/adapter/MemCacheAdapter.class.php';
 				$objCache = new MemCacheAdapter($servers);
@@ -86,8 +92,8 @@ class CacheNamespace
     }
     
     public static function writeLocalCache($key, $data) {
-        $apc    = CacheNamespace::createCache(CacheNamespace::MODE_APC);
-        $apc->write($key, $data);
+        $yac = CacheNamespace::createCache(CacheNamespace::MODE_YAC);
+        $yac->write($key, $data);
         self::_writeToFile($key, $data);
     }
 
@@ -119,9 +125,9 @@ class CacheNamespace
         }
 
         // apc缓存
-        $apc = CacheNamespace::createCache(CacheNamespace::MODE_APC);
+        $yac = CacheNamespace::createCache(CacheNamespace::MODE_YAC);
         $apcKey = $key;
-        $data   = $apc->read($apcKey);
+        $data   = $yac->read($apcKey);
         if ($data) {
             if ($data == self::NO_RESULT_CACHE_FLAG) {
                 $data = null;
@@ -150,7 +156,7 @@ class CacheNamespace
                 $memcache->write($key, self::NO_RESULT_CACHE_FLAG, 36000);
                 return null;
             } else {
-                $apc->write($apcKey, $data);
+                $yac->write($apcKey, $data);
             }
         }
 

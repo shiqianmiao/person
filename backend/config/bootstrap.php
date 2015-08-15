@@ -1,11 +1,8 @@
 <?php
 //载入全局配置文件
 require_once dirname(__FILE__) . '/config.php';
-
-require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
-require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
-require_once FRAMEWORK_PATH . '/mvc/PageVars.class.php';
-require_once FRAMEWORK_PATH . '/mvc/Bootstrap.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/PageVars.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/Bootstrap.class.php';
 
 // 加载配置文件
 require_once dirname(__FILE__) . '/' . (defined('APP_CONFIG_FILE_NAME') ? APP_CONFIG_FILE_NAME : 'config.inc.php');
@@ -22,7 +19,6 @@ if ($displayError) {
     ini_set('display_errors', 0);
 }
 
-RequestUtil::gpcStripSlashes();
 if (!$displayError) {
     function sys_get_404_url() {
         $attrs = Bootstrap::getRouteParams();
@@ -42,14 +38,14 @@ if (!$displayError) {
     //捕获错误，显示404
     function sys_my_error($errno, $errstr, $errfile, $errline) {
         $attrs = Bootstrap::getRouteParams();
-        ResponseUtil::redirect(sys_get_404_url(), $attrs['iframe']);
+        Response::redirect(sys_get_404_url(), $attrs['iframe']);
     }
     set_error_handler('sys_my_error', E_USER_ERROR);
 
     //捕获异常
     function sys_my_exception($exception) {
         $attrs = Bootstrap::getRouteParams();
-        ResponseUtil::redirect(sys_get_404_url(), $attrs['iframe']);
+        Response::redirect(sys_get_404_url(), $attrs['iframe']);
     }
     set_exception_handler('sys_my_exception');
 
@@ -60,7 +56,7 @@ $routeParams = BackendPageConfig::getRequestParams();
 $className = ucfirst($routeParams['module']) . 'Page';
 $file = $routeParams['channel_dir'] . '/' . $routeParams['module_dir'] . '/' . $className . '.class.php';
 if (!file_exists($file)) {
-    ResponseUtil::redirect('/404.php?errorMessage=' . $className . ' not found');
+    Response::redirect('/404.php?errorMessage=' . $className . ' not found');
 }
 
 Bootstrap::setRouteParams(array(
@@ -85,5 +81,5 @@ require_once BACKEND . '/common/BackendPage.class.php';
 include_once $file;
 $instance = new $className();
 if (!method_exists($instance, $routeParams['action'] . 'Action')) {
-    ResponseUtil::redirect('/404.php?errorMessage=' . $routeParams['action'] . ' not found');
+    Response::redirect('/404.php?errorMessage=' . $routeParams['action'] . ' not found');
 }

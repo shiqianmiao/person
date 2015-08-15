@@ -15,8 +15,8 @@ require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
 RequestUtil::gpcStripSlashes();
 
 require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
-require_once FRAMEWORK_PATH . '/mvc/PageVars.class.php';
-require_once FRAMEWORK_PATH . '/mvc/Bootstrap.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/PageVars.class.php';
+require_once FRAMEWORK_PATH . '/mvc_org/Bootstrap.class.php';
 
 if (!defined('DISPLAY_ERROR_WEB_V3') || DISPLAY_ERROR_WEB_V3 == false) {
     function sys_get_404_url() {

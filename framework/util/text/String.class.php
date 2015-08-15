@@ -1,135 +1,135 @@
 <?php
 class String
 {
-	/**
-	 * 截字(utf8)
-	 * @param $sourceString 被截取的字符串
-	 * @param $length		截取的长度
-	 * @param $offset		开始截取的位置，从0开始
-	 * @return string		截取得到的字符串
-	 */
-	public static function trword($sourceString, $maxLength, $postFix='...')
-	{
-		if( self::strlen_utf8($sourceString)>$maxLength )
-		{
-			return self::substr_utf8($sourceString, $maxLength, 0) . $postFix;
-		}
-		return $sourceString;
-	}
-	
-	/**
-	 * 截取utf-8编码的字符串
-	 * @param $sourceString 被截取的字符串
-	 * @param $length		截取的长度
-	 * @param $offset		开始截取的位置，从0开始
-	 * @return string		截取得到的字符串
-	 */
-	public static function substr_utf8($sourceString, $length, $offset = 0)
-	{
-    	return mb_substr($sourceString, $offset, $length, 'utf-8');
-	}
-	
-	/**
-	 * 查找字符串位置
-	 *
-	 * @param sring $sourceString 被查找的字符串
-	 * @param string $needle 	  查找字符串
-	 * @param int $offset   	  开始查找的位置，从0开始
-	 * @return 若存在返回字符串位置，否则返回false
-	 */
-	public static function strpos_utf8($sourceString, $needle, $offset = 0)
-	{
-    	return mb_strpos($sourceString, $needle, $offset, 'utf-8');
-	}
-	
-	/**
-	 * 获得utf-8编码的字符串的长度
-	 * @param $sourceString	utf-8编码的字符串
-	 * @return int			长度
-	 */
-	public static function strlen_utf8($sourceString)
-	{
-		//环境检查不要在runtime中处理  2009-08-03 3:13 PM zjy
-		/*
-		if(!extension_loaded('mbstring') )
-			die('php-mbstring should be install ');
-		*/
-		
-		//换行符修改为一字节 和JS判断相一致 修改人：刘必坚 修改时间：2009.2.18
-		$str = str_replace("\r\n"," ",$sourceString);
-		$str = stripslashes($str);
-		
-	    return mb_strlen($str, 'utf-8');
-	}
-	
-	/**
-	 * 检查一个字符串是否以特定字符串开始
-	 * @param $sourceString	待检查的字符串
-	 * @param $prefix		特定字符串
-	 * @return boolean		如果是，返回true，否则返回false
-	 */
-	public static function beginWith($sourceString, $prefix)
-	{
-		if($prefix == '' || $sourceString == '')
-			return false;
+    /**
+     * 截字(utf8)
+     * @param $sourceString 被截取的字符串
+     * @param $length        截取的长度
+     * @param $offset        开始截取的位置，从0开始
+     * @return string        截取得到的字符串
+     */
+    public static function trword($sourceString, $maxLength, $postFix='...')
+    {
+        if( self::strlen_utf8($sourceString)>$maxLength )
+        {
+            return self::substr_utf8($sourceString, $maxLength, 0) . $postFix;
+        }
+        return $sourceString;
+    }
+    
+    /**
+     * 截取utf-8编码的字符串
+     * @param $sourceString 被截取的字符串
+     * @param $length        截取的长度
+     * @param $offset        开始截取的位置，从0开始
+     * @return string        截取得到的字符串
+     */
+    public static function substr_utf8($sourceString, $length, $offset = 0)
+    {
+        return mb_substr($sourceString, $offset, $length, 'utf-8');
+    }
+    
+    /**
+     * 查找字符串位置
+     *
+     * @param sring $sourceString 被查找的字符串
+     * @param string $needle       查找字符串
+     * @param int $offset         开始查找的位置，从0开始
+     * @return 若存在返回字符串位置，否则返回false
+     */
+    public static function strpos_utf8($sourceString, $needle, $offset = 0)
+    {
+        return mb_strpos($sourceString, $needle, $offset, 'utf-8');
+    }
+    
+    /**
+     * 获得utf-8编码的字符串的长度
+     * @param $sourceString    utf-8编码的字符串
+     * @return int            长度
+     */
+    public static function strlen_utf8($sourceString)
+    {
+        //环境检查不要在runtime中处理  2009-08-03 3:13 PM zjy
+        /*
+        if(!extension_loaded('mbstring') )
+            die('php-mbstring should be install ');
+        */
+        
+        //换行符修改为一字节 和JS判断相一致 修改人：刘必坚 修改时间：2009.2.18
+        $str = str_replace("\r\n"," ",$sourceString);
+        $str = stripslashes($str);
+        
+        return mb_strlen($str, 'utf-8');
+    }
+    
+    /**
+     * 检查一个字符串是否以特定字符串开始
+     * @param $sourceString    待检查的字符串
+     * @param $prefix        特定字符串
+     * @return boolean        如果是，返回true，否则返回false
+     */
+    public static function beginWith($sourceString, $prefix)
+    {
+        if($prefix == '' || $sourceString == '')
+            return false;
 
-		return (@substr_compare($sourceString, $prefix, 0, strlen($prefix)) === 0);
-	}
-	
-	/**
-	 * 检查一个字符串是否以特定字符串结尾
-	 * @param $sourceString	待检查的字符串
-	 * @param $postfix		特定字符串
-	 * @return boolean		如果是，返回true，否则返回false
-	 */
-	public static function endWith($sourceString, $postfix)
-	{
-		if($postfix == '' || $sourceString == '')
-			return false;
+        return (@substr_compare($sourceString, $prefix, 0, strlen($prefix)) === 0);
+    }
+    
+    /**
+     * 检查一个字符串是否以特定字符串结尾
+     * @param $sourceString    待检查的字符串
+     * @param $postfix        特定字符串
+     * @return boolean        如果是，返回true，否则返回false
+     */
+    public static function endWith($sourceString, $postfix)
+    {
+        if($postfix == '' || $sourceString == '')
+            return false;
 
-		$size = strlen($postfix);
-		return (@substr_compare($sourceString, $postfix, strlen($sourceString) - $size, $size) === 0);
-	}
-	
-	/**
-	 * 检查一段utf-8编码的字符串是否为中文
-	 * @param $sourceString	被检查的字符串
-	 * @return boolean		如果是，返回true，否则返回false
-	 */
-	public static function isChinese_utf8($sourceString)
-	{
-		return preg_match('/^[\x7f-\xff]+$/', $sourceString);
-	}
-	
-	/**
-	 * 将相差timestamp转为如“1分钟前”，“3天前”等形式
-	 *
-	 * @param timestamp $ts_diff 当前时间 - 要格式化的timestamp
-	 */
-	public static function formatTime($ts_diff)
-	{
-		if ($ts_diff <=0)
-		{
-			return date('Y-m-d');
-		}
-		else if ( $ts_diff <= 3600 )
-		{
-			return max(1, (int)($ts_diff/60)) . '分钟前';
-		}
-		else if ( $ts_diff <= 86400 )
-		{
-			return ((int)($ts_diff/3600)) . '小时前';
-		}
-		else
-		{
-			return ((int)($ts_diff/86400)) . '天前';
-		}
-	}
-	/**
-	 * 
-	 *将timestamp时间转化为x时x分x秒
-	 * 
-	 */
+        $size = strlen($postfix);
+        return (@substr_compare($sourceString, $postfix, strlen($sourceString) - $size, $size) === 0);
+    }
+    
+    /**
+     * 检查一段utf-8编码的字符串是否为中文
+     * @param $sourceString    被检查的字符串
+     * @return boolean        如果是，返回true，否则返回false
+     */
+    public static function isChinese_utf8($sourceString)
+    {
+        return preg_match('/^[\x7f-\xff]+$/', $sourceString);
+    }
+    
+    /**
+     * 将相差timestamp转为如“1分钟前”，“3天前”等形式
+     *
+     * @param timestamp $ts_diff 当前时间 - 要格式化的timestamp
+     */
+    public static function formatTime($ts_diff)
+    {
+        if ($ts_diff <=0)
+        {
+            return date('Y-m-d');
+        }
+        else if ( $ts_diff <= 3600 )
+        {
+            return max(1, (int)($ts_diff/60)) . '分钟前';
+        }
+        else if ( $ts_diff <= 86400 )
+        {
+            return ((int)($ts_diff/3600)) . '小时前';
+        }
+        else
+        {
+            return ((int)($ts_diff/86400)) . '天前';
+        }
+    }
+    /**
+     * 
+     *将timestamp时间转化为x时x分x秒
+     * 
+     */
     public static function getTimeLong($seconds) {
         if (!$seconds) {
             return '0秒';
@@ -155,30 +155,30 @@ class String
         return $ret;
     }
 
-	
-	/**
-	 * 获取unix时间戳秒数
-	 *
-	 * @return float
-	 */
-	public static function microtime_float()
-	{
-	    list($usec, $sec) = explode(" ", microtime());
-	    return ((float)$usec + (float)$sec);
-	}
-	
-	/**
+    
+    /**
+     * 获取unix时间戳秒数
+     *
+     * @return float
+     */
+    public static function microtime_float()
+    {
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
+    }
+    
+    /**
      * 格式化为安全字符串(用于FCK编辑器提交后的内容清理中)
      *
      * @var string $str 字符串
      * @return string 返回完全的字符串
      */
-	public function formatSafeStr($str)
+    public function formatSafeStr($str)
     {
-    	include_once dirname(__FILE__) . "/RichText.class.php";
+        include_once dirname(__FILE__) . "/RichText.class.php";
 
-		$richText = new RichText();
-		return $richText->filter($str);
+        $richText = new RichText();
+        return $richText->filter($str);
     }
     /** 将数字星期转换成字符串星期 weekNum2String($num)
      * @param int

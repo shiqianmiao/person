@@ -33,7 +33,7 @@
 <body id="page-top" class="index">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -55,23 +55,27 @@
                 </span>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
+                    <li class="active">
+                        <a class="page-scroll" href="/"><i class="fa fa-fw fa-home"></i>首页</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#services"><i class="fa fa-fw fa-book"></i>技术期刊</a>
+                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-spinner fa-spin"></i>DEMO直通车</a>
                     </li>
                     <li>
-                        <a class="page-scroll"  href="javascript:;" data-target="#portfolio"><i class="fa fa-fw fa-spinner fa-spin"></i>DEMO记录</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>技术期刊</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#about"><i class="fa fa-fw fa-user"></i>关于本站</a>
+                        <a class="page-scroll" href="javascript:;" data-target="#team"><i class="fa fa-fw fa-spinner"></i>分享师</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#team"><i class="fa fa-fw fa-spinner"></i>Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="javascript:;" data-target="#contact"><i class="fa fa-fw fa-comment-o"></i>联系我</a>
+                    <li class="dropdown">
+                        <a class="page-scroll dropdown-toggle" href="javascript:;" data-target="contact"><i class="fa fa-fw fa-comment-o"></i>联系我<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a tabindex="-1" href="#"><i class="fa fa-fw fa-comment-o"></i> 二级菜单1</a></li>
+                            <li><a tabindex="-1" href="#"><i class="fa fa-fw fa-comment-o"></i> 二级菜单1</a></li>
+                            <li><a tabindex="-1" href="#"><i class="fa fa-fw fa-comment-o"></i> 二级菜单1</a></li>
+                            <li><a tabindex="-1" href="#"><i class="fa fa-fw fa-comment-o"></i> 二级菜单1</a></li>
+                            <li><a tabindex="-1" href="#"><i class="fa fa-fw fa-comment-o"></i> 二级菜单1</a></li>
+                        </ul>
                     </li>
                     <li>
                         <a class="page-scroll" href="javascript:;"  href="javascript:;"><i class="fa fa-fw fa-bell-o"></i>招聘信息</a>
@@ -250,17 +254,7 @@
                                     <img style="box-shadow: 2px 3px 3px black;" width="150px" src="http://sta.miaosq.com/app/agency/img/cover.png"/>
                                 </span>
                             </div>
-                <!--
-                            <div class="tab-pane nav bs-sidenav fade active in" id="sidebar-categories">
-                            <?php for ($i = 0 ; $i <= 4; $i++) {?>
-                                <li class="list-group-item <?php if ($i == 8) {?> last<?php }?>">
-                                  <span class="post-title"><a href="http://www.yeahzan.com/zanblog/archives/763.html" title="Zanblog 2.0.7（稳定版）更新">Zanblog 2.0.7</a></span>
-                                   <span class="badge"><i class="fa fa-comment"></i> <?php echo rand(1, 100);?></span>
-                                 </li>
-                            <?php } ?>
-                            </div>
-                            -->
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </aside>
@@ -270,32 +264,6 @@
 
         <div class="row-fluid" style="width:100%;height:100px;clear:both;"></div>
     </header>
-
-    <!-- Services Section -->
-    <!--
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading"><i class="fa fa-fw fa-book"></i>技术期刊</h2>
-                    <h3 class="section-subheading">有用的文章值得记录和珍藏！以下是我的记录和收藏！欢迎大家一起来分享！</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-            <?php for($i = 1; $i <= 10; $i++){?>
-                <div class="col-md-2" style="margin:10px 15px;">
-                    <span>
-                        <img style="box-shadow: 2px 3px 3px black;" width="150px" src="http://sta.miaosq.com/app/agency/img/cover.png"/>
-                    </span>
-                    <h4 class="service-heading">2015-3月期刊</h4>
-                    <p class="text-muted">本期看点：PHP7性能解说、LNMP新看点、大神面试分享......</p>
-                </div>
-            <?php }?>
-                
-            </div>
-        </div>
-    </section>
-    -->
 
     <!-- Portfolio Grid Section -->
     
@@ -488,15 +456,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Demo 直通车</h2>
-                    <h3 class="section-subheading text-muted-video">让那些漂亮的小应用以Demo的形式更完美的展示出来吧！</h3>
+                    <h2 class="section-heading">本周最佳分享师</h2>
+                    <h3 class="section-subheading text-muted-video">分享并快乐着！</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
                         <img src="http://sta.miaosq.com/app/agency/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <h4>最新JS图片轮播DEMO</h4>
+                        <h4>jhone</h4>
                         <p class="text-muted">最新JS图片轮播DEMO</p>
                         
                     </div>
@@ -527,7 +495,7 @@
     </section>
     
 
-    <section id="contact" style="padding-bottom:10px;">
+    <section name="contact" id="contact" style="padding-bottom:10px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">

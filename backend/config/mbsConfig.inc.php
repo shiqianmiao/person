@@ -5,10 +5,7 @@
  * @since 2013-9-2
  */
 require_once dirname(__FILE__) . '/config.php';
-require_once FRAMEWORK_PATH . '/util/http/RequestUtil.class.php';
-require_once FRAMEWORK_PATH . '/util/http/ResponseUtil.class.php';
 
-RequestUtil::gpcStripSlashes();
 
 class BackendPageConfig {
 
@@ -25,6 +22,11 @@ class BackendPageConfig {
                 'code' => 'sso',
                 'text' => '单点登录',
                 'dir'  => dirname(__FILE__) . '/../../sso/backend',
+            ),
+            'admin' => array(
+                'code' => 'banner',
+                'text' => 'banner管理',
+                'dir'  => dirname(__FILE__) . '/../channel/banner',
             ),
             /*'index' => array(
                 'text' => '后台首页',
@@ -83,7 +85,7 @@ class BackendPageConfig {
 
     public static function parseUrl($url = '') {
         if (empty($url)) {
-            $url = RequestUtil::getGET('_sys_url_path', '');
+            $url = Request::getGET('_sys_url_path', '');
         } else {
             $url = preg_replace("/[#\?].*$/", '', $url);
         }
@@ -130,8 +132,8 @@ class BackendPageConfig {
             'module'         => $module,
             'channel_dir'    => $channelDir,
             'module_dir'     => $moduleDir,
-            'content_type'   => $isAjax ? ResponseUtil::CONTENT_TYPE_JSON : ResponseUtil::CONTENT_TYPE_HTML,
-            'jsonp_callback' => RequestUtil::getPOST(self::$JSONP_CALLBACK_NAME, RequestUtil::getGET(self::$JSONP_CALLBACK_NAME, '')),
+            'content_type'   => $isAjax ? Response::CONTENT_TYPE_JSON : Response::CONTENT_TYPE_HTML,
+            'jsonp_callback' => Request::getPOST(self::$JSONP_CALLBACK_NAME, Request::getGET(self::$JSONP_CALLBACK_NAME, '')),
             'is_ajax'        => $isAjax,
             'is_iframe'      => $isIframe,
         );

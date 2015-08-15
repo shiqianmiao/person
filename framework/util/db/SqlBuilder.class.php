@@ -90,14 +90,14 @@ class SqlBuilder {
      * @param int $offset 结果集的偏移
      * @return String SQL
      */
-    public function createSelectSql($field = '*', $where = array(), $orderBy = array(), $limit = 0, $offset = 0) {
+    public function createSelectSql($field = '*', $where = array(), $orderBy = array(), $limit = 0, $offset = 0, $useIndex='') {
         if ($limit > 0) {
             $offset = (int) $offset;
             $limit = " LIMIT {$offset}, $limit";
         } else {
             $limit = '';
         }
-        return 'SELECT ' . $field . ' FROM ' . $this->_checkTableName() . $this->createWhereSql($where) . $this->createOrderbySql($orderBy) . $limit;
+        return 'SELECT ' . $field . ' FROM ' . $this->_checkTableName() . $useIndex . $this->createWhereSql($where) . $this->createOrderbySql($orderBy) . $limit;
     
     }
 
@@ -107,21 +107,45 @@ class SqlBuilder {
      * @return String sql
      */
     public function createInsertSql($data) {
-        //var_dump($data);
-        $this->filterFields($data);
-        $arrKeys = array_keys($data);
-        $arrVals = array();
-        foreach ($arrKeys as $f) {
-            $mod = $this->_checkEmptyValue($f, $data[$f]);
-            if (false === $mod) {
-                unset($arrKeys[array_search($f, $arrKeys)]);
-                continue;
+        if (isset($data[0]) && is_array($data[0])) {
+            $insertValues = array();
+            foreach ($data as $item) {
+                $this->filterFields($item);
+                $arrKeys = array_keys($item);
+                $arrVals = array();
+                foreach ($arrKeys as $f) {
+                    $mod = $this->_checkEmptyValue($f, $item[$f]);
+                    if (false === $mod) {
+                        unset($arrKeys[array_search($f, $arrKeys)]);
+                        continue;
+                    }
+                    $arrVals[] = $mod . addslashes($item[$f]) . $mod;
+                }
+                $field  = implode('`, `', $arrKeys);
+                $values = implode(', ', $arrVals);
+                $values = '(' . $values . ')';
+                $insertValues[] = $values;
             }
-            $arrVals[] = $mod . mysql_escape_string($data[$f]) . $mod;
+            if (!empty($insertValues)) {
+                $insertValues = implode(',', $insertValues);
+                return 'INSERT INTO ' . $this->_checkTableName() . ' (`' . $field . '`) VALUES ' . $insertValues;
+            }
+        } else {
+            $this->filterFields($data);
+            $arrKeys = array_keys($data);
+            $arrVals = array();
+            foreach ($arrKeys as $f) {
+                $mod = $this->_checkEmptyValue($f, $data[$f]);
+                if (false === $mod) {
+                    unset($arrKeys[array_search($f, $arrKeys)]);
+                    continue;
+                }
+                $arrVals[] = $mod . addslashes($data[$f]) . $mod;
+            }
+            $field = implode('`, `', $arrKeys);
+            $values = implode(', ', $arrVals);
+            return 'INSERT INTO ' . $this->_checkTableName() . ' (`' . $field . '`) VALUES (' . $values . ')';
         }
-        $field = implode('`, `', $arrKeys);
-        $values = implode(', ', $arrVals);
-        return 'INSERT INTO ' . $this->_checkTableName() . ' (`' . $field . '`) VALUES (' . $values . ')';
     }
 
     /**
@@ -197,14 +221,22 @@ class SqlBuilder {
                         if (is_array($filter[2]) && count($filter[2]) > 0) {
                             $inArr = array();
                             foreach ($filter[2] as $val) {
-                                $inArr[] = $mod . mysql_escape_string($val) . $mod;
+                                $inArr[] = $mod . addslashes($val) . $mod;
                             }
                             $ret[] = $fieldName . ' IN (' . implode(',', $inArr) . ')';
                         }
+                    } else if ($operator == 'not in') {
+                        if (is_array($filter[2]) && count($filter[2]) > 0) {
+                            $inArr = array();
+                            foreach ($filter[2] as $val) {
+                                $inArr[] = $mod . addslashes($val) . $mod;
+                            }
+                            $ret[] = $fieldName . ' NOT IN (' . implode(',', $inArr) . ')';
+                        }
                     } else if ($operator == 'like') {
-                        $ret[] = $fieldName . ' LIKE ' . $mod . mysql_escape_string($filter[2]) . $mod;
+                        $ret[] = $fieldName . ' LIKE ' . $mod . addslashes($filter[2]) . $mod;
                     } else {
-                        $ret[] = "{$fieldName} {$filter[1]} {$mod}" . mysql_escape_string($filter[2]) . "{$mod}";
+                        $ret[] = "{$fieldName} {$filter[1]} {$mod}" . addslashes($filter[2]) . "{$mod}";
                     }
                 } else if (isset($filter['or']) || isset($filter['OR'])) {
                     if (isset($filter['or'])) {
@@ -309,7 +341,7 @@ class SqlBuilder {
                     continue;
                 }
                 
-                $arrHash[] = $this->_checkField($k) . "=" . $mod . mysql_escape_string($v) . $mod;
+                $arrHash[] = $this->_checkField($k) . "=" . $mod . addslashes($v) . $mod;
             }
             $strHash = implode($ws[1], $arrHash);
         }

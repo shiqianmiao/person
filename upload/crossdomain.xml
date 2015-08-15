@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<cross-domain-policy>
+    <site-control permitted-cross-domain-policies="all"/>
+    <allow-access-from domain="*.miaosq.com" to-ports="*"/>
+    <allow-http-request-headers-from domain="*.miaosq.com" headers="*"/>
+</cross-domain-policy>

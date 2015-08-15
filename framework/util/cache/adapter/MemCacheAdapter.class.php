@@ -97,7 +97,6 @@ class MemCacheAdapter
         $key    = CacheNamespace::encodeKey($key);
         $ret     = $this->connection->get($key);
         if (!is_array($ret)) {
-            $unret = unserialize($ret);
             $ret = !empty($unret) ? $unret : $ret;
         }
         if( $ret === false )
@@ -225,7 +224,7 @@ class MemCacheAdapter
     }
 }
 
-if (!class_exists('Memcached') && defined('DEBUG_STATUS') && DEBUG_STATUS === true) {
+if ( defined('DEBUG_STATUS') && DEBUG_STATUS === true && !class_exists('Memcached')) {
     /**
      * 以下代码虚似Memcached扩展 只是为了在window下可以开发调试，只在调试状态下有效
      * 完整测试请依然在Liunx上测
@@ -285,7 +284,7 @@ if (!class_exists('Memcached') && defined('DEBUG_STATUS') && DEBUG_STATUS === tr
             return $this->connection->flush();
         }
 
-        public function increment($key, $value) {
+        public function increment($key, $value = 1) {
             return $this->connection->increment($key, $value);
         }
 
